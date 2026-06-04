@@ -1,0 +1,642 @@
+"HKCE & Part 4AA Stateless CE<
+
+Start
+
+Zero returns
+issued to the Notifying Entity for
+same MNE code & fiscal year &
+entity type?
+
+No-
+
+Yes
+
+No -< Return already filed?
+
+Yes
+
+Update issued return:
+1. HKCE list
+2. Role of Return Filing Entity
+3. GIR required indicator
+4. Assessment Triggering
+Information required indicator
+
+Role of Return
+Filing Entity?
+
+-UPE/DFE (Notifying Entity)
+
+Return of same MNE code
+& fiscal year issued before?
+
+-No-
+
+Issue return to Notifying Entity
+(assessment triggering info & GIR
+
+Yes
+
+><Return issued to?
+
+-UPE/DFE-
+
+Notification filed before return
+filing deadline or return filed?
+
+1 or more Yes
+
+No to all-
+
+Issue return to Notifying Entity
+(assessment triggering info & GIR
+
+No return issued; Send e-message
+with reason
+
+-DLE->
+
+Issue return to Notifying Entity
+(assessment triggering info & GIR)
+
+Notification filed
+before return filing deadline and
+return outstanding?
+
+Yes to all
+
+1 or more No
+
+Withdraw outstanding return (DLE)
+& delete GIR files
+
+Send e-message with reason
+
+-Part 4AA stateless CE->
+
+Issue return to Notifying Entity
+(assessment triggering info & GIR)
+
+Other HKCE-
+
+Issue return to Notifying Entity
+(assessment triggering info & GIR)
+
+Notification filed
+before return filing deadline and
+return outstanding?
+
+1 or more No
+
+(assessment triggering into & GIR)
+
+return outstanding?
+
+Yes to all
+
+Withdraw outstanding return (Other
+HKCE) & delete GIR files
+
+Send e-message with reasor
+
+DLE (Notifying Entity)-
+
+Return of same MNE code
+& fiscal year issued before?
+
+-No-
+
+Group GloBE filing will
+be effected outside HK?
+
+-No
+
+Issue return to Notifying Entity
+(assessment triggering info & GIR)
+
+Yes
+
+Yes
+
+><Return issued to?
+
+Issue return to Notifying Entity
+(assessment triggering info)
+
+UPE/DFE/DLE-
+
+Notification filed before return
+filing deadline or return filed?
+
+1 or more Yes
+No return issued; Send e-Message
+with reason
+
+-No to all-
+
+Group GloBE filing will
+be effected outside HK?
+
+Yes
+
+-No-
+
+Issue return to Notifying Entity
+(assessment triggering info & GIR)
+
+Issue return to Notifying Entity
+(assessment triggering info)
+
+Part 4AA stateless CE
+(but none issued to any HKCE)
+
+Group GloBE filing will
+e effected outside HK?
+
+-No
+
+Yes
+
+Issue return to Notifying Entity
+(assessment triggering info & GIR)
+
+Issue return to Notifying Entity
+(assessment triggering info)
+
+Other HKCE->
+
+Group GloBE filing will
+be effected outside HK?
+
+-No-
+
+or more No
+
+Yes
+
+Issue return to Notifying Entity
+(assessment triggering info & GIR)
+
+Issue return to Notifying Entity
+(assessment triggering info)
+
+Other HKCE (Notifying Entity)
+
+Return of same MNE code
+& fiscal year issued before?
+
+Yes
+
+No-
+
+Run date
+notification deadline + issuance >No
+delay?
+
+Yes
+
+Withdraw outstanding return (Other
+HKCE) & delete GIR files
+
+Send e-message with reasor
+
+Notification filed
+before return filing deadline and
+return outstanding?
+
+Yes to all
+
+Group GloBE filing will
+be effected outside HK?
+
+-No-
+
+Return issued to?
+
+Yes
+
+Issue return to Notifying Entity
+(assessment triggering info & GIR)
+
+Issue return to Notifying Entity
+(assessment triggering info)
+
+UPE/DFE/DLE-
+
+Notification filed before return
+filing deadline or return filed?
+
+-No to all->
+
+Group GloBE filing will
+be effected outside HK？
+
+No-
+
+Issue return to Notifying Entity
+(assessment triggering info & GIR)
+
+1 or more Yes
+
+No return issued; Send e-Message
+with reason
+
+Yes
+
+Issue return to Notifying Entity
+(assessment triggering info)
+
+Run date >
+notification deadline + issuance >No
+(but none issued to any HKCE)
+
+Part 4AA stateless CE
+
+delay?
+
+Yes
+
+Group GloBE filing will
+be effected outside HK?
+
+No-
+
+Yes
+
+Issue return to Notifying Entity
+(assessment triggering info & GIR)
+
+Issue return to Notifying Entity
+(assessment triggering info)
+
+Other HKCE-><Return has been filed?>No->
+
+Yes
+
+Group GloBE filing will
+be effected outside HK?
+
+Yes
+
+No-
+
+Issue return to Notifying Entity
+(assessment triggering info & GIR)
+
+Issue return to Notifying Entity
+(assessment triggering info)
+
+Group GloBE filing will
+be effected outside HK?
+
+Yes
+
+No
+
+Consent obtained?
+Return section 4.1)
+
+Yes
+
+No-
+
+Issue return to Notifying Entity
+(assessment triggering info & GIR
+
+Issue return to Notifying Entity
+(GIR)
+
+Consent obtained?
+Return section 4.1)
+
+Yes
+
+No-
+
+Issue return to Notifying Entity
+(assessment triggering info)
+
+No return issued; Send e-Message
+with reason
+
+Run date >
+UPE/DFE/DLE (NOT Notifying Entity)><notification deadline + issuance>No-
+delay?
+
+Yes
+
+Return of same MNE code
+& fiscal year issued before?
+
+Yes
+
+s the Notifying
+No-Entity an UPE stating it will NOT >No>
+file the return?
+
+Yes
+
+Zero notifications of same
+MNE code & fiscal year filed by UPE stating
+it will NOT file the return?
+
+Yes
+
+>No
+
+Group GloBE filing will
+be effected outside HK?
+
+No-
+
+Issue return to Notifying Entity
+(assessment triggering info & GIR)
+
+Yes
+
+Issue return to Notifying Entity
+(assessment triggering info)
+
+-Part 4AA stateless CE (Notifying Entity)>
+
+GIR has been / will be
+filed? (Notification 2.11)
+
+Yes
+
+No-
+
+Issue return to Notifying Entity
+(assessment triggering info & GIR)
+
+Issue return to Notifying Entity
+(assessment triggering info)
+
+End
+=======================================================================================================================
+"Joint Venture<
+
+Start
+
+Zero returns
+issued to the Notifying Entity for
+same MNE code & JV code &
+fiscal year?
+
+Yes
+
+No<Return already filed?
+
+Yes
+
+-No-
+
+Update issued return:
+. HKCE list
+2. Role of Return Filing Entity
+3. GIR required indicator
+4. Assessment Triggering
+Information required indicator
+
+Role of Return
+Filing Entity?
+
+-HK Standalone JV (Notifying Entity)
+
+Return of same MNE code & JV
+code & fiscal year issued before?
+
+res
+
+GIR has been / will
+be filed inside or outside HK?
+(Notification 2.4 & 2.6)
+
+1 or more Yes
+
+No to all-
+
+Issue return to Notifying Entity
+(assessment triggering info & GIR
+
+Generate advisory slip
+
+Issue return to Notifying Entity
+(assessment triggering info
+
+-DLE of JV Group (Notifying Entity)-
+
+Return of same MNE code & JV
+code & fiscal year issued before?
+
+Yes
+
+-No-
+
+GIR has been / will
+be filed inside or outside HK?
+(Notification 2.4 & 2.6)
+
+1 or more Yes
+
+-No to all-
+
+><Return issued to?
+
+-Standalone JV->
+
+Issue return to Notifying Entity
+(assessment triggering info & GIR)
+
+Issue return to Notifying Entity
+(assessment triggering info)
+
+Generate advisory slip
+
+-DLE of JV Group
+
+Notification filed before return
+filing deadline or return filed?
+
+1 or more Yes
+No return issued; Send e-message
+N
+
+No to all->
+
+GIR has been / wil
+be filed inside or outside HK?
+(Notification 2.4 & 2.6)
+
+1 or more Yes
+
+-No to all-
+
+with reason
+
+Issue return to Notifying Entity
+(assessment triggering info & GIR)
+
+Issue return to Notifying Entity
+(assessment triggering info)
+
+-HK member of the JV group>
+
+GIR has been / will
+be filed inside or outside HK?
+(Notification 2.4 & 2.6)
+1 or more Yes
+
+>No to all->
+
+Issue return to Notifying Entity
+(assessment triggering info & GIR)
+
+Issue return to Notifying Entity
+(assessment triggering info)
+
+Notification filed
+before return filing deadline and
+return outstanding?
+
+Yes to all
+
+Withdraw outstanding returns (HK members of
+the JV group) & delete GIR files
+
+1 or more No
+
+HK member of the JV group (Notifying Entity)->
+
+Return of same MNE code & JV
+code & fiscal year issued before?
+
+Yes
+
+Run date >
+notification deadline + issuance>No
+delay?
+
+Yes
+
+Send e-Message with reason
+
+No to all-
+
+Issue return to Notifying Entity
+assessment triggering info & GIR)
+
+><Return issued to?
+
+-GIR has been / will
+be filed inside or outside HK?
+(Notification 2.4 & 2.6)-
+
+1 or more Yes
+
+Issue return to Notifying Entity
+(assessment triggering info)
+
+-Standalone JV->
+
+Generate advisory slip
+
+-DLE of JV Group->
+
+Notification filed before return
+filing deadline or return filed?
+
+1 or more Yes
+No return issued; Send e-Message
+with reason
+
+No to all->
+
+GIR has been / will
+be filed inside or outside HK?
+(Notification 2.4 & 2.6)-
+
+1 or more Yes
+
+No to all->
+
+Issue return to Notifying Entity
+(assessment triggering info & GIR)
+
+Issue return to Notifying Entity
+(assessment triggering info)
+
+HK member of the JV group><Previous return filed?>No
+
+Yes
+
+GIR has been / will
+be filed inside or outside HK?
+(Notification 2.4 & 2.6)
+
+1 or more Yes
+
+-No to all-
+
+Consent obtained?
+(Return section 4.1
+
+Yes
+
+-No-
+
+Issue return to Notifying Entity
+(assessment triggering info & GIR
+
+Issue return to Notifying Entity
+(assessment triggering info)
+
+Run date >
+-DLE of JV group (NOT Notifying Entity)><notification deadline + issuance
+delay?
+
+Yes
+
+No return issued; Send e-Message
+with reason
+
+-No-
+
+Return of same MNE code & JV
+code & fiscal year issued before?
+
+Yes
+
+No-
+
+Is the Notifying
+><Entity a JV stating it will NOT
+file the return?
+
+Yes
+
+No->
+
+Zero notifications of same MNE
+code & JV code & fiscal year filed by JV stating
+it will NOT file the return?
+
+Yes
+
+No
+
+GIR has been / will
+be filed inside or outside HK?
+(Notification 2.4 & 2.6)
+
+1 or more Yes
+
+-No to all-
+
+Issue return to Notifying Entity
+(assessment triggering info & GIR)
+
+Issue return to Notifying Entity
+(assessment triggering info)
+
+End
