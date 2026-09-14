@@ -8,7 +8,7 @@
         <globe:MessageType>GIR</globe:MessageType>
         <globe:Warning>GIR-FULL-COMPLIANT-V3</globe:Warning>
         <globe:Contact>QA-ENGINEER</globe:Contact>
-        <globe:MessageRefId>HK2025HKCTS-01IE</globe:MessageRefId>
+        <globe:MessageRefId>HK2025IECTS-01IE</globe:MessageRefId>
         <globe:MessageTypeIndic>GIR101</globe:MessageTypeIndic>
         <globe:ReportingPeriod>2025-12-31</globe:ReportingPeriod>
         <globe:Timestamp>2025-12-31T12:00:00</globe:Timestamp>
@@ -20,7 +20,7 @@
                 <globe:ResCountryCode>HK</globe:ResCountryCode>
                 <globe:Name>GLOBETEST</globe:Name>
                 <globe:TIN issuedBy="HK" unknown="0" TypeOfTIN="GIR3001">30211895</globe:TIN>
-                <globe:Role>GIR404</globe:Role>
+                <globe:Role>GIR401</globe:Role>
             </globe:FilingCE>
             <globe:AccountingInfo>
                 <globe:CFSofUPE>GIR501</globe:CFSofUPE>
