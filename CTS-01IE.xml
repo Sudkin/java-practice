@@ -2,7 +2,6 @@
 
 <globe:GLOBE_OECD xmlns:globe="urn:oecd:ties:globe:v2" xmlns:stf="urn:oecd:ties:globestf:v5" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0">
     <globe:MessageSpec>
-        <globe:SendingEntityIN>JPN-GLOBE-TEST0001</globe:SendingEntityIN>
         <globe:TransmittingCountry>HK</globe:TransmittingCountry>
         <globe:ReceivingCountry>IE</globe:ReceivingCountry>
         <globe:MessageType>GIR</globe:MessageType>
