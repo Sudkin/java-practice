@@ -40,6 +40,7 @@
 
         <globe:GeneralSection>
             <globe:RecJurCode>HK</globe:RecJurCode>
+            <globe:RecJurCode>IE</globe:RecJurCode>
             <globe:CorporateStructure>
                 <globe:UPE>
                     <globe:OtherUPE>
@@ -64,9 +65,9 @@
                             <globe:Rules>GIR201</globe:Rules>
                             <globe:GlobeStatus>GIR301</globe:GlobeStatus>
                         </globe:ID>
-                    </globe:ExcludedUPE>
 					
 
+                    </globe:ExcludedUPE>
                 </globe:UPE>
                 <globe:CE>
                     <globe:ID>
@@ -144,6 +145,7 @@
 
         <globe:Summary>
             <globe:RecJurCode>HK</globe:RecJurCode>
+            <globe:RecJurCode>IE</globe:RecJurCode>
             <globe:Jurisdiction>
                 <globe:JurisdictionName>IE</globe:JurisdictionName>
                 <globe:Subgroup>
@@ -188,6 +190,7 @@
 
         <globe:JurisdictionSection>
             <globe:RecJurCode>HK</globe:RecJurCode>
+            <globe:RecJurCode>IE</globe:RecJurCode>
             <globe:Jurisdiction>IE</globe:Jurisdiction>
             <globe:JurWithTaxingRights>
 				<globe:JurisdictionName>HK</globe:JurisdictionName>
@@ -475,6 +478,7 @@
 
         <globe:UTPRAttribution>
             <globe:RecJurCode>HK</globe:RecJurCode>
+            <globe:RecJurCode>IE</globe:RecJurCode>
             <globe:Attribution>
                 <globe:ResCountryCode>IE</globe:ResCountryCode>
                 <globe:UTPRTopUpTaxCarryForward>0</globe:UTPRTopUpTaxCarryForward>
