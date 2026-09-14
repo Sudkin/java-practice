@@ -1,12 +1,3 @@
-2026-09-14 10:12:25.097 INFO : Validate data file starting.
-
-Input File Location: C:\Users\90114\Downloads\CTS-01IE.xml
-
-2026-09-14 10:12:25.119 INFO : Schema validation started.
-2026-09-14 10:12:25.507 INFO : Schema validation completed.
-2026-09-14 10:12:25.511 INFO : Data file validation started.
-2026-09-14 10:12:26.058 ERROR: "HK2025GENERALSECTIONCTS-01IE","60019","Invalid GeneralSection/RecJurCode IE. The RecJurCode should be 'HK'.","GLOBEBody/GeneralSection/RecJurCode"
-2026-09-14 10:12:26.061 ERROR: "HK2025SUMMARY1CTS-01IE","60019","Invalid Summary/RecJurCode IE. The RecJurCode should be 'HK'.","GLOBEBody/Summary/RecJurCode"
-2026-09-14 10:12:26.066 ERROR: "HK2025JURISDICTIONSECTION1CTS-01IE","60019","Invalid JurisdictionSection/RecJurCode IE. The RecJurCode should be 'HK'.","GLOBEBody/JurisdictionSection/RecJurCode"
-2026-09-14 10:12:26.072 ERROR: "HK2025UTPRATTRIBUTIONCTS-01IE","60019","Invalid UTPRAttribution/RecJurCode IE. The RecJurCode should be 'HK'.","GLOBEBody/UTPRAttribution/RecJurCode"
-2026-09-14 10:12:26.075 ERROR: Data file validation failed.
+DocRefId,Error Code,Error Message,Path
+"HK2025IECTS-01IE","50010","Invalid MessageSpec/ReceivingCountry IE. File not belongs to the receiving jurisdiction.","MessageSpec/ReceivingCountry"
+"HK2025GENERALSECTIONCTS-01IE","90006","Incorrect GeneralSection/CorporateStructure/UPE. The UPE details are not matched with the UPE details reported in Form IR1485 or in the top-up tax notification for the reporting fiscal year.","GLOBEBody/GeneralSection/CorporateStructure/UPE/ExcludedUPE, GLOBEBody/GeneralSection/CorporateStructure/UPE/OtherUPE"
