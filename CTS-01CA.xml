@@ -1,0 +1,484 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<globe:GLOBE_OECD xmlns:globe="urn:oecd:ties:globe:v2" xmlns:stf="urn:oecd:ties:globestf:v5" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0">
+    <globe:MessageSpec>
+        <globe:TransmittingCountry>HK</globe:TransmittingCountry>
+        <globe:ReceivingCountry>HK</globe:ReceivingCountry>
+        <globe:MessageType>GIR</globe:MessageType>
+        <globe:Warning>GIR-FULL-COMPLIANT-V3</globe:Warning>
+        <globe:Contact>QA-ENGINEER</globe:Contact>
+        <globe:MessageRefId>HK2025HKCTS-01CA</globe:MessageRefId>
+        <globe:MessageTypeIndic>GIR101</globe:MessageTypeIndic>
+        <globe:ReportingPeriod>2025-12-31</globe:ReportingPeriod>
+        <globe:Timestamp>2025-12-31T12:00:00</globe:Timestamp>
+    </globe:MessageSpec>
+    <globe:GLOBEBody>
+
+        <globe:FilingInfo>
+            <globe:FilingCE>
+                <globe:ResCountryCode>HK</globe:ResCountryCode>
+                <globe:Name>GLOBETEST</globe:Name>
+                <globe:TIN issuedBy="HK" unknown="0" TypeOfTIN="GIR3001">30211895</globe:TIN>
+                <globe:Role>GIR401</globe:Role>
+            </globe:FilingCE>
+            <globe:AccountingInfo>
+                <globe:CFSofUPE>GIR501</globe:CFSofUPE>
+                <globe:FAS>FAS_TEST</globe:FAS>
+                <globe:Currency>CAD</globe:Currency>
+            </globe:AccountingInfo>
+            <globe:Period>
+                <globe:Start>2025-04-04</globe:Start>
+                <globe:End>2025-04-05</globe:End>
+            </globe:Period>
+            <globe:NameMNE>TSETEBOLG</globe:NameMNE>
+            <globe:DocSpec>
+                <stf:DocTypeIndic>OECD1</stf:DocTypeIndic>
+                <stf:DocRefId>HK2025FilingInfoCTS-01CA</stf:DocRefId>
+            </globe:DocSpec>
+        </globe:FilingInfo>
+
+        <globe:GeneralSection>
+            <globe:RecJurCode>HK</globe:RecJurCode>
+            <globe:RecJurCode>CA</globe:RecJurCode>
+            <globe:CorporateStructure>
+                <globe:UPE>
+                    <globe:OtherUPE>
+                        <globe:ID>
+                            <globe:Name>GLOBE_UPE_HK</globe:Name>
+                            <globe:ResCountryCode>HK</globe:ResCountryCode>
+                            <globe:TIN issuedBy="HK" unknown="0" TypeOfTIN="GIR3001">30211895</globe:TIN>
+                            <globe:Rules>GIR201</globe:Rules>
+                            <globe:GlobeStatus>GIR301</globe:GlobeStatus>
+                        </globe:ID>
+                        <globe:Art10.3.5>HK</globe:Art10.3.5>
+                    </globe:OtherUPE>
+                </globe:UPE>
+				
+	
+                <globe:CE>
+                    <globe:ID>
+                        <globe:Name>TEST_CE_002</globe:Name>
+                        <globe:ResCountryCode>CA</globe:ResCountryCode>
+                        <globe:TIN issuedBy="CA" unknown="0" TypeOfTIN="GIR3001">30211895</globe:TIN>
+                        <globe:Rules>GIR201</globe:Rules>
+                        <globe:GlobeStatus>GIR301</globe:GlobeStatus>
+                    </globe:ID>
+					<globe:OwnershipChange>
+                        <globe:ChangeDate>2025-04-04</globe:ChangeDate>
+                        <globe:PreGlobeStatus>GIR701</globe:PreGlobeStatus>
+                        <globe:PreOwnership>
+                            <globe:OwnershipType>GIR801</globe:OwnershipType>
+                            <globe:TIN issuedBy="CA" unknown="0" TypeOfTIN="GIR3001">30211895</globe:TIN>
+                            <globe:PreOwnershipPercentage>1.0</globe:PreOwnershipPercentage>
+                        </globe:PreOwnership>
+                    </globe:OwnershipChange>
+                    <globe:Ownership>
+                        <globe:OwnershipType>GIR801</globe:OwnershipType>
+                        <globe:TIN issuedBy="HK" unknown="0" TypeOfTIN="GIR3001">30211895</globe:TIN>
+                        <globe:OwnershipPercentage>1.0</globe:OwnershipPercentage>
+                    </globe:Ownership>
+					<globe:QIIR>
+                        <globe:POPE-IPE>GIR901</globe:POPE-IPE>
+                        <globe:Exception>
+                            <globe:ExceptionRule>
+                                <globe:Art2.1.5>true</globe:Art2.1.5>
+                            </globe:ExceptionRule>
+                          
+                            <globe:TIN issuedBy="CA" unknown="0" TypeOfTIN="GIR3001">30211895</globe:TIN>
+                        </globe:Exception>
+                    </globe:QIIR>
+                </globe:CE>
+                <globe:CE>
+                    <globe:ID>
+                        <globe:Name>TEST_CE_002</globe:Name>
+                        <globe:ResCountryCode>CA</globe:ResCountryCode>
+                        <globe:TIN issuedBy="CA" unknown="0" TypeOfTIN="GIR3001">30211895</globe:TIN>
+                        <globe:Rules>GIR201</globe:Rules>
+                        <globe:GlobeStatus>GIR301</globe:GlobeStatus>
+                    </globe:ID>
+					<globe:OwnershipChange>
+                        <globe:ChangeDate>2025-04-05</globe:ChangeDate>
+                        <globe:PreGlobeStatus>GIR701</globe:PreGlobeStatus>
+                        <globe:PreOwnership>
+                            <globe:OwnershipType>GIR801</globe:OwnershipType>
+                            <globe:TIN issuedBy="CA" unknown="0" TypeOfTIN="GIR3001">30211895</globe:TIN>
+                            <globe:PreOwnershipPercentage>1.0</globe:PreOwnershipPercentage>
+                        </globe:PreOwnership>
+                    </globe:OwnershipChange>
+                    <globe:Ownership>
+                        <globe:OwnershipType>GIR801</globe:OwnershipType>
+                        <globe:TIN issuedBy="HK" unknown="0" TypeOfTIN="GIR3001">30211895</globe:TIN>
+                        <globe:OwnershipPercentage>1.0</globe:OwnershipPercentage>
+                    </globe:Ownership>
+					<globe:QIIR>
+                        <globe:POPE-IPE>GIR901</globe:POPE-IPE>
+                        <globe:Exception>
+                            <globe:ExceptionRule>
+                                <globe:Art2.1.5>true</globe:Art2.1.5>
+                            </globe:ExceptionRule>
+                          
+                            <globe:TIN issuedBy="CA" unknown="0" TypeOfTIN="GIR3001">30211895</globe:TIN>
+                        </globe:Exception>
+                    </globe:QIIR>
+                </globe:CE>
+            </globe:CorporateStructure>
+            <globe:DocSpec>
+                <stf:DocTypeIndic>OECD1</stf:DocTypeIndic>
+                <stf:DocRefId>HK2025GeneralSectionCTS-01CA</stf:DocRefId>
+            </globe:DocSpec>
+        </globe:GeneralSection>
+		
+
+        <globe:Summary>
+            <globe:RecJurCode>HK</globe:RecJurCode>
+            <globe:RecJurCode>CA</globe:RecJurCode>
+            <globe:Jurisdiction>
+                <globe:JurisdictionName>CA</globe:JurisdictionName>
+                <globe:Subgroup>
+                    <globe:TIN issuedBy="CA" unknown="0" TypeOfTIN="GIR3001">30211895</globe:TIN>
+                    <globe:TypeofSubGroup>GIR1101</globe:TypeofSubGroup>
+                </globe:Subgroup>
+            </globe:Jurisdiction>
+            <globe:JurWithTaxingRights><globe:JurisdictionName>HK</globe:JurisdictionName></globe:JurWithTaxingRights>
+            <globe:SafeHarbour>GIR1201</globe:SafeHarbour>
+            <globe:ETRRange>GIR1301</globe:ETRRange>
+            <globe:SBIE><globe:NotApplicable>true</globe:NotApplicable><globe:NoTut>true</globe:NoTut></globe:SBIE>
+            <globe:QDMTTut>GIR1401</globe:QDMTTut>
+            <globe:GLoBETut>GIR1501</globe:GLoBETut>
+            <globe:DocSpec>
+                <stf:DocTypeIndic>OECD1</stf:DocTypeIndic>
+                <stf:DocRefId>HK2025Summary1CTS-01CA</stf:DocRefId>
+            </globe:DocSpec>
+        </globe:Summary>
+
+        <globe:Summary>
+            <globe:RecJurCode>HK</globe:RecJurCode>
+            <globe:Jurisdiction>
+                <globe:JurisdictionName>HK</globe:JurisdictionName>
+                <globe:Subgroup>
+                    <globe:TIN issuedBy="HK" unknown="0" TypeOfTIN="GIR3001">30211895</globe:TIN>
+                    <globe:TypeofSubGroup>GIR1101</globe:TypeofSubGroup>
+                </globe:Subgroup>
+            </globe:Jurisdiction>
+            <globe:JurWithTaxingRights>
+				<globe:JurisdictionName>HK</globe:JurisdictionName>
+			</globe:JurWithTaxingRights>
+            <globe:SafeHarbour>GIR1206</globe:SafeHarbour>
+            <globe:ETRRange>GIR1301</globe:ETRRange>
+            <globe:SBIE><globe:NotApplicable>true</globe:NotApplicable><globe:NoTut>true</globe:NoTut></globe:SBIE>
+            <globe:QDMTTut>GIR1401</globe:QDMTTut>
+            <globe:GLoBETut>GIR1501</globe:GLoBETut>
+            <globe:DocSpec>
+                <stf:DocTypeIndic>OECD1</stf:DocTypeIndic>
+                <stf:DocRefId>HK2025Summary2CTS-01CA</stf:DocRefId>
+            </globe:DocSpec>
+        </globe:Summary>
+
+        <globe:JurisdictionSection>
+            <globe:RecJurCode>HK</globe:RecJurCode>
+            <globe:RecJurCode>CA</globe:RecJurCode>
+            <globe:Jurisdiction>CA</globe:Jurisdiction>
+            <globe:JurWithTaxingRights>
+				<globe:JurisdictionName>HK</globe:JurisdictionName>
+				<globe:Subgroup>
+                    <globe:TIN issuedBy="HK" unknown="0" TypeOfTIN="GIR3001">30211895</globe:TIN>
+                    <globe:TypeofSubGroup>GIR1101</globe:TypeofSubGroup>
+                </globe:Subgroup>
+			</globe:JurWithTaxingRights>
+            <globe:GLoBETax>
+                <globe:ETR>
+                    <globe:SubGroup>
+                        <globe:TIN issuedBy="CA" unknown="0" TypeOfTIN="GIR3001">30211895</globe:TIN>
+                        <globe:TypeofSubGroup>GIR1607</globe:TypeofSubGroup>
+                    </globe:SubGroup>
+                    <globe:ETRStatus>
+                        <globe:ETRComputation>
+                            <globe:CEComputation>
+                                <globe:AdjustedFANIL>
+									<globe:Total>2146463</globe:Total>
+									<globe:FANIL>2146463</globe:FANIL>
+									<globe:Adjustment>
+										<globe:MainEntityPEandFTE>
+											<globe:Basis>GIR1701</globe:Basis>
+											<globe:OtherTIN issuedBy="CA" unknown="0" TypeOfTIN="GIR3001">25000360</globe:OtherTIN>
+											<globe:ResCountryCode>CA</globe:ResCountryCode>
+											<globe:Additions>500000</globe:Additions>
+											<globe:Reductions>0</globe:Reductions>
+										</globe:MainEntityPEandFTE>
+										<globe:CrossBorderAdjustments>
+											<globe:Basis>GIR1801</globe:Basis>
+											<globe:OtherTIN issuedBy="HK" unknown="0" TypeOfTIN="GIR3001">25000394</globe:OtherTIN>
+											<globe:ResCountryCode>HK</globe:ResCountryCode>
+											<globe:Additions>100000</globe:Additions>
+											<globe:Reductions>50000</globe:Reductions>
+										</globe:CrossBorderAdjustments>
+										<globe:UPEAdjustments>
+											<globe:Basis>GIR1901</globe:Basis>
+											<globe:Reductions>
+												<globe:Amount>100000</globe:Amount>
+											</globe:Reductions>
+											<globe:IdentificationOfOwners>
+												<globe:OwnershipPercentage>1.0</globe:OwnershipPercentage>
+												<globe:EntityOwner>
+													<globe:TIN issuedBy="HK" unknown="0" TypeOfTIN="GIR3001">25000378</globe:TIN>
+													<globe:ResCountryCode>HK</globe:ResCountryCode>
+													<globe:TaxRate>0.1650</globe:TaxRate>
+												</globe:EntityOwner>
+											</globe:IdentificationOfOwners>
+										</globe:UPEAdjustments>
+									</globe:Adjustment>
+								</globe:AdjustedFANIL>
+                                <globe:NetGlobeIncome>
+									<globe:Total>125000000</globe:Total>
+								</globe:NetGlobeIncome>
+                                <globe:AdjustedIncomeTax>
+									<globe:Total>5321123</globe:Total>
+									<globe:IncomeTax>5321123</globe:IncomeTax>
+								</globe:AdjustedIncomeTax>
+                                <globe:AdjustedCoveredTax>
+                                    <globe:Total>79065597</globe:Total>
+                                    <globe:DeferTaxAdjustAmt>
+									<globe:Total>0</globe:Total>
+									<globe:DeferTaxExpense>0</globe:DeferTaxExpense>
+									</globe:DeferTaxAdjustAmt>
+                                </globe:AdjustedCoveredTax>
+                                <globe:TIN issuedBy="CA" unknown="0" TypeOfTIN="GIR3001">30211895</globe:TIN>
+								<globe:Elections>
+                                    <globe:AggregatedReporting>
+                                        <globe:TaxConsolGroupTIN issuedBy="CA" unknown="0" TypeOfTIN="GIR3001">30211895</globe:TaxConsolGroupTIN>
+                                        <globe:EntityTIN issuedBy="CA" unknown="0" TypeOfTIN="GIR3001">30211895</globe:EntityTIN>
+                                    </globe:AggregatedReporting>
+                                    <globe:Art7.5>
+                                        <globe:Status>true</globe:Status>
+                                        <globe:ElectionYear>2025-01-01</globe:ElectionYear>
+                                        <globe:CEOwnerTIN issuedBy="HK" unknown="0" TypeOfTIN="GIR3001">25000386</globe:CEOwnerTIN>
+                                    </globe:Art7.5>
+                                    <globe:Art7.6>
+                                        <globe:Status>true</globe:Status>
+                                        <globe:ElectionYear>2025-01-01</globe:ElectionYear>
+                                        <globe:ActualDeemedDist>0</globe:ActualDeemedDist>
+                                        <globe:LocalCreditableTaxGross>0</globe:LocalCreditableTaxGross>
+                                        <globe:ShareOfUndistNetGlobeInc>1.0</globe:ShareOfUndistNetGlobeInc>
+                                        <globe:InvestmentEntityTIN issuedBy="CA" unknown="0" TypeOfTIN="GIR3001">30211900</globe:InvestmentEntityTIN>
+                                    </globe:Art7.6>
+                                </globe:Elections>
+							</globe:CEComputation>
+							<globe:OverallComputation>
+								<globe:FANIL>125000000</globe:FANIL>
+								<globe:AdjustedFANIL>125000000</globe:AdjustedFANIL>
+								<globe:NetGlobeIncome>
+									<globe:Total>125000000</globe:Total>
+								</globe:NetGlobeIncome>
+								<globe:IncomeTaxExpense>18750000</globe:IncomeTaxExpense>
+								<globe:ETRRate>0.1500</globe:ETRRate>
+								<globe:TopUpTaxPercentage>0.0000</globe:TopUpTaxPercentage>
+								<globe:AdjustedCoveredTax>
+									<globe:Total>18750000</globe:Total>
+									<globe:AggregrateCurrentTax>18750000</globe:AggregrateCurrentTax>
+								</globe:AdjustedCoveredTax>
+								<globe:SubstanceExclusion>
+									<globe:Total>84000000</globe:Total>
+									<globe:PayrollCost>500000000</globe:PayrollCost>
+									<globe:PayrollMarkUp>0.094</globe:PayrollMarkUp>
+									<globe:TangibleAssetValue>500000000</globe:TangibleAssetValue>
+									<globe:TangibleAssetMarkup>0.074</globe:TangibleAssetMarkup>
+								</globe:SubstanceExclusion>
+								<globe:ExcessProfits>41000000</globe:ExcessProfits>
+								<globe:TopUpTax>0</globe:TopUpTax>
+								<globe:ExcessNegTaxExpense>
+									<globe:PriorYearBalance>0</globe:PriorYearBalance>
+									<globe:GeneratedInRFY>0</globe:GeneratedInRFY>
+									<globe:UtilizedInRFY>0</globe:UtilizedInRFY>
+									<globe:Remaining>0</globe:Remaining>
+								</globe:ExcessNegTaxExpense>
+							</globe:OverallComputation>
+							<globe:Non-MaterialCE>
+                                <globe:RFY>
+                                    <globe:TotalRevenue>50000</globe:TotalRevenue>
+                                    <globe:AggregateSimplified>10000</globe:AggregateSimplified>
+                                </globe:RFY>
+                                <globe:RFY-1>
+                                    <globe:TotalRevenue>50000</globe:TotalRevenue>
+                                </globe:RFY-1>
+                                <globe:RFY-2>
+                                    <globe:TotalRevenue>50000</globe:TotalRevenue>
+                                </globe:RFY-2>
+                                <globe:Average>
+                                    <globe:TotalRevenue>50000</globe:TotalRevenue>
+                                </globe:Average>
+                                <globe:ID>
+                                    <globe:Name>CA_Tiny_Branch</globe:Name>
+                                    <globe:ResCountryCode>CA</globe:ResCountryCode>
+
+                                    <globe:TIN issuedBy="CA" unknown="0" TypeOfTIN="GIR3001">30211895</globe:TIN>
+                                    <globe:Rules>GIR201</globe:Rules>
+                                    <globe:GlobeStatus>GIR302</globe:GlobeStatus>
+                                </globe:ID>
+                            </globe:Non-MaterialCE>
+                        </globe:ETRComputation>
+                    </globe:ETRStatus>
+                </globe:ETR>
+            </globe:GLoBETax>
+			<globe:LowTaxJurisdiction>
+                <globe:TopUpTaxAmount>0</globe:TopUpTaxAmount>
+                <globe:LTCE>
+
+                    <globe:TIN issuedBy="CA" unknown="0" TypeOfTIN="GIR3001">30211895</globe:TIN>
+                    <globe:IIR>
+                        <globe:NetGlobeIncome>125000000</globe:NetGlobeIncome>
+                        <globe:TopUpTax>0</globe:TopUpTax>
+                        <globe:ParentEntity>
+
+                            <globe:TIN issuedBy="HK" unknown="0" TypeOfTIN="GIR3001">30211895</globe:TIN>
+                            <globe:ResCountryCode>HK</globe:ResCountryCode>
+                            <globe:OtherOwnershipAllocation>0</globe:OtherOwnershipAllocation>
+                            <globe:InclusionRatio>1.0000</globe:InclusionRatio>
+                            <globe:TopUpTaxShare>0</globe:TopUpTaxShare>
+                            <globe:IIROffSet>0</globe:IIROffSet>
+                            <globe:TopUpTax>0</globe:TopUpTax>
+                        </globe:ParentEntity>
+                    </globe:IIR>
+                </globe:LTCE>
+            </globe:LowTaxJurisdiction>
+            <globe:DocSpec>
+                <stf:DocTypeIndic>OECD1</stf:DocTypeIndic>
+                <stf:DocRefId>HK2025JurisdictionSection1CTS-01CA</stf:DocRefId>
+            </globe:DocSpec>
+        </globe:JurisdictionSection>
+
+        <globe:JurisdictionSection>
+            <globe:RecJurCode>HK</globe:RecJurCode>
+            <globe:Jurisdiction>HK</globe:Jurisdiction>
+            <globe:JurWithTaxingRights><globe:JurisdictionName>HK</globe:JurisdictionName></globe:JurWithTaxingRights>
+            <globe:GLoBETax>
+                <globe:ETR>
+                    <globe:SubGroup>
+                        <globe:TIN issuedBy="HK" unknown="0" TypeOfTIN="GIR3001">30211895</globe:TIN>
+                        <globe:TypeofSubGroup>GIR1607</globe:TypeofSubGroup>
+                    </globe:SubGroup>
+                    <globe:ETRStatus>
+					    <globe:ETRException>
+                            <globe:TransitionalCbCRSafeHarbour>
+                                <globe:Revenue>1000000</globe:Revenue>
+                                <globe:Profit>200000</globe:Profit>
+                                <globe:IncomeTax>50000</globe:IncomeTax>
+                            </globe:TransitionalCbCRSafeHarbour>
+                            <globe:UTPRSafeHarbour>
+                                <globe:CITRate>0.2000</globe:CITRate>
+                            </globe:UTPRSafeHarbour>
+                        </globe:ETRException>
+						<globe:ETRComputation>
+							<globe:CEComputation>
+								<globe:AdjustedFANIL>
+									<globe:Total>2146463</globe:Total>
+									<globe:FANIL>2146463</globe:FANIL>
+								</globe:AdjustedFANIL>
+								<globe:NetGlobeIncome>
+									<globe:Total>125000000</globe:Total>
+								</globe:NetGlobeIncome>
+								<globe:AdjustedIncomeTax>
+									<globe:Total>5321123</globe:Total>
+									<globe:IncomeTax>6976732</globe:IncomeTax>
+								</globe:AdjustedIncomeTax>
+								<globe:AdjustedCoveredTax>
+									<globe:Total>79065597</globe:Total>
+									<globe:DeferTaxAdjustAmt>
+										<globe:Total>12313576457</globe:Total>
+										<globe:DeferTaxExpense>12313576457</globe:DeferTaxExpense>
+									</globe:DeferTaxAdjustAmt>
+								</globe:AdjustedCoveredTax>
+								<globe:TIN issuedBy="HK" unknown="0" TypeOfTIN="GIR3001">30211895</globe:TIN>
+								<globe:Elections>
+									<globe:AggregatedReporting>
+										<globe:TaxConsolGroupTIN issuedBy="HK" unknown="0" TypeOfTIN="GIR3001">30211895</globe:TaxConsolGroupTIN>
+										<globe:EntityTIN issuedBy="HK" unknown="0" TypeOfTIN="GIR3001">30211895</globe:EntityTIN>
+									</globe:AggregatedReporting>
+								</globe:Elections>
+							</globe:CEComputation>
+							
+							<globe:OverallComputation>
+								<globe:FANIL>125000000</globe:FANIL>
+								<globe:AdjustedFANIL>125000000</globe:AdjustedFANIL>
+								<globe:NetGlobeIncome>
+									<globe:Total>125000000</globe:Total>
+								</globe:NetGlobeIncome>
+								<globe:IncomeTaxExpense>18750000</globe:IncomeTaxExpense>
+								<globe:ETRRate>0.1500</globe:ETRRate>
+								<globe:TopUpTaxPercentage>0.0000</globe:TopUpTaxPercentage>
+								
+								<globe:AdjustedCoveredTax>
+									<globe:Total>18750000</globe:Total>
+									<globe:AggregrateCurrentTax>18750000</globe:AggregrateCurrentTax>
+								</globe:AdjustedCoveredTax>
+								
+								<globe:SubstanceExclusion>
+									<globe:Total>52500</globe:Total>
+									<globe:PayrollCost>1000000</globe:PayrollCost>
+									<globe:PayrollMarkUp>0.05</globe:PayrollMarkUp>
+									<globe:TangibleAssetValue>50000</globe:TangibleAssetValue>
+									<globe:TangibleAssetMarkup>0.05</globe:TangibleAssetMarkup>
+								</globe:SubstanceExclusion>
+								<globe:ExcessProfits>124947500</globe:ExcessProfits>
+								<globe:TopUpTax>0</globe:TopUpTax>
+								
+
+								<globe:ExcessNegTaxExpense>
+									<globe:PriorYearBalance>0</globe:PriorYearBalance>
+									<globe:GeneratedInRFY>0</globe:GeneratedInRFY>
+									<globe:UtilizedInRFY>0</globe:UtilizedInRFY>
+									<globe:Remaining>0</globe:Remaining>
+								</globe:ExcessNegTaxExpense>
+							</globe:OverallComputation>
+
+							<globe:Non-MaterialCE>
+								<globe:RFY>
+									<globe:TotalRevenue>50000</globe:TotalRevenue>
+									<globe:AggregateSimplified>10000</globe:AggregateSimplified>
+								</globe:RFY>
+								<globe:RFY-1>
+									<globe:TotalRevenue>50000</globe:TotalRevenue>
+								</globe:RFY-1>
+								<globe:RFY-2>
+									<globe:TotalRevenue>50000</globe:TotalRevenue>
+								</globe:RFY-2>
+								<globe:Average>
+									<globe:TotalRevenue>50000</globe:TotalRevenue>
+								</globe:Average>
+								<globe:ID>
+									<globe:Name>HK_Tiny_Branch</globe:Name>
+									<globe:ResCountryCode>HK</globe:ResCountryCode>
+									<globe:TIN issuedBy="HK" unknown="0" TypeOfTIN="GIR3001">30211895</globe:TIN>
+									<globe:Rules>GIR201</globe:Rules>
+									<globe:GlobeStatus>GIR302</globe:GlobeStatus>
+								</globe:ID>
+							</globe:Non-MaterialCE>
+						</globe:ETRComputation>
+                    </globe:ETRStatus>
+                </globe:ETR>
+            </globe:GLoBETax>
+            <globe:DocSpec>
+                <stf:DocTypeIndic>OECD1</stf:DocTypeIndic>
+                <stf:DocRefId>HK2025JurisdictionSection2CTS-01CA</stf:DocRefId>
+            </globe:DocSpec>
+        </globe:JurisdictionSection>
+
+        <globe:UTPRAttribution>
+            <globe:RecJurCode>HK</globe:RecJurCode>
+            <globe:RecJurCode>CA</globe:RecJurCode>
+            <globe:Attribution>
+                <globe:ResCountryCode>CA</globe:ResCountryCode>
+                <globe:UTPRTopUpTaxCarryForward>0</globe:UTPRTopUpTaxCarryForward>
+                <globe:Employees>0</globe:Employees>
+                <globe:TangibleAssetValue>0</globe:TangibleAssetValue>
+                <globe:UTPRPercentage>0</globe:UTPRPercentage>
+                <globe:UTPRTopUpTaxAttributed>0</globe:UTPRTopUpTaxAttributed>
+                <globe:AddCashTaxExpense>0</globe:AddCashTaxExpense>
+                <globe:UTPRTopUpTaxCarriedForward>0</globe:UTPRTopUpTaxCarriedForward>
+            </globe:Attribution>
+            <globe:DocSpec>
+                <stf:DocTypeIndic>OECD1</stf:DocTypeIndic>
+                <stf:DocRefId>HK2025UTPRAttributionCTS-01CA</stf:DocRefId>
+            </globe:DocSpec>
+        </globe:UTPRAttribution>
+    </globe:GLOBEBody>
+</globe:GLOBE_OECD>
