@@ -1,4 +1,2 @@
-SELECT J.CTRY_CODE, J.OUT_DATE_STARTED, J.OUT_DATE_ENDED, P.IS_PARTNER
-FROM ptp_enc.TAX_JRDT J
-JOIN ctsg_enc.V_CTRY_PARTNER P ON J.CTRY_CODE = P.CTRY_CODE
-WHERE J.OUT_DATE_STARTED > SYSDATE;
+Returned jurisdiction(s) have OUT_DATE_STARTED later than the Reporting Fiscal Year start date,
+and IS_PARTNER = 'N', so they are excluded from the extraction scope.
