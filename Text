@@ -1,14 +1,22 @@
-Test Data
+Test Data:
+-- Query 1: List the (report year, receiving country) combinations that are still in transit,
+-- i.e. already transmitted via CTS and the status message has not been received yet
+SELECT RPT_YR, REC_JDX_CTRY
+FROM ctsg_enc.V_CTRY_TRANSMISSION;
 
-SELECT RPT_YR, REC_JDX_CTRY FROM ctsg_enc.V_CTRY_TRANSMISSION;
+-- Query 2: Confirm at the document-reference level that the underlying flag is 'Y'
+-- (transmitted, waiting for the status message reply)
+SELECT DISTINCT REC_JDX_CTRY, TRANSMISSION_FLAG
+FROM ctsg_enc.CTS_GSEC_DOC_REF
+WHERE TRANSMISSION_FLAG = 'Y';
 
-SELECT E.RPT_YR, E.REC_JDX_CTRY, E.FCE_TIN
-FROM ctsg_enc.V_EXT E
-JOIN ctsg_enc.V_CTRY_TRANSMISSION T
-  ON E.RPT_YR = T.RPT_YR AND E.REC_JDX_CTRY = T.REC_JDX_CTRY;
+-- Query 3: Check that none of the in-transit combinations appear in the extraction driver list
+SELECT *
+FROM ctsg_enc.V_EXT
+WHERE (RPT_YR, REC_JDX_CTRY) IN
+      (SELECT RPT_YR, REC_JDX_CTRY FROM ctsg_enc.V_CTRY_TRANSMISSION);
 
-Expected Result
-
-Query 1 returns the year/country combination(s) whose TRANSMISSION_FLAG = 'Y' (transmitted, status
-message not yet received). Query 2 returns no rows, i.e. these combinations are not selected for
-extraction.
+Expected Result:
+Query 1 returns at least one (RPT_YR, REC_JDX_CTRY) combination, i.e. records with TRANSMISSION_FLAG = 'Y' are treated as in transit.
+Query 2 returns rows with TRANSMISSION_FLAG = 'Y', matching the combinations in Query 1.
+Query 3 returns no rows, i.e. records transmitted but still awaiting the status message are not re-extracted.
