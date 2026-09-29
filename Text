@@ -19,3 +19,7 @@ WHERE CTRY_CODE = 'CA';
 
 Test data condition: For CA, OUT_DATE_STARTED = 2025-01-01 and OUT_DATE_ENDED = 2027-12-30,
 so the Reporting Fiscal Year start date (2025-01-01) falls within the effective period.
+
+Query 1 returned CA with OUT_DATE_STARTED = 01-JAN-25 and OUT_DATE_ENDED = 30-DEC-27, which
+covers the Reporting Fiscal Year start date (01-JAN-25). Query 2 returned IS_PARTNER = 'Y'.
+Result matches expected. Pass.
