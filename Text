@@ -1,1 +1,8 @@
-請先閱讀並理解 11111文件和5001.md的內容,然後根據該內容建立一份詳細的 test case的excel檔案。 Test Case ID 的命名規則類似:TC-CTBP5001-001 請確保輸出的 excel有包含足夠的細節以協助理解與測試。
+TC-CTBP5001-007
+
+Verify the receiving-jurisdiction effective-period check - the reporting fiscal year's start date falls within the jurisdiction's effective start/end dates -> included in the extraction scope
+
+"select IS_PARTNER from ctsg_enc.V_CTRY_PARTNER WHERE CTRY_CODE ='CA'
+Set PTP_TAX_JRDT.OUT_DATE_STARTED <= start date of the Reporting Fiscal Year <= PTP_TAX_JRDT.OUT_DATE_ENDED (OUT_DATE_ENDED may also be NULL, meaning still open-ended)"
+
+The element (General/Jurisdiction/Summary/UTPR) for that receiving jurisdiction should be included in the extraction scope
