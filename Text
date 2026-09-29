@@ -5,3 +5,9 @@ Test Data
 A record that was previously transmitted successfully via CTS and has already received an ACCEPTED status message (i.e. CTS_TX_REC.TX_STS='T')(BTBP5002)
 Expected Result
 That record must not reappear in this extraction run's results
+SELECT M.MS_ID, M.RPT_YR, M.RX_CTRY, F.FCE_TIN, TR.TX_STS, S.VAL_RSLT
+FROM ctsg_enc.FILING_INFO F, ctsg_enc.GIR_MSG_SPEC M, ctsg_enc.CTS_DATA_PACKET DP,
+     ctsg_enc.CTS_TX_REC TR, ctsg_enc.CTS_STS_MSG S
+WHERE F.MS_ID = M.MS_ID AND M.MS_ID = DP.MS_ID AND DP.DP_ID = TR.DP_ID
+  AND DP.STS_ID = S.STS_ID
+  AND TR.TX_STS = 'T' AND S.VAL_RSLT = 'ACCEPTED';
