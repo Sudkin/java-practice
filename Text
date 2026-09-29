@@ -1,27 +1,7 @@
-TC-CTBP5001-007
-test scenario
-Verify the receiving-jurisdiction effective-period check - the reporting fiscal year's start date falls within the jurisdiction's effective start/end dates -> included in the extraction scope
-test data
-"select IS_PARTNER from ctsg_enc.V_CTRY_PARTNER WHERE CTRY_CODE ='CA'
-Set PTP_TAX_JRDT.OUT_DATE_STARTED <= start date of the Reporting Fiscal Year <= PTP_TAX_JRDT.OUT_DATE_ENDED (OUT_DATE_ENDED may also be NULL, meaning still open-ended)"
-expected result
-The element (General/Jurisdiction/Summary/UTPR) for that receiving jurisdiction should be included in the extraction scope
-
--- 1. Verify precondition: effective period of CA in the jurisdiction table
-SELECT CTRY_CODE, OUT_DATE_STARTED, OUT_DATE_ENDED
-FROM ptp_enc.TAX_JRDT
-WHERE CTRY_CODE = 'CA';
-
--- 2. Verify the system treats CA as an active exchange partner
-SELECT IS_PARTNER
-FROM ctsg_enc.V_CTRY_PARTNER
-WHERE CTRY_CODE = 'CA';
-
-Test data condition: For CA, OUT_DATE_STARTED = 2025-01-01 and OUT_DATE_ENDED = 2027-12-30,
-so the Reporting Fiscal Year start date (2025-01-01) falls within the effective period.
-
-Query 1 returned CA with OUT_DATE_STARTED = 01-JAN-25 and OUT_DATE_ENDED = 30-DEC-27, which
-covers the Reporting Fiscal Year start date (01-JAN-25). Query 2 returned IS_PARTNER = 'Y'.
-Result matches expected. Pass.
-
-CA's effective period covers the Reporting Fiscal Year start date, and IS_PARTNER = 'Y'.
+TC-CTBP5001-006
+Test Scenario
+Verify that a record already transmitted via CTS is NOT re-extracted
+Test Data
+A record that was previously transmitted successfully via CTS and has already received an ACCEPTED status message (i.e. CTS_TX_REC.TX_STS='T')(BTBP5002)
+Expected Result
+That record must not reappear in this extraction run's results
