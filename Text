@@ -1,24 +1,16 @@
-Test Case ID	
-TC-CTBP5001-010	
-Test Scenario	
-Verify that a record already transmitted but still awaiting the status-message reply is NOT re-extracted
-Test Data	
-Query 1: List the (report year, receiving country) combinations that are still in transit,already transmitted via CTS and the status message has not been received yet
-SELECT RPT_YR, REC_JDX_CTRY
-FROM ctsg_enc.V_CTRY_TRANSMISSION;
+先看第三欄 34318584 是什麼,以及那筆的旗標狀態:
 
-Query 2: Confirm at the document-reference level that the underlying flag is 'Y'
-SELECT DISTINCT REC_JDX_CTRY, TRANSMISSION_FLAG
+sql
+SELECT REC_JDX_CTRY, TRANSMISSION_FLAG, COUNT(*)
 FROM ctsg_enc.CTS_GSEC_DOC_REF
-WHERE TRANSMISSION_FLAG = 'Y';
+WHERE REC_JDX_CTRY = 'CA'
+GROUP BY REC_JDX_CTRY, TRANSMISSION_FLAG;
 
-Query 3: Check that none of the in-transit combinations appear in the extraction driver list
-SELECT *
-FROM ctsg_enc.V_EXT
-WHERE (RPT_YR, REC_JDX_CTRY) IN
-      (SELECT RPT_YR, REC_JDX_CTRY FROM ctsg_enc.V_CTRY_TRANSMISSION);
+(如果這張表有 RPT_YR 或 MS_ID 欄位,請加上 RPT_YR = 2025 縮小範圍。)
 
-Expected Result
-"Query 1 returns at least one (RPT_YR, REC_JDX_CTRY) combination, i.e. records with TRANSMISSION_FLAG = 'Y' are treated as in transit.
-Query 2 returns rows with TRANSMISSION_FLAG = 'Y', matching the combinations in Query 1.
-Query 3 returns no rows, i.e. records transmitted but still awaiting the status message are not re-extracted."
+再看 V_EXT 的定義,確認它是否真的用「年度+國別」排除:
+
+sql
+SELECT text FROM all_views WHERE view_name = 'V_EXT';
+
+(唯讀帳號可能沒權限。若查不到,請 DBA 或系統負責人貼出定義。)
