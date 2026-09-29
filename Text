@@ -1,8 +1,8 @@
 TC-CTBP5001-007
-
+test scenario
 Verify the receiving-jurisdiction effective-period check - the reporting fiscal year's start date falls within the jurisdiction's effective start/end dates -> included in the extraction scope
-
+test data
 "select IS_PARTNER from ctsg_enc.V_CTRY_PARTNER WHERE CTRY_CODE ='CA'
 Set PTP_TAX_JRDT.OUT_DATE_STARTED <= start date of the Reporting Fiscal Year <= PTP_TAX_JRDT.OUT_DATE_ENDED (OUT_DATE_ENDED may also be NULL, meaning still open-ended)"
-
+expected result
 The element (General/Jurisdiction/Summary/UTPR) for that receiving jurisdiction should be included in the extraction scope
