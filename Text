@@ -23,3 +23,5 @@ so the Reporting Fiscal Year start date (2025-01-01) falls within the effective 
 Query 1 returned CA with OUT_DATE_STARTED = 01-JAN-25 and OUT_DATE_ENDED = 30-DEC-27, which
 covers the Reporting Fiscal Year start date (01-JAN-25). Query 2 returned IS_PARTNER = 'Y'.
 Result matches expected. Pass.
+
+CA's effective period covers the Reporting Fiscal Year start date, and IS_PARTNER = 'Y'.
