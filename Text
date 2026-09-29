@@ -1,13 +1,19 @@
-TC-CTBP5001-006
-Test Scenario
-Verify that a record already transmitted via CTS is NOT re-extracted
+已經成功送出、且對方回覆 ACCEPTED 的資料,下次擷取不會再被撈出來
+
 Test Data
-A record that was previously transmitted successfully via CTS and has already received an ACCEPTED status message (i.e. CTS_TX_REC.TX_STS='T')(BTBP5002)
-Expected Result
-That record must not reappear in this extraction run's results
+
+-- Find a record already transmitted via CTS and accepted
 SELECT M.MS_ID, M.RPT_YR, M.RX_CTRY, F.FCE_TIN, TR.TX_STS, S.VAL_RSLT
 FROM ctsg_enc.FILING_INFO F, ctsg_enc.GIR_MSG_SPEC M, ctsg_enc.CTS_DATA_PACKET DP,
      ctsg_enc.CTS_TX_REC TR, ctsg_enc.CTS_STS_MSG S
 WHERE F.MS_ID = M.MS_ID AND M.MS_ID = DP.MS_ID AND DP.DP_ID = TR.DP_ID
-  AND DP.STS_ID = S.STS_ID
-  AND TR.TX_STS = 'T' AND S.VAL_RSLT = 'ACCEPTED';
+  AND DP.STS_ID = S.STS_ID AND TR.TX_STS = 'T' AND S.VAL_RSLT = 'ACCEPTED';
+
+-- Check that combination is not in the extraction list
+SELECT * FROM ctsg_enc.V_EXT
+WHERE RPT_YR = <RPT_YR> AND REC_JDX_CTRY = '<RX_CTRY>' AND FCE_TIN = '<FCE_TIN>';
+
+Expected Result
+
+Query 1 returns a record with TX_STS = 'T' and VAL_RSLT = 'ACCEPTED'.
+Query 2 returns no rows, i.e. the already-transmitted record is not re-extracted.
