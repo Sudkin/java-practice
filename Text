@@ -10,3 +10,4 @@ The element (General/Jurisdiction/Summary/UTPR) for that receiving jurisdiction 
    SELECT CTRY_CODE, OUT_DATE_STARTED, OUT_DATE_ENDED
    FROM ctsg_enc.PTP_TAX_JRDT
    WHERE CTRY_CODE = 'CA';
+CA	01-1月 -25 12.00.00.000000000 上午	30-12月-27 12.00.00.000000000 上午
