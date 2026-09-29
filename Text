@@ -6,3 +6,7 @@ test data
 Set PTP_TAX_JRDT.OUT_DATE_STARTED <= start date of the Reporting Fiscal Year <= PTP_TAX_JRDT.OUT_DATE_ENDED (OUT_DATE_ENDED may also be NULL, meaning still open-ended)"
 expected result
 The element (General/Jurisdiction/Summary/UTPR) for that receiving jurisdiction should be included in the extraction scope
+
+   SELECT CTRY_CODE, OUT_DATE_STARTED, OUT_DATE_ENDED
+   FROM ctsg_enc.PTP_TAX_JRDT
+   WHERE CTRY_CODE = 'CA';
