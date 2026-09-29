@@ -7,7 +7,15 @@ Set PTP_TAX_JRDT.OUT_DATE_STARTED <= start date of the Reporting Fiscal Year <= 
 expected result
 The element (General/Jurisdiction/Summary/UTPR) for that receiving jurisdiction should be included in the extraction scope
 
-   SELECT CTRY_CODE, OUT_DATE_STARTED, OUT_DATE_ENDED
-   FROM ctsg_enc.PTP_TAX_JRDT
-   WHERE CTRY_CODE = 'CA';
-CA	01-1月 -25 12.00.00.000000000 上午	30-12月-27 12.00.00.000000000 上午
+-- 1. Verify precondition: effective period of CA in the jurisdiction table
+SELECT CTRY_CODE, OUT_DATE_STARTED, OUT_DATE_ENDED
+FROM ptp_enc.TAX_JRDT
+WHERE CTRY_CODE = 'CA';
+
+-- 2. Verify the system treats CA as an active exchange partner
+SELECT IS_PARTNER
+FROM ctsg_enc.V_CTRY_PARTNER
+WHERE CTRY_CODE = 'CA';
+
+Test data condition: For CA, OUT_DATE_STARTED = 2025-01-01 and OUT_DATE_ENDED = 2027-12-30,
+so the Reporting Fiscal Year start date (2025-01-01) falls within the effective period.
