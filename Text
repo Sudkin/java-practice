@@ -1,11 +1,14 @@
 Test Data
 
-SELECT J.CTRY_CODE, J.OUT_DATE_STARTED, J.OUT_DATE_ENDED, P.IS_PARTNER
-FROM ptp_enc.TAX_JRDT J
-JOIN ctsg_enc.V_CTRY_PARTNER P ON J.CTRY_CODE = P.CTRY_CODE
-WHERE J.OUT_DATE_ENDED < SYSDATE;
+SELECT RPT_YR, REC_JDX_CTRY FROM ctsg_enc.V_CTRY_TRANSMISSION;
+
+SELECT E.RPT_YR, E.REC_JDX_CTRY, E.FCE_TIN
+FROM ctsg_enc.V_EXT E
+JOIN ctsg_enc.V_CTRY_TRANSMISSION T
+  ON E.RPT_YR = T.RPT_YR AND E.REC_JDX_CTRY = T.REC_JDX_CTRY;
 
 Expected Result
 
-Returned jurisdiction(s) have OUT_DATE_ENDED earlier than the Reporting Fiscal Year start date,
-and IS_PARTNER = 'N', so they are excluded from the extraction scope.
+Query 1 returns the year/country combination(s) whose TRANSMISSION_FLAG = 'Y' (transmitted, status
+message not yet received). Query 2 returns no rows, i.e. these combinations are not selected for
+extraction.
