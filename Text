@@ -1,22 +1,7 @@
-Test Data:
--- Query 1: List the (report year, receiving country) combinations that are still in transit,
--- i.e. already transmitted via CTS and the status message has not been received yet
-SELECT RPT_YR, REC_JDX_CTRY
-FROM ctsg_enc.V_CTRY_TRANSMISSION;
-
--- Query 2: Confirm at the document-reference level that the underlying flag is 'Y'
--- (transmitted, waiting for the status message reply)
-SELECT DISTINCT REC_JDX_CTRY, TRANSMISSION_FLAG
-FROM ctsg_enc.CTS_GSEC_DOC_REF
-WHERE TRANSMISSION_FLAG = 'Y';
-
--- Query 3: Check that none of the in-transit combinations appear in the extraction driver list
-SELECT *
-FROM ctsg_enc.V_EXT
-WHERE (RPT_YR, REC_JDX_CTRY) IN
-      (SELECT RPT_YR, REC_JDX_CTRY FROM ctsg_enc.V_CTRY_TRANSMISSION);
-
-Expected Result:
-Query 1 returns at least one (RPT_YR, REC_JDX_CTRY) combination, i.e. records with TRANSMISSION_FLAG = 'Y' are treated as in transit.
-Query 2 returns rows with TRANSMISSION_FLAG = 'Y', matching the combinations in Query 1.
-Query 3 returns no rows, i.e. records transmitted but still awaiting the status message are not re-extracted.
+Query 1
+2025	CA
+2026	CA
+Query 2
+CA	Y
+Query 3
+2025	CA	34318584
