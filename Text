@@ -1,1 +1,1 @@
-資料已經透過 CTS 送出(TRANSMISSION_FLAG='Y'),但對方還沒回狀態訊息,CTBP5001 就不能再次擷取。
+HK2025GENERALSECTIONTC-CTBP5001-010A","90006","Incorrect GeneralSection/CorporateStructure/UPE. The UPE details are not matched with the UPE details reported in Form IR1485 or in the top-up tax notification for the reporting fiscal year.","GLOBEBody/GeneralSection/CorporateStructure/UPE/ExcludedUPE, GLOBEBody/GeneralSection/CorporateStructure/UPE/OtherUPE"
