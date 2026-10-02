@@ -1,11 +1,13 @@
-2026-10-02 09:02:03.647 INFO : Validate data file starting.
+Test Data:
+SELECT M.MS_ID, M.RPT_YR, M.APRVD_STS, F.FCE_TIN, F.DOC_TYPE_IND, F.DOC_REF_ID, M.CREATED_AT
+FROM ctsg_enc.GIR_MSG_SPEC M
+JOIN ctsg_enc.FILING_INFO F ON F.MS_ID = M.MS_ID
+WHERE F.FCE_TIN = :fce_tin
+  AND M.RPT_YR = '2025'
+  AND TRUNC(M.CREATED_AT) = TRUNC(SYSDATE);
 
-Input File Location: K:\Nexify\Test Case\Test case_Andy\phase3\TC-CTBP5001-014.xml
+Expected Result:
+The GIR submitted with FCE_ROLE = 'GIR_401' (XML FilingCE Role = GIR401, line 22 unchanged) satisfies the extraction eligibility condition. After the Batch run, the query returns at least one row, i.e. a new FILING_INFO row linked to a newly created GIR_MSG_SPEC (APRVD_STS = 'P') for this FCE_TIN and RPT_YR = '2025', so the record is included normally in the extraction scope.
 
-2026-10-02 09:02:03.661 INFO : Schema validation started.
-2026-10-02 09:02:03.693 INFO : Schema validation completed.
-2026-10-02 09:02:03.697 INFO : Data file validation started.
-2026-10-02 09:02:03.741 ERROR: "HK2025GENERALSECTIONTC-CTBP5001-014A","60019","Invalid GeneralSection/RecJurCode CA. The RecJurCode should be 'HK'.","GLOBEBody/GeneralSection/RecJurCode"
-2026-10-02 09:02:03.745 ERROR: "HK2025SUMMARY1TC-CTBP5001-014A","60019","Invalid Summary/RecJurCode CA. The RecJurCode should be 'HK'.","GLOBEBody/Summary/RecJurCode"
-2026-10-02 09:02:03.751 ERROR: "HK2025JURISDICTIONSECTION1TC-CTBP5001-014A","60019","Invalid JurisdictionSection/RecJurCode CA. The RecJurCode should be 'HK'.","GLOBEBody/JurisdictionSection/RecJurCode"
-2026-10-02 09:02:03.755 ERROR: Data file validation failed.
+Actual Result:
+To be filled after execution
