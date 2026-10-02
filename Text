@@ -7,8 +7,8 @@
         <globe:MessageType>GIR</globe:MessageType>
         <globe:Warning>GIR-FULL-COMPLIANT-V3</globe:Warning>
         <globe:Contact>QA-ENGINEER</globe:Contact>
-        <globe:MessageRefId>HK2025HKTC-CTBP5001-013</globe:MessageRefId>
-        <globe:MessageTypeIndic>GIR101</globe:MessageTypeIndic>
+        <globe:MessageRefId>HK2025HKTC-CTBP5001-CORR1</globe:MessageRefId>
+        <globe:MessageTypeIndic>GIR102</globe:MessageTypeIndic>
         <globe:ReportingPeriod>2025-12-31</globe:ReportingPeriod>
         <globe:Timestamp>2025-12-31T12:00:00</globe:Timestamp>
     </globe:MessageSpec>
@@ -32,11 +32,11 @@
             </globe:Period>
             <globe:NameMNE>TSETEBOLG</globe:NameMNE>
             <globe:DocSpec>
-                <stf:DocTypeIndic>OECD1</stf:DocTypeIndic>
-                <stf:DocRefId>HK2025FilingInfoTC-CTBP5001-013</stf:DocRefId>
+                <stf:DocTypeIndic>OECD2</stf:DocTypeIndic>
+                <stf:DocRefId>HK2025CA30211895-F-20261002</stf:DocRefId>
+                <stf:CorrDocRefId>REPLACE_ME_FI_DOC_REF_ID</stf:CorrDocRefId>
             </globe:DocSpec>
         </globe:FilingInfo>
-
         <globe:GeneralSection>
             <globe:RecJurCode>HK</globe:RecJurCode>
             <globe:RecJurCode>CA</globe:RecJurCode>
@@ -134,12 +134,11 @@
                 </globe:CE>
             </globe:CorporateStructure>
             <globe:DocSpec>
-                <stf:DocTypeIndic>OECD1</stf:DocTypeIndic>
-                <stf:DocRefId>HK2025GeneralSectionTC-CTBP5001-013</stf:DocRefId>
+                <stf:DocTypeIndic>OECD2</stf:DocTypeIndic>
+                <stf:DocRefId>HK2025GeneralSectionTC-CTBP5001-013-C1</stf:DocRefId>
+                <stf:CorrDocRefId>REPLACE_ME_GS_DOC_REF_ID</stf:CorrDocRefId>
             </globe:DocSpec>
         </globe:GeneralSection>
-		
-
         <globe:Summary>
             <globe:RecJurCode>HK</globe:RecJurCode>
             <globe:RecJurCode>CA</globe:RecJurCode>
@@ -157,34 +156,11 @@
             <globe:QDMTTut>GIR1401</globe:QDMTTut>
             <globe:GLoBETut>GIR1501</globe:GLoBETut>
             <globe:DocSpec>
-                <stf:DocTypeIndic>OECD1</stf:DocTypeIndic>
-                <stf:DocRefId>HK2025Summary1TC-CTBP5001-013</stf:DocRefId>
+                <stf:DocTypeIndic>OECD2</stf:DocTypeIndic>
+                <stf:DocRefId>HK2025Summary1TC-CTBP5001-013-C1</stf:DocRefId>
+                <stf:CorrDocRefId>REPLACE_ME_SMRY1_DOC_REF_ID</stf:CorrDocRefId>
             </globe:DocSpec>
         </globe:Summary>
-
-        <globe:Summary>
-            <globe:RecJurCode>HK</globe:RecJurCode>
-            <globe:Jurisdiction>
-                <globe:JurisdictionName>HK</globe:JurisdictionName>
-                <globe:Subgroup>
-                    <globe:TIN issuedBy="HK" unknown="0" TypeOfTIN="GIR3001">30211895</globe:TIN>
-                    <globe:TypeofSubGroup>GIR1101</globe:TypeofSubGroup>
-                </globe:Subgroup>
-            </globe:Jurisdiction>
-            <globe:JurWithTaxingRights>
-				<globe:JurisdictionName>HK</globe:JurisdictionName>
-			</globe:JurWithTaxingRights>
-            <globe:SafeHarbour>GIR1206</globe:SafeHarbour>
-            <globe:ETRRange>GIR1301</globe:ETRRange>
-            <globe:SBIE><globe:NotApplicable>true</globe:NotApplicable><globe:NoTut>true</globe:NoTut></globe:SBIE>
-            <globe:QDMTTut>GIR1401</globe:QDMTTut>
-            <globe:GLoBETut>GIR1501</globe:GLoBETut>
-            <globe:DocSpec>
-                <stf:DocTypeIndic>OECD1</stf:DocTypeIndic>
-                <stf:DocRefId>HK2025Summary2TC-CTBP5001-013</stf:DocRefId>
-            </globe:DocSpec>
-        </globe:Summary>
-
         <globe:JurisdictionSection>
             <globe:RecJurCode>HK</globe:RecJurCode>
             <globe:RecJurCode>CA</globe:RecJurCode>
@@ -352,143 +328,10 @@
                 </globe:LTCE>
             </globe:LowTaxJurisdiction>
             <globe:DocSpec>
-                <stf:DocTypeIndic>OECD1</stf:DocTypeIndic>
-                <stf:DocRefId>HK2025JurisdictionSection1TC-CTBP5001-013</stf:DocRefId>
+                <stf:DocTypeIndic>OECD2</stf:DocTypeIndic>
+                <stf:DocRefId>HK2025JurisdictionSection1TC-CTBP5001-013-C1</stf:DocRefId>
+                <stf:CorrDocRefId>REPLACE_ME_JSEC1_DOC_REF_ID</stf:CorrDocRefId>
             </globe:DocSpec>
         </globe:JurisdictionSection>
-
-        <globe:JurisdictionSection>
-            <globe:RecJurCode>HK</globe:RecJurCode>
-            <globe:Jurisdiction>HK</globe:Jurisdiction>
-            <globe:JurWithTaxingRights><globe:JurisdictionName>HK</globe:JurisdictionName></globe:JurWithTaxingRights>
-            <globe:GLoBETax>
-                <globe:ETR>
-                    <globe:SubGroup>
-                        <globe:TIN issuedBy="HK" unknown="0" TypeOfTIN="GIR3001">30211895</globe:TIN>
-                        <globe:TypeofSubGroup>GIR1607</globe:TypeofSubGroup>
-                    </globe:SubGroup>
-                    <globe:ETRStatus>
-					    <globe:ETRException>
-                            <globe:TransitionalCbCRSafeHarbour>
-                                <globe:Revenue>1000000</globe:Revenue>
-                                <globe:Profit>200000</globe:Profit>
-                                <globe:IncomeTax>50000</globe:IncomeTax>
-                            </globe:TransitionalCbCRSafeHarbour>
-                            <globe:UTPRSafeHarbour>
-                                <globe:CITRate>0.2000</globe:CITRate>
-                            </globe:UTPRSafeHarbour>
-                        </globe:ETRException>
-						<globe:ETRComputation>
-							<globe:CEComputation>
-								<globe:AdjustedFANIL>
-									<globe:Total>2146463</globe:Total>
-									<globe:FANIL>2146463</globe:FANIL>
-								</globe:AdjustedFANIL>
-								<globe:NetGlobeIncome>
-									<globe:Total>125000000</globe:Total>
-								</globe:NetGlobeIncome>
-								<globe:AdjustedIncomeTax>
-									<globe:Total>5321123</globe:Total>
-									<globe:IncomeTax>6976732</globe:IncomeTax>
-								</globe:AdjustedIncomeTax>
-								<globe:AdjustedCoveredTax>
-									<globe:Total>79065597</globe:Total>
-									<globe:DeferTaxAdjustAmt>
-										<globe:Total>12313576457</globe:Total>
-										<globe:DeferTaxExpense>12313576457</globe:DeferTaxExpense>
-									</globe:DeferTaxAdjustAmt>
-								</globe:AdjustedCoveredTax>
-								<globe:TIN issuedBy="HK" unknown="0" TypeOfTIN="GIR3001">30211895</globe:TIN>
-								<globe:Elections>
-									<globe:AggregatedReporting>
-										<globe:TaxConsolGroupTIN issuedBy="HK" unknown="0" TypeOfTIN="GIR3001">30211895</globe:TaxConsolGroupTIN>
-										<globe:EntityTIN issuedBy="HK" unknown="0" TypeOfTIN="GIR3001">30211895</globe:EntityTIN>
-									</globe:AggregatedReporting>
-								</globe:Elections>
-							</globe:CEComputation>
-							
-							<globe:OverallComputation>
-								<globe:FANIL>125000000</globe:FANIL>
-								<globe:AdjustedFANIL>125000000</globe:AdjustedFANIL>
-								<globe:NetGlobeIncome>
-									<globe:Total>125000000</globe:Total>
-								</globe:NetGlobeIncome>
-								<globe:IncomeTaxExpense>18750000</globe:IncomeTaxExpense>
-								<globe:ETRRate>0.1500</globe:ETRRate>
-								<globe:TopUpTaxPercentage>0.0000</globe:TopUpTaxPercentage>
-								
-								<globe:AdjustedCoveredTax>
-									<globe:Total>18750000</globe:Total>
-									<globe:AggregrateCurrentTax>18750000</globe:AggregrateCurrentTax>
-								</globe:AdjustedCoveredTax>
-								
-								<globe:SubstanceExclusion>
-									<globe:Total>52500</globe:Total>
-									<globe:PayrollCost>1000000</globe:PayrollCost>
-									<globe:PayrollMarkUp>0.05</globe:PayrollMarkUp>
-									<globe:TangibleAssetValue>50000</globe:TangibleAssetValue>
-									<globe:TangibleAssetMarkup>0.05</globe:TangibleAssetMarkup>
-								</globe:SubstanceExclusion>
-								<globe:ExcessProfits>124947500</globe:ExcessProfits>
-								<globe:TopUpTax>0</globe:TopUpTax>
-								
-
-								<globe:ExcessNegTaxExpense>
-									<globe:PriorYearBalance>0</globe:PriorYearBalance>
-									<globe:GeneratedInRFY>0</globe:GeneratedInRFY>
-									<globe:UtilizedInRFY>0</globe:UtilizedInRFY>
-									<globe:Remaining>0</globe:Remaining>
-								</globe:ExcessNegTaxExpense>
-							</globe:OverallComputation>
-
-							<globe:Non-MaterialCE>
-								<globe:RFY>
-									<globe:TotalRevenue>50000</globe:TotalRevenue>
-									<globe:AggregateSimplified>10000</globe:AggregateSimplified>
-								</globe:RFY>
-								<globe:RFY-1>
-									<globe:TotalRevenue>50000</globe:TotalRevenue>
-								</globe:RFY-1>
-								<globe:RFY-2>
-									<globe:TotalRevenue>50000</globe:TotalRevenue>
-								</globe:RFY-2>
-								<globe:Average>
-									<globe:TotalRevenue>50000</globe:TotalRevenue>
-								</globe:Average>
-								<globe:ID>
-									<globe:Name>HK_Tiny_Branch</globe:Name>
-									<globe:ResCountryCode>HK</globe:ResCountryCode>
-									<globe:TIN issuedBy="HK" unknown="0" TypeOfTIN="GIR3001">30211895</globe:TIN>
-									<globe:Rules>GIR201</globe:Rules>
-									<globe:GlobeStatus>GIR302</globe:GlobeStatus>
-								</globe:ID>
-							</globe:Non-MaterialCE>
-						</globe:ETRComputation>
-                    </globe:ETRStatus>
-                </globe:ETR>
-            </globe:GLoBETax>
-            <globe:DocSpec>
-                <stf:DocTypeIndic>OECD1</stf:DocTypeIndic>
-                <stf:DocRefId>HK2025JurisdictionSection2TC-CTBP5001-013</stf:DocRefId>
-            </globe:DocSpec>
-        </globe:JurisdictionSection>
-
-        <globe:UTPRAttribution>
-            <globe:RecJurCode>HK</globe:RecJurCode>
-            <globe:Attribution>
-                <globe:ResCountryCode>CA</globe:ResCountryCode>
-                <globe:UTPRTopUpTaxCarryForward>0</globe:UTPRTopUpTaxCarryForward>
-                <globe:Employees>0</globe:Employees>
-                <globe:TangibleAssetValue>0</globe:TangibleAssetValue>
-                <globe:UTPRPercentage>0</globe:UTPRPercentage>
-                <globe:UTPRTopUpTaxAttributed>0</globe:UTPRTopUpTaxAttributed>
-                <globe:AddCashTaxExpense>0</globe:AddCashTaxExpense>
-                <globe:UTPRTopUpTaxCarriedForward>0</globe:UTPRTopUpTaxCarriedForward>
-            </globe:Attribution>
-            <globe:DocSpec>
-                <stf:DocTypeIndic>OECD1</stf:DocTypeIndic>
-                <stf:DocRefId>HK2025UTPRAttributionTC-CTBP5001-013</stf:DocRefId>
-            </globe:DocSpec>
-        </globe:UTPRAttribution>
     </globe:GLOBEBody>
 </globe:GLOBE_OECD>
