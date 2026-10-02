@@ -7,7 +7,7 @@
         <globe:MessageType>GIR</globe:MessageType>
         <globe:Warning>GIR-FULL-COMPLIANT-V3</globe:Warning>
         <globe:Contact>QA-ENGINEER</globe:Contact>
-        <globe:MessageRefId>HK2025HKTC-CTBP5001-010A</globe:MessageRefId>
+        <globe:MessageRefId>HK2025HKTC-CTBP5001-014A</globe:MessageRefId>
         <globe:MessageTypeIndic>GIR101</globe:MessageTypeIndic>
         <globe:ReportingPeriod>2025-12-31</globe:ReportingPeriod>
         <globe:Timestamp>2025-12-31T12:00:00</globe:Timestamp>
@@ -19,7 +19,7 @@
                 <globe:ResCountryCode>HK</globe:ResCountryCode>
                 <globe:Name>GLOBETEST</globe:Name>
                 <globe:TIN issuedBy="HK" unknown="0" TypeOfTIN="GIR3001">30211895</globe:TIN>
-                <globe:Role>GIR401</globe:Role>
+                <globe:Role>GIR403</globe:Role>
             </globe:FilingCE>
             <globe:AccountingInfo>
                 <globe:CFSofUPE>GIR501</globe:CFSofUPE>
@@ -33,7 +33,7 @@
             <globe:NameMNE>TSETEBOLG</globe:NameMNE>
             <globe:DocSpec>
                 <stf:DocTypeIndic>OECD1</stf:DocTypeIndic>
-                <stf:DocRefId>HK2025FilingInfoTC-CTBP5001-010A</stf:DocRefId>
+                <stf:DocRefId>HK2025FilingInfoTC-CTBP5001-014A</stf:DocRefId>
             </globe:DocSpec>
         </globe:FilingInfo>
 
@@ -135,7 +135,7 @@
             </globe:CorporateStructure>
             <globe:DocSpec>
                 <stf:DocTypeIndic>OECD1</stf:DocTypeIndic>
-                <stf:DocRefId>HK2025GeneralSectionTC-CTBP5001-010A</stf:DocRefId>
+                <stf:DocRefId>HK2025GeneralSectionTC-CTBP5001-014A</stf:DocRefId>
             </globe:DocSpec>
         </globe:GeneralSection>
 		
@@ -158,7 +158,7 @@
             <globe:GLoBETut>GIR1501</globe:GLoBETut>
             <globe:DocSpec>
                 <stf:DocTypeIndic>OECD1</stf:DocTypeIndic>
-                <stf:DocRefId>HK2025Summary1TC-CTBP5001-010A</stf:DocRefId>
+                <stf:DocRefId>HK2025Summary1TC-CTBP5001-014A</stf:DocRefId>
             </globe:DocSpec>
         </globe:Summary>
 
@@ -181,7 +181,7 @@
             <globe:GLoBETut>GIR1501</globe:GLoBETut>
             <globe:DocSpec>
                 <stf:DocTypeIndic>OECD1</stf:DocTypeIndic>
-                <stf:DocRefId>HK2025Summary2TC-CTBP5001-010A</stf:DocRefId>
+                <stf:DocRefId>HK2025Summary2TC-CTBP5001-014A</stf:DocRefId>
             </globe:DocSpec>
         </globe:Summary>
 
@@ -353,7 +353,7 @@
             </globe:LowTaxJurisdiction>
             <globe:DocSpec>
                 <stf:DocTypeIndic>OECD1</stf:DocTypeIndic>
-                <stf:DocRefId>HK2025JurisdictionSection1TC-CTBP5001-010A</stf:DocRefId>
+                <stf:DocRefId>HK2025JurisdictionSection1TC-CTBP5001-014A</stf:DocRefId>
             </globe:DocSpec>
         </globe:JurisdictionSection>
 
@@ -469,7 +469,7 @@
             </globe:GLoBETax>
             <globe:DocSpec>
                 <stf:DocTypeIndic>OECD1</stf:DocTypeIndic>
-                <stf:DocRefId>HK2025JurisdictionSection2TC-CTBP5001-010A</stf:DocRefId>
+                <stf:DocRefId>HK2025JurisdictionSection2TC-CTBP5001-014A</stf:DocRefId>
             </globe:DocSpec>
         </globe:JurisdictionSection>
 
@@ -487,7 +487,7 @@
             </globe:Attribution>
             <globe:DocSpec>
                 <stf:DocTypeIndic>OECD1</stf:DocTypeIndic>
-                <stf:DocRefId>HK2025UTPRAttributionTC-CTBP5001-010A</stf:DocRefId>
+                <stf:DocRefId>HK2025UTPRAttributionTC-CTBP5001-014A</stf:DocRefId>
             </globe:DocSpec>
         </globe:UTPRAttribution>
     </globe:GLOBEBody>
