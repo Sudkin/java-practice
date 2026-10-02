@@ -33,8 +33,8 @@
             <globe:NameMNE>TSETEBOLG</globe:NameMNE>
             <globe:DocSpec>
                 <stf:DocTypeIndic>OECD2</stf:DocTypeIndic>
-                <stf:DocRefId>HK2025CA30211895-F-20261002</stf:DocRefId>
-                <stf:CorrDocRefId>REPLACE_ME_FI_DOC_REF_ID</stf:CorrDocRefId>
+                <stf:DocRefId>HK2025FilingInfoTC-CTBP5001-013B1</stf:DocRefId>
+                <stf:CorrDocRefId>HK2025FilingInfoTC-CTBP5001-013-Cor</stf:CorrDocRefId>
             </globe:DocSpec>
         </globe:FilingInfo>
         <globe:GeneralSection>
@@ -135,8 +135,8 @@
             </globe:CorporateStructure>
             <globe:DocSpec>
                 <stf:DocTypeIndic>OECD2</stf:DocTypeIndic>
-                <stf:DocRefId>HK2025GeneralSectionTC-CTBP5001-013-C1</stf:DocRefId>
-                <stf:CorrDocRefId>REPLACE_ME_GS_DOC_REF_ID</stf:CorrDocRefId>
+                <stf:DocRefId>HK2025GeneralSectionTC-CTBP5001-013B1</stf:DocRefId>
+                <stf:CorrDocRefId>HK2025GeneralSectionTC-CTBP5001-013-Cor</stf:CorrDocRefId>
             </globe:DocSpec>
         </globe:GeneralSection>
         <globe:Summary>
@@ -157,8 +157,8 @@
             <globe:GLoBETut>GIR1501</globe:GLoBETut>
             <globe:DocSpec>
                 <stf:DocTypeIndic>OECD2</stf:DocTypeIndic>
-                <stf:DocRefId>HK2025Summary1TC-CTBP5001-013-C1</stf:DocRefId>
-                <stf:CorrDocRefId>REPLACE_ME_SMRY1_DOC_REF_ID</stf:CorrDocRefId>
+                <stf:DocRefId>HK2025Summary1TC-CTBP5001-013B1</stf:DocRefId>
+                <stf:CorrDocRefId>HK2025Summary1TC-CTBP5001-013-Cor</stf:CorrDocRefId>
             </globe:DocSpec>
         </globe:Summary>
         <globe:JurisdictionSection>
@@ -329,8 +329,8 @@
             </globe:LowTaxJurisdiction>
             <globe:DocSpec>
                 <stf:DocTypeIndic>OECD2</stf:DocTypeIndic>
-                <stf:DocRefId>HK2025JurisdictionSection1TC-CTBP5001-013-C1</stf:DocRefId>
-                <stf:CorrDocRefId>REPLACE_ME_JSEC1_DOC_REF_ID</stf:CorrDocRefId>
+                <stf:DocRefId>HK2025JurisdictionSection1TC-CTBP5001-013B1</stf:DocRefId>
+                <stf:CorrDocRefId>HK2025JurisdictionSection1TC-CTBP5001-013-Cor</stf:CorrDocRefId>
             </globe:DocSpec>
         </globe:JurisdictionSection>
     </globe:GLOBEBody>
