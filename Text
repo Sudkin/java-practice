@@ -1,8 +1,2 @@
-select RTN_ID,NTFC_ID,FE_BRN,FE_TYPE,FE_ROLE,MNE_CODE,GIR_REQUIRED,ATI_REQUIRED,STATUS,
-TO_CHAR(ISSUE_DATE, 'YYYY-MM-DD')As ISSUE_DATE,
-TO_CHAR(DUE_DATE, 'YYYY-MM-DD')As DUE_DATE,
-TO_CHAR(ENFORCE_DATE, 'YYYY-MM-DD')As ENFORCE_DATE,
-TO_CHAR(FISCAL_FM, 'YYYY-MM-DD')As FISCAL_FM,
-TO_CHAR(FISCAL_TO, 'YYYY-MM-DD')As FISCAL_TO
-from Ptp_ENC.RTN
-where fe_brn = '30211895'and'30155093'and'25000750';
+DocRefId,Error Code,Error Message,Path
+"HK2025UTPRATTRIBUTIONTC-CTBP5001-DFE-CA-25000750","70008","Invalid UTPRAttribution/RecJurCode HK, CA. The Jurisdiction reported in the RecJurCode must be the UPE jurisdiction or one of the Jurisdictions reported in the JurisdictionName element of the repeatable JurWithTaxingRights element","GLOBEBody/UTPRAttribution/RecJurCode"
