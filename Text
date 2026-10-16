@@ -1,13 +1,24 @@
+2026-10-16 15:29:01.730 INFO : Validate data file starting.
+
+Input File Location: C:\Users\90114\Downloads\ID to HK.xml
+
+2026-10-16 15:29:01.755 INFO : Schema validation started.
+2026-10-16 15:29:02.155 INFO : Schema validation completed.
+2026-10-16 15:29:02.159 INFO : Data file validation started.
+2026-10-16 15:29:02.844 ERROR: "ID2025FILINGINFOTC-CTBP5001-UPE-HK-30155093B","90001","Incorrect FilingInfo/FilingCE/ResCountryCode ID. ResCountryCode must be HK for 'FilingCE' element.","GLOBEBody/FilingInfo/FilingCE/ResCountryCode"
+2026-10-16 15:29:02.849 ERROR: "ID2025FILINGINFOTC-CTBP5001-UPE-HK-30155093B","90001","Incorrect FilingInfo/FilingCE/TIN ID. The attributes issuedBy of the TIN must be HK for 'FilingCE' element.","GLOBEBody/FilingInfo/FilingCE/TIN"
+2026-10-16 15:29:02.855 ERROR: Data file validation failed.
+
 <?xml version='1.0' encoding='UTF-8'?>
 
 <globe:GLOBE_OECD xmlns:globe="urn:oecd:ties:globe:v2" xmlns:stf="urn:oecd:ties:globestf:v5" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0">
     <globe:MessageSpec>
         <globe:TransmittingCountry>ID</globe:TransmittingCountry>
-        <globe:ReceivingCountry>HK</globe:ReceivingCountry>
+        <globe:ReceivingCountry>ID</globe:ReceivingCountry>
         <globe:MessageType>GIR</globe:MessageType>
         <globe:Warning>GIR-FULL-COMPLIANT-V3</globe:Warning>
         <globe:Contact>QA-ENGINEER</globe:Contact>
-        <globe:MessageRefId>ID2025HKTC-CTBP5001-UPE-HK-30155093A</globe:MessageRefId>
+        <globe:MessageRefId>ID2025IDTC-CTBP5001-UPE-HK-30155093B</globe:MessageRefId>
         <globe:MessageTypeIndic>GIR101</globe:MessageTypeIndic>
         <globe:ReportingPeriod>2025-12-31</globe:ReportingPeriod>
         <globe:Timestamp>2025-12-31T12:00:00</globe:Timestamp>
@@ -33,7 +44,7 @@
             <globe:NameMNE>TSETEBOLG</globe:NameMNE>
             <globe:DocSpec>
                 <stf:DocTypeIndic>OECD1</stf:DocTypeIndic>
-                <stf:DocRefId>ID2025FilingInfoTC-CTBP5001-UPE-HK-30155093A</stf:DocRefId>
+                <stf:DocRefId>ID2025FilingInfoTC-CTBP5001-UPE-HK-30155093B</stf:DocRefId>
             </globe:DocSpec>
         </globe:FilingInfo>
 
@@ -147,7 +158,7 @@
             </globe:CorporateStructure>
             <globe:DocSpec>
                 <stf:DocTypeIndic>OECD1</stf:DocTypeIndic>
-                <stf:DocRefId>ID2025GeneralSectionTC-CTBP5001-UPE-HK-30155093A</stf:DocRefId>
+                <stf:DocRefId>ID2025GeneralSectionTC-CTBP5001-UPE-HK-30155093B</stf:DocRefId>
             </globe:DocSpec>
         </globe:GeneralSection>
 
@@ -170,7 +181,7 @@
             <globe:GLoBETut>GIR1501</globe:GLoBETut>
             <globe:DocSpec>
                 <stf:DocTypeIndic>OECD1</stf:DocTypeIndic>
-                <stf:DocRefId>ID2025Summary1TC-CTBP5001-UPE-HK-30155093A</stf:DocRefId>
+                <stf:DocRefId>ID2025Summary1TC-CTBP5001-UPE-HK-30155093B</stf:DocRefId>
             </globe:DocSpec>
         </globe:Summary>
 
@@ -193,7 +204,7 @@
             <globe:GLoBETut>GIR1501</globe:GLoBETut>
             <globe:DocSpec>
                 <stf:DocTypeIndic>OECD1</stf:DocTypeIndic>
-                <stf:DocRefId>ID2025Summary2TC-CTBP5001-UPE-HK-30155093A</stf:DocRefId>
+                <stf:DocRefId>ID2025Summary2TC-CTBP5001-UPE-HK-30155093B</stf:DocRefId>
             </globe:DocSpec>
         </globe:Summary>
 
@@ -365,7 +376,7 @@
             </globe:LowTaxJurisdiction>
             <globe:DocSpec>
                 <stf:DocTypeIndic>OECD1</stf:DocTypeIndic>
-                <stf:DocRefId>ID2025JurisdictionSection1TC-CTBP5001-UPE-HK-30155093A</stf:DocRefId>
+                <stf:DocRefId>ID2025JurisdictionSection1TC-CTBP5001-UPE-HK-30155093B</stf:DocRefId>
             </globe:DocSpec>
         </globe:JurisdictionSection>
 
@@ -480,7 +491,7 @@
             </globe:GLoBETax>
             <globe:DocSpec>
                 <stf:DocTypeIndic>OECD1</stf:DocTypeIndic>
-                <stf:DocRefId>ID2025JurisdictionSection2TC-CTBP5001-UPE-HK-30155093A</stf:DocRefId>
+                <stf:DocRefId>ID2025JurisdictionSection2TC-CTBP5001-UPE-HK-30155093B</stf:DocRefId>
             </globe:DocSpec>
         </globe:JurisdictionSection>
 
@@ -499,7 +510,7 @@
             </globe:Attribution>
             <globe:DocSpec>
                 <stf:DocTypeIndic>OECD1</stf:DocTypeIndic>
-                <stf:DocRefId>ID2025UTPRAttributionTC-CTBP5001-UPE-HK-30155093A</stf:DocRefId>
+                <stf:DocRefId>ID2025UTPRAttributionTC-CTBP5001-UPE-HK-30155093B</stf:DocRefId>
             </globe:DocSpec>
         </globe:UTPRAttribution>
     </globe:GLOBEBody>
