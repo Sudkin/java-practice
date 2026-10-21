@@ -1,8 +1,258 @@
-SELECT * FROM V_CTRY_PARTNER;   -- 只知道有 IS_PARTNER 欄
-SELECT * FROM PTP_TAX_JRDT;     -- 稅務管轄區主檔,含 Start/Cessation Date 與 outgoing 起訖日
-
-
-SELECT table_name, column_name
-FROM all_tab_columns
-WHERE (column_name LIKE '%INCOMING%' OR column_name LIKE '%INCMG%' OR column_name LIKE '%RX%START%')
-   OR table_name LIKE '%JRDT%' OR table_name LIKE '%PARTNER%';
+2026-10-21 09:32:18,031 INFO  (main) commonLogger:init:269 {Thread:1} - rootPath:/app/cts/batch/uat/ conformance:false
+2026-10-21 09:32:18,408 INFO  (main) PackDummyService:packDummyGirXml:1207 {Thread:1} - Current absolute path is: /nfs/app/cts/batch/uat/script
+2026-10-21 09:32:18,417 INFO  (main) WrapperUtil:schemaValidate:1259 {Thread:1} - --             Validate packDummy/ctsg/20261021//CA2026HK-CTBP5005-UPE-14504420_004.xml against jar:file:/nfs/app/cts/batch/uat/program/openjdk17/cts-batch-wrapper-21.24.0.jar!/ptp/GLOBEXML_v1.0.xsd
+2026-10-21 09:32:18,639 INFO  (main) WrapperUtil:trimBom:1278 {Thread:1} - filePath:packDummy/ctsg/20261021//CA2026HK-CTBP5005-UPE-14504420_004.xml   hasBOM:false
+2026-10-21 09:32:18,929 INFO  (main) WrapperUtil:writeFormattedXml:299 {Thread:1} - filePath:/app/cts/batch/uat/data/out/pending/CA2026HK-CTBP5005-UPE-14504420_004.metadata.xml
+2026-10-21 09:32:18,999 INFO  (main) WrapperUtil:schemaValidate:1259 {Thread:1} - --             Validate /app/cts/batch/uat/data/out/pending/CA2026HK-CTBP5005-UPE-14504420_004.metadata.xml against jar:file:/nfs/app/cts/batch/uat/program/openjdk17/cts-batch-wrapper-21.24.0.jar!/CTS-SenderFileMetadata-5.0.xsd
+2026-10-21 09:32:19,021 INFO  (main) WrapperUtil:trimBom:1278 {Thread:1} - filePath:/app/cts/batch/uat/data/out/pending/CA2026HK-CTBP5005-UPE-14504420_004.metadata.xml   hasBOM:false
+2026-10-21 09:32:19,032 INFO  (main) SenderFileMetadata5Service:writeCtsSenderFileMetadataXml:223 {Thread:1} - [GIR] Metadata Xml: /app/cts/batch/uat/data/out/pending/CA2026HK-CTBP5005-UPE-14504420_004.metadata.xml
+2026-10-21 09:32:19,123 INFO  (main) WrapperUtil:getX509Certificate:787 {Thread:1} - |--------- Receiver X509Certificate ---------|
+2026-10-21 09:32:19,126 INFO  (main) WrapperUtil:getX509Certificate:788 {Thread:1} - | Country: HK
+2026-10-21 09:32:19,127 INFO  (main) WrapperUtil:getX509Certificate:789 {Thread:1} - | Start Date: 2018-01-12T10:27:44.000+0800
+2026-10-21 09:32:19,129 INFO  (main) WrapperUtil:getX509Certificate:790 {Thread:1} - | End Date: 2028-01-10T10:27:44.000+0800
+2026-10-21 09:32:19,131 INFO  (main) WrapperUtil:getX509Certificate:791 {Thread:1} - |---------
+2026-10-21 09:32:19,133 INFO  (main) SignEncrypt5Service:signEncrypt:164 {Thread:1} - -- | ------------------------------------------------------------ |
+2026-10-21 09:32:19,134 INFO  (main) SignEncrypt5Service:signEncrypt:165 {Thread:1} - -- |    MsgFileName: CA2026HK-CTBP5005-UPE-14504420_004.xml
+2026-10-21 09:32:19,135 INFO  (main) SignEncrypt5Service:signEncrypt:166 {Thread:1} - -- | ------------------------------------------------------------ |
+2026-10-21 09:32:19,137 INFO  (main) SignEncrypt5Service:signEncrypt:169 {Thread:1} - -- Step 1/7: (Get Sender Country X509Cert): CA
+2026-10-21 09:32:19,158 INFO  (main) SignEncrypt5Service:getX509CertificatePrivateKey:351 {Thread:1} - |--------- Sender X509Certificate ------------------|
+2026-10-21 09:32:19,160 INFO  (main) SignEncrypt5Service:getX509CertificatePrivateKey:352 {Thread:1} - | Country: CA
+2026-10-21 09:32:19,162 INFO  (main) SignEncrypt5Service:getX509CertificatePrivateKey:353 {Thread:1} - | Start Date: 2017-12-18T17:38:32.000+0800
+2026-10-21 09:32:19,163 INFO  (main) SignEncrypt5Service:getX509CertificatePrivateKey:354 {Thread:1} - | End Date: 2027-12-16T17:38:32.000+0800
+2026-10-21 09:32:19,164 INFO  (main) SignEncrypt5Service:getX509CertificatePrivateKey:355 {Thread:1} - |---------------------------------------------------|
+2026-10-21 09:32:19,173 INFO  (main) SignEncrypt5Service:signEncrypt:172 {Thread:1} - -- Step 2/7: (Sign and Zip Payload): CA2026HK-CTBP5005-UPE-14504420_004.xml
+2026-10-21 09:32:19,189 INFO  (main) SignEncrypt5Service:signZipPayloadXml:273 {Thread:1} - -- Step 2/7: (Sign Payload by Sender X509Cert)
+2026-10-21 09:32:19,222 INFO  (main) XmlSigning:signFileStreaming:468 {Thread:1} - infile:/app/cts/batch/uat/data/out/pending/CA2026HK-CTBP5005-UPE-14504420_004.xml, outfile:/app/cts/batch/uat/data/out/temp/CA_GIR_7870679259442375375.zip
+2026-10-21 09:32:19,536 INFO  (main) XmlSigning:signFileStreaming:615 {Thread:1} - ret:true
+2026-10-21 09:32:19,538 INFO  (main) SignEncrypt5Service:signZipPayloadXml:280 {Thread:1} - -- Step 2/7: (Zip Payload)
+2026-10-21 09:32:21,572 INFO  (main) SignEncrypt5Service:signEncrypt:183 {Thread:1} - -- Step 3/7: (Backup Signed Payload): CA2026HK-CTBP5005-UPE-14504420_004_signed_GIR_20261021T093221557Z.zip
+2026-10-21 09:32:21,574 INFO  (main) SignEncrypt5Service:signEncrypt:193 {Thread:1} - -- Step 4/7: (Generate one-time use AES-256 key)
+2026-10-21 09:32:21,590 INFO  (main) SignEncrypt5Service:signEncrypt:199 {Thread:1} - -- Step 5/7: (Encrypt Signed Payload by AES-256 key): CA_GIR_11132132608759716290.zip
+2026-10-21 09:32:21,608 INFO  (main) SignEncrypt5Service:signEncrypt:206 {Thread:1} - -- Step 6/7: (Encrypt AES-256 key by Recipient Country X509Cert): HK
+2026-10-21 09:32:21,620 INFO  (main) WrapperUtil:getX509Certificate:787 {Thread:1} - |--------- Receiver X509Certificate ---------|
+2026-10-21 09:32:21,622 INFO  (main) WrapperUtil:getX509Certificate:788 {Thread:1} - | Country: HK
+2026-10-21 09:32:21,624 INFO  (main) WrapperUtil:getX509Certificate:789 {Thread:1} - | Start Date: 2018-01-12T10:27:44.000+0800
+2026-10-21 09:32:21,625 INFO  (main) WrapperUtil:getX509Certificate:790 {Thread:1} - | End Date: 2028-01-10T10:27:44.000+0800
+2026-10-21 09:32:21,627 INFO  (main) WrapperUtil:getX509Certificate:791 {Thread:1} - |---------
+2026-10-21 09:32:21,633 INFO  (main) SignEncrypt5Service:signEncrypt:215 {Thread:1} - -- Step 7/7: (Done): /app/cts/batch/uat/data/cts/Outbox/HK/CA_GIR_20261021T093221557Z.zip
+2026-10-21 09:32:21,655 INFO  (main) SignEncrypt5Service:signEncrypt:225 {Thread:1} - -- End --
+2026-10-21 09:32:21,663 INFO  (main) WrapperUtil:schemaValidate:1259 {Thread:1} - --             Validate /app/cts/batch/uat/data/out/pending/CA2026HK-CTBP5005-UPE-14504420_004.metadata.xml against jar:file:/nfs/app/cts/batch/uat/program/openjdk17/cts-batch-wrapper-21.24.0.jar!/CTS-SenderFileMetadata-5.0.xsd
+2026-10-21 09:32:21,678 INFO  (main) WrapperUtil:trimBom:1278 {Thread:1} - filePath:/app/cts/batch/uat/data/out/pending/CA2026HK-CTBP5005-UPE-14504420_004.metadata.xml   hasBOM:false
+2026-10-21 09:32:21,777 INFO  (main) SignEncrypt5Service:signEncrypt:242 {Thread:1} - {"fullFilePath":"/app/cts/batch/uat/data/cts/Outbox/HK/CA_GIR_20261021T093221557Z.zip","fileName":"CA_GIR_20261021T093221557Z.zip","fileSize":6853,"metadata":{"senderFileId":"CA_HK_GIR_CA2026HK-CTBP5005-UPE-14504420_004","fileFormatCd":"XML","binaryEncodingSchemeCd":"NONE","fileCreateTs":"2026-10-
+2026-10-21 14:52:10,018 INFO  (main) commonLogger:init:269 {Thread:1} - rootPath:/app/cts/batch/uat/ conformance:false
+2026-10-21 14:52:10,442 INFO  (main) PackDummyService:packDummyGirXml:1207 {Thread:1} - Current absolute path is: /nfs/app/cts/batch/uat/script
+2026-10-21 14:52:10,452 INFO  (main) WrapperUtil:schemaValidate:1259 {Thread:1} - --             Validate packDummy/ctsg/20261021_2//Z02_copy_of_Z1_for_5005-004.xml against jar:file:/nfs/app/cts/batch/uat/program/openjdk17/cts-batch-wrapper-21.24.0.jar!/ptp/GLOBEXML_v1.0.xsd
+2026-10-21 14:52:10,737 INFO  (main) WrapperUtil:trimBom:1278 {Thread:1} - filePath:packDummy/ctsg/20261021_2//Z02_copy_of_Z1_for_5005-004.xml   hasBOM:false
+2026-10-21 14:52:11,080 INFO  (main) WrapperUtil:writeFormattedXml:299 {Thread:1} - filePath:/app/cts/batch/uat/data/out/pending/ID2025HKTC-CTBP5005-UPE-30155093-21102026Z02.metadata.xml
+2026-10-21 14:52:11,159 INFO  (main) WrapperUtil:schemaValidate:1259 {Thread:1} - --             Validate /app/cts/batch/uat/data/out/pending/ID2025HKTC-CTBP5005-UPE-30155093-21102026Z02.metadata.xml against jar:file:/nfs/app/cts/batch/uat/program/openjdk17/cts-batch-wrapper-21.24.0.jar!/CTS-SenderFileMetadata-5.0.xsd
+2026-10-21 14:52:11,190 INFO  (main) WrapperUtil:trimBom:1278 {Thread:1} - filePath:/app/cts/batch/uat/data/out/pending/ID2025HKTC-CTBP5005-UPE-30155093-21102026Z02.metadata.xml   hasBOM:false
+2026-10-21 14:52:11,196 INFO  (main) SenderFileMetadata5Service:writeCtsSenderFileMetadataXml:223 {Thread:1} - [GIR] Metadata Xml: /app/cts/batch/uat/data/out/pending/ID2025HKTC-CTBP5005-UPE-30155093-21102026Z02.metadata.xml
+2026-10-21 14:52:11,309 INFO  (main) WrapperUtil:getX509Certificate:787 {Thread:1} - |--------- Receiver X509Certificate ---------|
+2026-10-21 14:52:11,314 INFO  (main) WrapperUtil:getX509Certificate:788 {Thread:1} - | Country: HK
+2026-10-21 14:52:11,323 INFO  (main) WrapperUtil:getX509Certificate:789 {Thread:1} - | Start Date: 2018-01-12T10:27:44.000+0800
+2026-10-21 14:52:11,325 INFO  (main) WrapperUtil:getX509Certificate:790 {Thread:1} - | End Date: 2028-01-10T10:27:44.000+0800
+2026-10-21 14:52:11,327 INFO  (main) WrapperUtil:getX509Certificate:791 {Thread:1} - |---------
+2026-10-21 14:52:11,329 INFO  (main) SignEncrypt5Service:signEncrypt:164 {Thread:1} - -- | ------------------------------------------------------------ |
+2026-10-21 14:52:11,331 INFO  (main) SignEncrypt5Service:signEncrypt:165 {Thread:1} - -- |    MsgFileName: ID2025HKTC-CTBP5005-UPE-30155093-21102026Z02.xml
+2026-10-21 14:52:11,332 INFO  (main) SignEncrypt5Service:signEncrypt:166 {Thread:1} - -- | ------------------------------------------------------------ |
+2026-10-21 14:52:11,334 INFO  (main) SignEncrypt5Service:signEncrypt:169 {Thread:1} - -- Step 1/7: (Get Sender Country X509Cert): ID
+2026-10-21 14:52:11,355 INFO  (main) SignEncrypt5Service:getX509CertificatePrivateKey:351 {Thread:1} - |--------- Sender X509Certificate ------------------|
+2026-10-21 14:52:11,357 INFO  (main) SignEncrypt5Service:getX509CertificatePrivateKey:352 {Thread:1} - | Country: ID
+2026-10-21 14:52:11,360 INFO  (main) SignEncrypt5Service:getX509CertificatePrivateKey:353 {Thread:1} - | Start Date: 2018-08-27T18:02:05.000+0800
+2026-10-21 14:52:11,363 INFO  (main) SignEncrypt5Service:getX509CertificatePrivateKey:354 {Thread:1} - | End Date: 2028-08-27T18:02:05.000+0800
+2026-10-21 14:52:11,365 INFO  (main) SignEncrypt5Service:getX509CertificatePrivateKey:355 {Thread:1} - |---------------------------------------------------|
+2026-10-21 14:52:11,377 INFO  (main) SignEncrypt5Service:signEncrypt:172 {Thread:1} - -- Step 2/7: (Sign and Zip Payload): ID2025HKTC-CTBP5005-UPE-30155093-21102026Z02.xml
+2026-10-21 14:52:11,397 INFO  (main) SignEncrypt5Service:signZipPayloadXml:273 {Thread:1} - -- Step 2/7: (Sign Payload by Sender X509Cert)
+2026-10-21 14:52:11,482 INFO  (main) XmlSigning:signFileStreaming:468 {Thread:1} - infile:/app/cts/batch/uat/data/out/pending/ID2025HKTC-CTBP5005-UPE-30155093-21102026Z02.xml, outfile:/app/cts/batch/uat/data/out/temp/ID_GIR_12053748579036790851.zip
+2026-10-21 14:52:11,896 INFO  (main) XmlSigning:signFileStreaming:615 {Thread:1} - ret:true
+2026-10-21 14:52:11,898 INFO  (main) SignEncrypt5Service:signZipPayloadXml:280 {Thread:1} - -- Step 2/7: (Zip Payload)
+2026-10-21 14:52:12,928 INFO  (main) SignEncrypt5Service:signEncrypt:183 {Thread:1} - -- Step 3/7: (Backup Signed Payload): ID2025HKTC-CTBP5005-UPE-30155093-21102026Z02_signed_GIR_20261021T145212914Z.zip
+2026-10-21 14:52:12,931 INFO  (main) SignEncrypt5Service:signEncrypt:193 {Thread:1} - -- Step 4/7: (Generate one-time use AES-256 key)
+2026-10-21 14:52:12,945 INFO  (main) SignEncrypt5Service:signEncrypt:199 {Thread:1} - -- Step 5/7: (Encrypt Signed Payload by AES-256 key): ID_GIR_10706191753647311183.zip
+2026-10-21 14:52:12,964 INFO  (main) SignEncrypt5Service:signEncrypt:206 {Thread:1} - -- Step 6/7: (Encrypt AES-256 key by Recipient Country X509Cert): HK
+2026-10-21 14:52:12,977 INFO  (main) WrapperUtil:getX509Certificate:787 {Thread:1} - |--------- Receiver X509Certificate ---------|
+2026-10-21 14:52:12,979 INFO  (main) WrapperUtil:getX509Certificate:788 {Thread:1} - | Country: HK
+2026-10-21 14:52:12,981 INFO  (main) WrapperUtil:getX509Certificate:789 {Thread:1} - | Start Date: 2018-01-12T10:27:44.000+0800
+2026-10-21 14:52:12,983 INFO  (main) WrapperUtil:getX509Certificate:790 {Thread:1} - | End Date: 2028-01-10T10:27:44.000+0800
+2026-10-21 14:52:12,984 INFO  (main) WrapperUtil:getX509Certificate:791 {Thread:1} - |---------
+2026-10-21 14:52:12,993 INFO  (main) SignEncrypt5Service:signEncrypt:215 {Thread:1} - -- Step 7/7: (Done): /app/cts/batch/uat/data/cts/Outbox/HK/ID_GIR_20261021T145212914Z.zip
+2026-10-21 14:52:13,012 INFO  (main) SignEncrypt5Service:signEncrypt:225 {Thread:1} - -- End --
+2026-10-21 14:52:13,018 INFO  (main) WrapperUtil:schemaValidate:1259 {Thread:1} - --             Validate /app/cts/batch/uat/data/out/pending/ID2025HKTC-CTBP5005-UPE-30155093-21102026Z02.metadata.xml against jar:file:/nfs/app/cts/batch/uat/program/openjdk17/cts-batch-wrapper-21.24.0.jar!/CTS-SenderFileMetadata-5.0.xsd
+2026-10-21 14:52:13,038 INFO  (main) WrapperUtil:trimBom:1278 {Thread:1} - filePath:/app/cts/batch/uat/data/out/pending/ID2025HKTC-CTBP5005-UPE-30155093-21102026Z02.metadata.xml   hasBOM:false
+2026-10-21 14:52:13,134 INFO  (main) SignEncrypt5Service:signEncrypt:242 {Thread:1} - {"fullFilePath":"/app/cts/batch/uat/data/cts/Outbox/HK/ID_GIR_20261021T145212914Z.zip","fileName":"ID_GIR_20261021T145212914Z.zip","fileSize":7028,"metadata":{"senderFileId":"ID_HK_GIR_ID2025HKTC-CTBP5005-UPE-30155093-21102026Z02","fileFormatCd":"XML","binaryEncodingSchemeCd":"NONE","fileCreateTs":"2026-10-21T06:52:11.000+00:00","taxYear":null,"fileRevisionInd":null,"originalCTSTransmissionId":null,"senderContactEmailAddressTxt":"QA-ENGINEER","ctscommunicationTypeCd":"GIR","ctsreceiverCountryCd":"HK","ctssenderCountryCd":"ID"}}
+2026-10-21 14:52:13,138 INFO  (main) WrapperUtil:fileMove:468 {Thread:1} - srcFile:/app/cts/batch/uat/data/out/pending/ID2025HKTC-CTBP5005-UPE-30155093-21102026Z02.xml, destFile:/app/cts/batch/uat/data/out/processed/ID2025HKTC-CTBP5005-UPE-30155093-21102026Z02.xml
+2026-10-21 14:52:13,149 INFO  (main) WrapperUtil:fileMove:468 {Thread:1} - srcFile:/app/cts/batch/uat/data/out/pending/ID2025HKTC-CTBP5005-UPE-30155093-21102026Z02.metadata.xml, destFile:/app/cts/batch/uat/data/out/processed/ID2025HKTC-CTBP5005-UPE-30155093-21102026Z02.metadata.xml
+2026-10-21 14:52:13,158 INFO  (main) SignEncrypt5Service:signEncryptDataFile:122 {Thread:1} - (Done): /app/cts/batch/uat/data/out/processed/ID2025HKTC-CTBP5005-UPE-30155093-21102026Z02.xml
+2026-10-21 14:52:13,160 INFO  (main) SignEncrypt5Service:signEncryptDataFile:123 {Thread:1} - (Done): /app/cts/batch/uat/data/out/processed/ID2025HKTC-CTBP5005-UPE-30155093-21102026Z02.metadata.xml
+2026-10-21 14:52:14,168 INFO  (main) WrapperUtil:fileMove:468 {Thread:1} - srcFile:/app/cts/batch/uat/data/cts/Outbox/HK/ID_GIR_20261021T145212914Z.zip, destFile:/nfs/app/cts/batch/uat/script/packDummy/ctsg/20261021_2/ID_GIR_20261021T145212914Z_C186096BD19838AECCC8C64CE676BB5A.zip
+2026-10-21 14:52:14,175 INFO  (main) PackDummyService:packDummyGirXml:1207 {Thread:1} - Current absolute path is: /nfs/app/cts/batch/uat/script
+2026-10-21 14:52:14,177 INFO  (main) WrapperUtil:schemaValidate:1259 {Thread:1} - --             Validate packDummy/ctsg/20261021_2//Z01_original_reference.xml against jar:file:/nfs/app/cts/batch/uat/program/openjdk17/cts-batch-wrapper-21.24.0.jar!/ptp/GLOBEXML_v1.0.xsd
+2026-10-21 14:52:14,219 INFO  (main) WrapperUtil:trimBom:1278 {Thread:1} - filePath:packDummy/ctsg/20261021_2//Z01_original_reference.xml   hasBOM:false
+2026-10-21 14:52:14,298 INFO  (main) WrapperUtil:writeFormattedXml:299 {Thread:1} - filePath:/app/cts/batch/uat/data/out/pending/ID2025HKTC-CTBP5005-UPE-30155093-21102026A.metadata.xml
+2026-10-21 14:52:14,320 INFO  (main) WrapperUtil:schemaValidate:1259 {Thread:1} - --             Validate /app/cts/batch/uat/data/out/pending/ID2025HKTC-CTBP5005-UPE-30155093-21102026A.metadata.xml against jar:file:/nfs/app/cts/batch/uat/program/openjdk17/cts-batch-wrapper-21.24.0.jar!/CTS-SenderFileMetadata-5.0.xsd
+2026-10-21 14:52:14,339 INFO  (main) WrapperUtil:trimBom:1278 {Thread:1} - filePath:/app/cts/batch/uat/data/out/pending/ID2025HKTC-CTBP5005-UPE-30155093-21102026A.metadata.xml   hasBOM:false
+2026-10-21 14:52:14,344 INFO  (main) SenderFileMetadata5Service:writeCtsSenderFileMetadataXml:223 {Thread:1} - [GIR] Metadata Xml: /app/cts/batch/uat/data/out/pending/ID2025HKTC-CTBP5005-UPE-30155093-21102026A.metadata.xml
+2026-10-21 14:52:14,351 INFO  (main) WrapperUtil:getX509Certificate:787 {Thread:1} - |--------- Receiver X509Certificate ---------|
+2026-10-21 14:52:14,353 INFO  (main) WrapperUtil:getX509Certificate:788 {Thread:1} - | Country: HK
+2026-10-21 14:52:14,355 INFO  (main) WrapperUtil:getX509Certificate:789 {Thread:1} - | Start Date: 2018-01-12T10:27:44.000+0800
+2026-10-21 14:52:14,356 INFO  (main) WrapperUtil:getX509Certificate:790 {Thread:1} - | End Date: 2028-01-10T10:27:44.000+0800
+2026-10-21 14:52:14,358 INFO  (main) WrapperUtil:getX509Certificate:791 {Thread:1} - |---------
+2026-10-21 14:52:14,360 INFO  (main) SignEncrypt5Service:signEncrypt:164 {Thread:1} - -- | ------------------------------------------------------------ |
+2026-10-21 14:52:14,361 INFO  (main) SignEncrypt5Service:signEncrypt:165 {Thread:1} - -- |    MsgFileName: ID2025HKTC-CTBP5005-UPE-30155093-21102026A.xml
+2026-10-21 14:52:14,363 INFO  (main) SignEncrypt5Service:signEncrypt:166 {Thread:1} - -- | ------------------------------------------------------------ |
+2026-10-21 14:52:14,364 INFO  (main) SignEncrypt5Service:signEncrypt:169 {Thread:1} - -- Step 1/7: (Get Sender Country X509Cert): ID
+2026-10-21 14:52:14,371 INFO  (main) SignEncrypt5Service:getX509CertificatePrivateKey:351 {Thread:1} - |--------- Sender X509Certificate ------------------|
+2026-10-21 14:52:14,376 INFO  (main) SignEncrypt5Service:getX509CertificatePrivateKey:352 {Thread:1} - | Country: ID
+2026-10-21 14:52:14,378 INFO  (main) SignEncrypt5Service:getX509CertificatePrivateKey:353 {Thread:1} - | Start Date: 2018-08-27T18:02:05.000+0800
+2026-10-21 14:52:14,381 INFO  (main) SignEncrypt5Service:getX509CertificatePrivateKey:354 {Thread:1} - | End Date: 2028-08-27T18:02:05.000+0800
+2026-10-21 14:52:14,384 INFO  (main) SignEncrypt5Service:getX509CertificatePrivateKey:355 {Thread:1} - |---------------------------------------------------|
+2026-10-21 14:52:14,387 INFO  (main) SignEncrypt5Service:signEncrypt:172 {Thread:1} - -- Step 2/7: (Sign and Zip Payload): ID2025HKTC-CTBP5005-UPE-30155093-21102026A.xml
+2026-10-21 14:52:14,408 INFO  (main) SignEncrypt5Service:signZipPayloadXml:273 {Thread:1} - -- Step 2/7: (Sign Payload by Sender X509Cert)
+2026-10-21 14:52:14,410 INFO  (main) XmlSigning:signFileStreaming:468 {Thread:1} - infile:/app/cts/batch/uat/data/out/pending/ID2025HKTC-CTBP5005-UPE-30155093-21102026A.xml, outfile:/app/cts/batch/uat/data/out/temp/ID_GIR_2829181469136885010.zip
+2026-10-21 14:52:14,547 INFO  (main) XmlSigning:signFileStreaming:615 {Thread:1} - ret:true
+2026-10-21 14:52:14,548 INFO  (main) SignEncrypt5Service:signZipPayloadXml:280 {Thread:1} - -- Step 2/7: (Zip Payload)
+2026-10-21 14:52:15,584 INFO  (main) SignEncrypt5Service:signEncrypt:183 {Thread:1} - -- Step 3/7: (Backup Signed Payload): ID2025HKTC-CTBP5005-UPE-30155093-21102026A_signed_GIR_20261021T145215572Z.zip
+2026-10-21 14:52:15,586 INFO  (main) SignEncrypt5Service:signEncrypt:193 {Thread:1} - -- Step 4/7: (Generate one-time use AES-256 key)
+2026-10-21 14:52:15,588 INFO  (main) SignEncrypt5Service:signEncrypt:199 {Thread:1} - -- Step 5/7: (Encrypt Signed Payload by AES-256 key): ID_GIR_548595115595234891.zip
+2026-10-21 14:52:15,604 INFO  (main) SignEncrypt5Service:signEncrypt:206 {Thread:1} - -- Step 6/7: (Encrypt AES-256 key by Recipient Country X509Cert): HK
+2026-10-21 14:52:15,626 INFO  (main) WrapperUtil:getX509Certificate:787 {Thread:1} - |--------- Receiver X509Certificate ---------|
+2026-10-21 14:52:15,628 INFO  (main) WrapperUtil:getX509Certificate:788 {Thread:1} - | Country: HK
+2026-10-21 14:52:15,630 INFO  (main) WrapperUtil:getX509Certificate:789 {Thread:1} - | Start Date: 2018-01-12T10:27:44.000+0800
+2026-10-21 14:52:15,633 INFO  (main) WrapperUtil:getX509Certificate:790 {Thread:1} - | End Date: 2028-01-10T10:27:44.000+0800
+2026-10-21 14:52:15,635 INFO  (main) WrapperUtil:getX509Certificate:791 {Thread:1} - |---------
+2026-10-21 14:52:15,643 INFO  (main) SignEncrypt5Service:signEncrypt:215 {Thread:1} - -- Step 7/7: (Done): /app/cts/batch/uat/data/cts/Outbox/HK/ID_GIR_20261021T145215572Z.zip
+2026-10-21 14:52:15,713 INFO  (main) SignEncrypt5Service:signEncrypt:225 {Thread:1} - -- End --
+2026-10-21 14:52:15,754 INFO  (main) WrapperUtil:schemaValidate:1259 {Thread:1} - --             Validate /app/cts/batch/uat/data/out/pending/ID2025HKTC-CTBP5005-UPE-30155093-21102026A.metadata.xml against jar:file:/nfs/app/cts/batch/uat/program/openjdk17/cts-batch-wrapper-21.24.0.jar!/CTS-SenderFileMetadata-5.0.xsd
+2026-10-21 14:52:15,779 INFO  (main) WrapperUtil:trimBom:1278 {Thread:1} - filePath:/app/cts/batch/uat/data/out/pending/ID2025HKTC-CTBP5005-UPE-30155093-21102026A.metadata.xml   hasBOM:false
+2026-10-21 14:52:15,802 INFO  (main) SignEncrypt5Service:signEncrypt:242 {Thread:1} - {"fullFilePath":"/app/cts/batch/uat/data/cts/Outbox/HK/ID_GIR_20261021T145215572Z.zip","fileName":"ID_GIR_20261021T145215572Z.zip","fileSize":7026,"metadata":{"senderFileId":"ID_HK_GIR_ID2025HKTC-CTBP5005-UPE-30155093-21102026A","fileFormatCd":"XML","binaryEncodingSchemeCd":"NONE","fileCreateTs":"2026-10-21T06:52:14.000+00:00","taxYear":null,"fileRevisionInd":null,"originalCTSTransmissionId":null,"senderContactEmailAddressTxt":"QA-ENGINEER","ctscommunicationTypeCd":"GIR","ctsreceiverCountryCd":"HK","ctssenderCountryCd":"ID"}}
+2026-10-21 14:52:15,804 INFO  (main) WrapperUtil:fileMove:468 {Thread:1} - srcFile:/app/cts/batch/uat/data/out/pending/ID2025HKTC-CTBP5005-UPE-30155093-21102026A.xml, destFile:/app/cts/batch/uat/data/out/processed/ID2025HKTC-CTBP5005-UPE-30155093-21102026A.xml
+2026-10-21 14:52:15,812 INFO  (main) WrapperUtil:fileMove:468 {Thread:1} - srcFile:/app/cts/batch/uat/data/out/pending/ID2025HKTC-CTBP5005-UPE-30155093-21102026A.metadata.xml, destFile:/app/cts/batch/uat/data/out/processed/ID2025HKTC-CTBP5005-UPE-30155093-21102026A.metadata.xml
+2026-10-21 14:52:15,821 INFO  (main) SignEncrypt5Service:signEncryptDataFile:122 {Thread:1} - (Done): /app/cts/batch/uat/data/out/processed/ID2025HKTC-CTBP5005-UPE-30155093-21102026A.xml
+2026-10-21 14:52:15,824 INFO  (main) SignEncrypt5Service:signEncryptDataFile:123 {Thread:1} - (Done): /app/cts/batch/uat/data/out/processed/ID2025HKTC-CTBP5005-UPE-30155093-21102026A.metadata.xml
+2026-10-21 14:52:17,827 INFO  (main) WrapperUtil:fileMove:468 {Thread:1} - srcFile:/app/cts/batch/uat/data/cts/Outbox/HK/ID_GIR_20261021T145215572Z.zip, destFile:/nfs/app/cts/batch/uat/script/packDummy/ctsg/20261021_2/ID_GIR_20261021T145215572Z_45A55D6AC95A546EF18C16C1CEFF538E.zip
+2026-10-21 14:52:17,832 INFO  (main) PackDummyService:packDummyGirXml:1207 {Thread:1} - Current absolute path is: /nfs/app/cts/batch/uat/script
+2026-10-21 14:52:17,834 INFO  (main) WrapperUtil:schemaValidate:1259 {Thread:1} - --             Validate packDummy/ctsg/20261021_2//Z05_B_schema_error_for_5005-013.xml against jar:file:/nfs/app/cts/batch/uat/program/openjdk17/cts-batch-wrapper-21.24.0.jar!/ptp/GLOBEXML_v1.0.xsd
+2026-10-21 14:52:17,862 INFO  (main) WrapperUtil:trimBom:1278 {Thread:1} - filePath:packDummy/ctsg/20261021_2//Z05_B_schema_error_for_5005-013.xml   hasBOM:false
+2026-10-21 14:52:17,881 INFO  (main) commonLogger:printJobResult:71 {Thread:1} - -----------------------------------------------------
+2026-10-21 14:52:17,883 INFO  (main) commonLogger:printJobResult:72 {Thread:1} - |   Environment: uat
+2026-10-21 14:52:17,887 INFO  (main) commonLogger:printJobResult:73 {Thread:1} - |   Program ID: cts-batch-wrapper
+2026-10-21 14:52:17,889 INFO  (main) commonLogger:printJobResult:74 {Thread:1} - |   Version: null
+2026-10-21 14:52:17,891 INFO  (main) commonLogger:printJobResult:75 {Thread:1} - |   Parameters: gir|packDummy/ctsg/20261021_2/
+2026-10-21 14:52:17,892 INFO  (main) commonLogger:printJobResult:76 {Thread:1} - |   Duration: 0 minutes (9 secs)
+2026-10-21 14:52:17,896 INFO  (main) commonLogger:printJobResult:77 {Thread:1} - -----------------------------------------------------
+2026-10-21 14:52:17,898 ERROR (main) CtsBatchJob:main:47 {Thread:1} - cvc-complex-type.2.4.b: The content of element 'globe:FilingCE' is not complete. One of '{"urn:oecd:ties:globe:v2":Role}' is expected.
+org.xml.sax.SAXParseException; lineNumber: 22; columnNumber: 46; cvc-complex-type.2.4.b: The content of element 'globe:FilingCE' is not complete. One of '{"urn:oecd:ties:globe:v2":Role}' is expected.
+	at java.xml/com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(ErrorHandlerWrapper.java:204)
+	at java.xml/com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.error(ErrorHandlerWrapper.java:135)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:396)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:327)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:284)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator$XSIErrorReporter.reportError(XMLSchemaValidator.java:512)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator.reportSchemaError(XMLSchemaValidator.java:3596)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator.elementLocallyValidComplexType(XMLSchemaValidator.java:3515)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator.elementLocallyValidType(XMLSchemaValidator.java:3441)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator.processElementContent(XMLSchemaValidator.java:3343)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator.handleEndElement(XMLSchemaValidator.java:2373)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator.endElement(XMLSchemaValidator.java:944)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanEndElement(XMLDocumentFragmentScannerImpl.java:1728)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl$FragmentContentDriver.next(XMLDocumentFragmentScannerImpl.java:2899)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:605)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(XMLNSDocumentScannerImpl.java:112)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:542)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:889)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:825)
+	at java.xml/com.sun.org.apache.xerces.internal.jaxp.validation.StreamValidatorHelper.validate(StreamValidatorHelper.java:178)
+	at java.xml/com.sun.org.apache.xerces.internal.jaxp.validation.ValidatorImpl.validate(ValidatorImpl.java:115)
+	at java.xml/javax.xml.validation.Validator.validate(Validator.java:124)
+	at ird.cts.common.module.util.WrapperUtil.schemaValidate(WrapperUtil.java:1265)
+	at ird.cts.ptp.service.GirMsgSpecService.readMessageSpecPayloadXml(GirMsgSpecService.java:21)
+	at ird.cts.wrapper.batch.service.PackDummyService.packDummyGirXml(PackDummyService.java:1251)
+	at ird.cts.wrapper.batch.CtsBatchJob.run(CtsBatchJob.java:376)
+	at ird.cts.wrapper.batch.CtsBatchJob.main(CtsBatchJob.java:42)
+2026-10-21 14:52:17,902 ERROR (main) CtsBatchJob:main:48 {Thread:1} - --- FAILURE ---
+2026-10-21 14:54:48,062 INFO  (main) commonLogger:init:269 {Thread:1} - rootPath:/app/cts/batch/uat/ conformance:false
+2026-10-21 14:54:48,341 INFO  (main) PackDummyService:packDummyGirXml:1207 {Thread:1} - Current absolute path is: /nfs/app/cts/batch/uat/script
+2026-10-21 14:54:48,352 INFO  (main) WrapperUtil:schemaValidate:1259 {Thread:1} - --             Validate packDummy/ctsg/20261021_2//Z04_copy_for_5005-013_accepted.xml against jar:file:/nfs/app/cts/batch/uat/program/openjdk17/cts-batch-wrapper-21.24.0.jar!/ptp/GLOBEXML_v1.0.xsd
+2026-10-21 14:54:48,533 INFO  (main) WrapperUtil:trimBom:1278 {Thread:1} - filePath:packDummy/ctsg/20261021_2//Z04_copy_for_5005-013_accepted.xml   hasBOM:false
+2026-10-21 14:54:48,757 INFO  (main) WrapperUtil:writeFormattedXml:299 {Thread:1} - filePath:/app/cts/batch/uat/data/out/pending/ID2025HKTC-CTBP5005-UPE-30155093-21102026Z04.metadata.xml
+2026-10-21 14:54:48,811 INFO  (main) WrapperUtil:schemaValidate:1259 {Thread:1} - --             Validate /app/cts/batch/uat/data/out/pending/ID2025HKTC-CTBP5005-UPE-30155093-21102026Z04.metadata.xml against jar:file:/nfs/app/cts/batch/uat/program/openjdk17/cts-batch-wrapper-21.24.0.jar!/CTS-SenderFileMetadata-5.0.xsd
+2026-10-21 14:54:48,826 INFO  (main) WrapperUtil:trimBom:1278 {Thread:1} - filePath:/app/cts/batch/uat/data/out/pending/ID2025HKTC-CTBP5005-UPE-30155093-21102026Z04.metadata.xml   hasBOM:false
+2026-10-21 14:54:48,830 INFO  (main) SenderFileMetadata5Service:writeCtsSenderFileMetadataXml:223 {Thread:1} - [GIR] Metadata Xml: /app/cts/batch/uat/data/out/pending/ID2025HKTC-CTBP5005-UPE-30155093-21102026Z04.metadata.xml
+2026-10-21 14:54:48,902 INFO  (main) WrapperUtil:getX509Certificate:787 {Thread:1} - |--------- Receiver X509Certificate ---------|
+2026-10-21 14:54:48,904 INFO  (main) WrapperUtil:getX509Certificate:788 {Thread:1} - | Country: HK
+2026-10-21 14:54:48,906 INFO  (main) WrapperUtil:getX509Certificate:789 {Thread:1} - | Start Date: 2018-01-12T10:27:44.000+0800
+2026-10-21 14:54:48,907 INFO  (main) WrapperUtil:getX509Certificate:790 {Thread:1} - | End Date: 2028-01-10T10:27:44.000+0800
+2026-10-21 14:54:48,908 INFO  (main) WrapperUtil:getX509Certificate:791 {Thread:1} - |---------
+2026-10-21 14:54:48,911 INFO  (main) SignEncrypt5Service:signEncrypt:164 {Thread:1} - -- | ------------------------------------------------------------ |
+2026-10-21 14:54:48,916 INFO  (main) SignEncrypt5Service:signEncrypt:165 {Thread:1} - -- |    MsgFileName: ID2025HKTC-CTBP5005-UPE-30155093-21102026Z04.xml
+2026-10-21 14:54:48,918 INFO  (main) SignEncrypt5Service:signEncrypt:166 {Thread:1} - -- | ------------------------------------------------------------ |
+2026-10-21 14:54:48,919 INFO  (main) SignEncrypt5Service:signEncrypt:169 {Thread:1} - -- Step 1/7: (Get Sender Country X509Cert): ID
+2026-10-21 14:54:48,936 INFO  (main) SignEncrypt5Service:getX509CertificatePrivateKey:351 {Thread:1} - |--------- Sender X509Certificate ------------------|
+2026-10-21 14:54:48,938 INFO  (main) SignEncrypt5Service:getX509CertificatePrivateKey:352 {Thread:1} - | Country: ID
+2026-10-21 14:54:48,939 INFO  (main) SignEncrypt5Service:getX509CertificatePrivateKey:353 {Thread:1} - | Start Date: 2018-08-27T18:02:05.000+0800
+2026-10-21 14:54:48,941 INFO  (main) SignEncrypt5Service:getX509CertificatePrivateKey:354 {Thread:1} - | End Date: 2028-08-27T18:02:05.000+0800
+2026-10-21 14:54:48,942 INFO  (main) SignEncrypt5Service:getX509CertificatePrivateKey:355 {Thread:1} - |---------------------------------------------------|
+2026-10-21 14:54:48,949 INFO  (main) SignEncrypt5Service:signEncrypt:172 {Thread:1} - -- Step 2/7: (Sign and Zip Payload): ID2025HKTC-CTBP5005-UPE-30155093-21102026Z04.xml
+2026-10-21 14:54:48,964 INFO  (main) SignEncrypt5Service:signZipPayloadXml:273 {Thread:1} - -- Step 2/7: (Sign Payload by Sender X509Cert)
+2026-10-21 14:54:49,009 INFO  (main) XmlSigning:signFileStreaming:468 {Thread:1} - infile:/app/cts/batch/uat/data/out/pending/ID2025HKTC-CTBP5005-UPE-30155093-21102026Z04.xml, outfile:/app/cts/batch/uat/data/out/temp/ID_GIR_7875247672730123991.zip
+2026-10-21 14:54:49,294 INFO  (main) XmlSigning:signFileStreaming:615 {Thread:1} - ret:true
+2026-10-21 14:54:49,296 INFO  (main) SignEncrypt5Service:signZipPayloadXml:280 {Thread:1} - -- Step 2/7: (Zip Payload)
+2026-10-21 14:54:51,321 INFO  (main) SignEncrypt5Service:signEncrypt:183 {Thread:1} - -- Step 3/7: (Backup Signed Payload): ID2025HKTC-CTBP5005-UPE-30155093-21102026Z04_signed_GIR_20261021T145451311Z.zip
+2026-10-21 14:54:51,324 INFO  (main) SignEncrypt5Service:signEncrypt:193 {Thread:1} - -- Step 4/7: (Generate one-time use AES-256 key)
+2026-10-21 14:54:51,339 INFO  (main) SignEncrypt5Service:signEncrypt:199 {Thread:1} - -- Step 5/7: (Encrypt Signed Payload by AES-256 key): ID_GIR_13975601507306828460.zip
+2026-10-21 14:54:51,364 INFO  (main) SignEncrypt5Service:signEncrypt:206 {Thread:1} - -- Step 6/7: (Encrypt AES-256 key by Recipient Country X509Cert): HK
+2026-10-21 14:54:51,382 INFO  (main) WrapperUtil:getX509Certificate:787 {Thread:1} - |--------- Receiver X509Certificate ---------|
+2026-10-21 14:54:51,385 INFO  (main) WrapperUtil:getX509Certificate:788 {Thread:1} - | Country: HK
+2026-10-21 14:54:51,387 INFO  (main) WrapperUtil:getX509Certificate:789 {Thread:1} - | Start Date: 2018-01-12T10:27:44.000+0800
+2026-10-21 14:54:51,389 INFO  (main) WrapperUtil:getX509Certificate:790 {Thread:1} - | End Date: 2028-01-10T10:27:44.000+0800
+2026-10-21 14:54:51,390 INFO  (main) WrapperUtil:getX509Certificate:791 {Thread:1} - |---------
+2026-10-21 14:54:51,398 INFO  (main) SignEncrypt5Service:signEncrypt:215 {Thread:1} - -- Step 7/7: (Done): /app/cts/batch/uat/data/cts/Outbox/HK/ID_GIR_20261021T145451311Z.zip
+2026-10-21 14:54:51,420 INFO  (main) SignEncrypt5Service:signEncrypt:225 {Thread:1} - -- End --
+2026-10-21 14:54:51,426 INFO  (main) WrapperUtil:schemaValidate:1259 {Thread:1} - --             Validate /app/cts/batch/uat/data/out/pending/ID2025HKTC-CTBP5005-UPE-30155093-21102026Z04.metadata.xml against jar:file:/nfs/app/cts/batch/uat/program/openjdk17/cts-batch-wrapper-21.24.0.jar!/CTS-SenderFileMetadata-5.0.xsd
+2026-10-21 14:54:51,442 INFO  (main) WrapperUtil:trimBom:1278 {Thread:1} - filePath:/app/cts/batch/uat/data/out/pending/ID2025HKTC-CTBP5005-UPE-30155093-21102026Z04.metadata.xml   hasBOM:false
+2026-10-21 14:54:51,548 INFO  (main) SignEncrypt5Service:signEncrypt:242 {Thread:1} - {"fullFilePath":"/app/cts/batch/uat/data/cts/Outbox/HK/ID_GIR_20261021T145451311Z.zip","fileName":"ID_GIR_20261021T145451311Z.zip","fileSize":7028,"metadata":{"senderFileId":"ID_HK_GIR_ID2025HKTC-CTBP5005-UPE-30155093-21102026Z04","fileFormatCd":"XML","binaryEncodingSchemeCd":"NONE","fileCreateTs":"2026-10-21T06:54:48.000+00:00","taxYear":null,"fileRevisionInd":null,"originalCTSTransmissionId":null,"senderContactEmailAddressTxt":"QA-ENGINEER","ctscommunicationTypeCd":"GIR","ctsreceiverCountryCd":"HK","ctssenderCountryCd":"ID"}}
+2026-10-21 14:54:51,552 INFO  (main) WrapperUtil:fileMove:468 {Thread:1} - srcFile:/app/cts/batch/uat/data/out/pending/ID2025HKTC-CTBP5005-UPE-30155093-21102026Z04.xml, destFile:/app/cts/batch/uat/data/out/processed/ID2025HKTC-CTBP5005-UPE-30155093-21102026Z04.xml
+2026-10-21 14:54:51,559 INFO  (main) WrapperUtil:fileMove:468 {Thread:1} - srcFile:/app/cts/batch/uat/data/out/pending/ID2025HKTC-CTBP5005-UPE-30155093-21102026Z04.metadata.xml, destFile:/app/cts/batch/uat/data/out/processed/ID2025HKTC-CTBP5005-UPE-30155093-21102026Z04.metadata.xml
+2026-10-21 14:54:51,564 INFO  (main) SignEncrypt5Service:signEncryptDataFile:122 {Thread:1} - (Done): /app/cts/batch/uat/data/out/processed/ID2025HKTC-CTBP5005-UPE-30155093-21102026Z04.xml
+2026-10-21 14:54:51,566 INFO  (main) SignEncrypt5Service:signEncryptDataFile:123 {Thread:1} - (Done): /app/cts/batch/uat/data/out/processed/ID2025HKTC-CTBP5005-UPE-30155093-21102026Z04.metadata.xml
+2026-10-21 14:54:52,571 INFO  (main) WrapperUtil:fileMove:468 {Thread:1} - srcFile:/app/cts/batch/uat/data/cts/Outbox/HK/ID_GIR_20261021T145451311Z.zip, destFile:/nfs/app/cts/batch/uat/script/packDummy/ctsg/20261021_2/ID_GIR_20261021T145451311Z_63CE2C8150E5FF587812B75D1FAE90FE.zip
+2026-10-21 14:54:52,575 INFO  (main) PackDummyService:packDummyGirXml:1207 {Thread:1} - Current absolute path is: /nfs/app/cts/batch/uat/script
+2026-10-21 14:54:52,577 INFO  (main) WrapperUtil:schemaValidate:1259 {Thread:1} - --             Validate packDummy/ctsg/20261021_2//Z03_B_schema_error_Rejected.xml against jar:file:/nfs/app/cts/batch/uat/program/openjdk17/cts-batch-wrapper-21.24.0.jar!/ptp/GLOBEXML_v1.0.xsd
+2026-10-21 14:54:52,616 INFO  (main) WrapperUtil:trimBom:1278 {Thread:1} - filePath:packDummy/ctsg/20261021_2//Z03_B_schema_error_Rejected.xml   hasBOM:false
+2026-10-21 14:54:52,627 INFO  (main) commonLogger:printJobResult:71 {Thread:1} - -----------------------------------------------------
+2026-10-21 14:54:52,629 INFO  (main) commonLogger:printJobResult:72 {Thread:1} - |   Environment: uat
+2026-10-21 14:54:52,631 INFO  (main) commonLogger:printJobResult:73 {Thread:1} - |   Program ID: cts-batch-wrapper
+2026-10-21 14:54:52,632 INFO  (main) commonLogger:printJobResult:74 {Thread:1} - |   Version: null
+2026-10-21 14:54:52,634 INFO  (main) commonLogger:printJobResult:75 {Thread:1} - |   Parameters: gir|packDummy/ctsg/20261021_2/
+2026-10-21 14:54:52,635 INFO  (main) commonLogger:printJobResult:76 {Thread:1} - |   Duration: 0 minutes (5 secs)
+2026-10-21 14:54:52,637 INFO  (main) commonLogger:printJobResult:77 {Thread:1} - -----------------------------------------------------
+2026-10-21 14:54:52,638 ERROR (main) CtsBatchJob:main:47 {Thread:1} - cvc-complex-type.2.4.b: The content of element 'globe:FilingCE' is not complete. One of '{"urn:oecd:ties:globe:v2":Role}' is expected.
+org.xml.sax.SAXParseException; lineNumber: 22; columnNumber: 46; cvc-complex-type.2.4.b: The content of element 'globe:FilingCE' is not complete. One of '{"urn:oecd:ties:globe:v2":Role}' is expected.
+	at java.xml/com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(ErrorHandlerWrapper.java:204)
+	at java.xml/com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.error(ErrorHandlerWrapper.java:135)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:396)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:327)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:284)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator$XSIErrorReporter.reportError(XMLSchemaValidator.java:512)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator.reportSchemaError(XMLSchemaValidator.java:3596)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator.elementLocallyValidComplexType(XMLSchemaValidator.java:3515)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator.elementLocallyValidType(XMLSchemaValidator.java:3441)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator.processElementContent(XMLSchemaValidator.java:3343)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator.handleEndElement(XMLSchemaValidator.java:2373)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator.endElement(XMLSchemaValidator.java:944)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanEndElement(XMLDocumentFragmentScannerImpl.java:1728)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl$FragmentContentDriver.next(XMLDocumentFragmentScannerImpl.java:2899)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:605)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(XMLNSDocumentScannerImpl.java:112)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:542)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:889)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:825)
+	at java.xml/com.sun.org.apache.xerces.internal.jaxp.validation.StreamValidatorHelper.validate(StreamValidatorHelper.java:178)
+	at java.xml/com.sun.org.apache.xerces.internal.jaxp.validation.ValidatorImpl.validate(ValidatorImpl.java:115)
+	at java.xml/javax.xml.validation.Validator.validate(Validator.java:124)
+	at ird.cts.common.module.util.WrapperUtil.schemaValidate(WrapperUtil.java:1265)
+	at ird.cts.ptp.service.GirMsgSpecService.readMessageSpecPayloadXml(GirMsgSpecService.java:21)
+	at ird.cts.wrapper.batch.service.PackDummyService.packDummyGirXml(PackDummyService.java:1251)
+	at ird.cts.wrapper.batch.CtsBatchJob.run(CtsBatchJob.java:376)
+	at ird.cts.wrapper.batch.CtsBatchJob.main(CtsBatchJob.java:42)
+2026-10-21 14:54:52,641 ERROR (main) CtsBatchJob:main:48 {Thread:1} - --- FAILURE ---
