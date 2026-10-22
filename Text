@@ -1,19 +1,70 @@
--- 這個 ZIP 與這個 MessageRefId 都還沒被處理過（預期 0 筆）
-SELECT DP_ID, MSG_TYPE, ZIP_FILENAME, META_SNDR_FILE_ID
-FROM ctsg_enc.CTS_DATA_PACKET
-WHERE ZIP_FILENAME = '<新ZIP檔名>'
-   OR META_SNDR_FILE_ID LIKE '%30155093-21102026Z01%';
+先確認一件事再往下：用 SQL 看一下 R2 那筆 status message 的 `VAL_RSLT` 是不是 `ACCEPTED`。是的話，下面的對應才成立；不是的話先停，把結果貼給我。
 
--- 現有的 GIR status message（要記下有哪些 'P'）
-SELECT STS_ID, STS_MSG_REF_ID, VAL_RSLT, SGD_STS
-FROM ctsg_enc.CTS_STS_MSG
-WHERE STS_MSG_REF_ID LIKE 'StatusHK%ID%'
-ORDER BY STS_ID DESC;
+## 你剛截的圖對應的 test case
 
--- 三表筆數（R1 後的現況，當作 R2 的「前」）
-SELECT 'CTS_DATA_PACKET' AS T, COUNT(*) AS CNT FROM ctsg_enc.CTS_DATA_PACKET
-UNION ALL SELECT 'CTS_STS_MSG', COUNT(*) FROM ctsg_enc.CTS_STS_MSG
-UNION ALL SELECT 'CTS_TX_REC', COUNT(*) FROM ctsg_enc.CTS_TX_REC;
+| 你截的圖 | 對應 case |
+|---|---|
+| WinSCP：`status_out\pending\` 的兩個新檔 | 5005-015①、018；5003-009②、023、024、025①、007 |
+| WinSCP：`Inbox\` 已空、`Inbox_recv\` 有 ZIP | 5005-001③ |
+| WinSCP：`in\pending\` 沒有對應資料夾 | 5005-014① |
+| WinSCP：`in\processed\{ZIP}\` 展開 | 5005-005③、010②、014② |
+| SQL：`CTS_STS_MSG`（`VAL_RSLT`、`SGD_STS='P'`、`STS_MSG_REF_ID`） | 5005-011③、015②、017、023②、026；5003-004①、007、008、009①、014 前 |
+| SQL：三表筆數（後） | 5005-003④ 的基準；5003-015 前 |
+| SQL：`GIR_MSG_SPEC` 的 `SGD_STS` 分布 | 5003-028② 的「前」 |
+| 信箱：Accepted 通知信 | 5005-038、041（Accepted） |
 
--- GIR_MSG_SPEC 的 SGD_STS 分布
-SELECT SGD_STS, COUNT(*) AS CNT FROM ctsg_enc.GIR_MSG_SPEC GROUP BY SGD_STS;
+## 5003 之前還缺的（一定要先補完）
+
+這些是 5003 一跑就拿不到、或需要在 5003 之前截的。`<>` 內請代入你這輪的實際值：
+
+| 要截什麼 | 查詢 | case |
+|---|---|---|
+| GIR 那筆 data packet | `SELECT * FROM ctsg_enc.CTS_DATA_PACKET WHERE ZIP_FILENAME='<ZIP>';` | 5005-019① |
+| 同一 `STS_ID` 兩筆（GIR＋status） | `SELECT DP_ID, MSG_TYPE, ZIP_FILENAME, MS_ID, STS_ID FROM ctsg_enc.CTS_DATA_PACKET WHERE STS_ID=<STS_ID>;`（status 那筆 `ZIP_FILENAME` 要是 NULL） | 5005-019②③、025①③；5003-016 前 |
+| `CTS_TX_REC` | 以 GIR 那筆的 `DP_ID` 查（預期 1 筆）；再以 status 那筆的 `DP_ID` 查（預期 0 筆） | 5005-021；5003-015①、027① |
+| `CTS_VALID_BY` | 先 `SELECT *` 看串接欄位，再加條件 | 5005-027 |
+| `GIR_MSG_SPEC` 計數 | `SELECT * FROM ctsg_enc.GIR_MSG_SPEC WHERE MS_ID=<MS_ID>;`（`GIR_CNT=1`、`AMEND_CNT=0`） | 5005-030② |
+| `GIR_*` 內容表 | 先列出 `GIR_` 開頭的表，再逐表 `COUNT(*)` 並帶 `MS_ID` 條件 | 5005-022①②、023① |
+| 11 個 `META_*` 欄位 | 同一筆 data packet 的 `META_` 欄位 | 5005-020② |
+| 四張錯誤表 | `CTS_FILE_ERR`、`CTS_REC_ERR`、`CTS_ERR_FIELD`、`CTS_ERR_DOC_REF_ID` 各查一次（預期都是 0 筆） | 5005-029 |
+
+檔案內容（用編輯器開、截圖）：
+
+| 檔案 | 看什麼 | case |
+|---|---|---|
+| status message XML | `ValidationResult=Accepted` | 5005-011④ |
+| 同一份 XML 丟進驗證工具 | 看得到檔名、XSD 名稱、結果 | 5005-016（Accepted） |
+| payload XML（`in\processed\{ZIP}\` 內） | `MessageTypeIndic=GIR101`、`DocTypeIndic=OECD1` | 5005-030① |
+| metadata XML | 11 個值，且與資料庫欄位對照 | 5005-008②、020① |
+
+還有兩項你可能還沒有：同事 R2 的 **batch log**（5005-001②、004、005②、008③、010①、011②），以及 **ID 的 incoming 夥伴設定與起訖日**（5005-005①、008①，表名要問同事或老師）。
+
+## 全部補完才進 5003（單 C）
+
+先留意：現在 `status_out\pending\` 裡有兩筆 `'P'`，一筆是 R1 那個檔案錯誤的 `StatusHK2026ID20261022110723215`，一筆是 R2 的，參數要給 **R2 那筆**。
+
+> **標題**：CTBP5003 測試（UAT）－單筆 ad-hoc，請勿執行 CTBP5011
+>
+> 請執行 CTBP5003，只處理下面這一筆：
+> StatusMessageRefId：`<R2 那筆的 STS_MSG_REF_ID>`
+>
+> 跑完請：
+> 1. 提供完整 batch log
+> 2. 立刻回覆我
+>
+> 請勿處理其他 `'P'` 的 status message。
+
+## 5003 之後的順序
+
+| 步驟 | 做什麼 |
+|---|---|
+| 5003 跑完 | 截階段 3 的圖：`SGD_STS='S'`、`CTS_TX_REC`＋1（記錄 `TX_STS` 是 R 還是 P）、`ZIP_FILENAME` 填入、`status_out\processed\`、`Outbox\ID\` 有 ZIP |
+| 5011 | 建 transmission log、請同事跑 5011，再截階段 4 |
+| R3 | Z01 同檔名副本 |
+| R4 | Z01 副本＋Z02 |
+| R5 | Z03（跑完先查 `VAL_RSLT`） |
+| R6 | Z04＋Z05 |
+
+整個 5003 的流程要在 **21:00 前**做完，所以建議你現在就先估一下剩下的時間，來得及就一口氣補完上面的清單再送單 C。
+
+你把 R2 的 `STS_MSG_REF_ID` 和 batch log 貼給我，我可以幫你確認有沒有漏項。
