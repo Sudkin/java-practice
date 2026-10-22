@@ -1,0 +1,54 @@
+這個查詢要先拿到 R2 那筆的 `STS_ID`，再用它查 `CTS_DATA_PACKET`。
+
+## 做法
+
+**步驟 1：用 `STS_MSG_REF_ID` 查出 `STS_ID`**
+
+把 `<R2 的 STS_MSG_REF_ID>` 換成你在 R2 截圖裡看到的那串，例如 `StatusHK2026ID2026102...`：
+
+```sql
+SELECT STS_ID, STS_MSG_REF_ID, VAL_RSLT, SGD_STS
+FROM ctsg_enc.CTS_STS_MSG
+WHERE STS_MSG_REF_ID = '<R2 的 STS_MSG_REF_ID>';
+```
+
+預期 1 筆，記下 `STS_ID`。
+
+**步驟 2：用 `STS_ID` 查 data packet**
+
+```sql
+SELECT DP_ID, MSG_TYPE, ZIP_FILENAME, MS_ID, STS_ID
+FROM ctsg_enc.CTS_DATA_PACKET
+WHERE STS_ID = <步驟 1 查到的 STS_ID>;
+```
+
+**或者一步完成**（不用手動帶值）：
+
+```sql
+SELECT DP_ID, MSG_TYPE, ZIP_FILENAME, MS_ID, STS_ID
+FROM ctsg_enc.CTS_DATA_PACKET
+WHERE STS_ID = (SELECT STS_ID FROM ctsg_enc.CTS_STS_MSG
+                WHERE STS_MSG_REF_ID = '<R2 的 STS_MSG_REF_ID>');
+```
+
+## 預期結果
+
+應該是 2 筆：
+
+| DP_ID | MSG_TYPE | ZIP_FILENAME | MS_ID | STS_ID |
+|---|---|---|---|---|
+| …（GIR 那筆） | `GIR` | 你放進 Inbox 的 ZIP 檔名 | 有值 | 與步驟 1 相同 |
+| …（status 那筆） | `GIRMessageStatus` | **NULL** | 空或有值（依實際） | 與步驟 1 相同 |
+
+- `ZIP_FILENAME` 是 NULL 的那筆，就是 5003 之後會填入 Outbox ZIP 檔名的那一筆。
+- 兩筆的 `STS_ID` 要一樣，這是 5005-025 要證明的。
+
+## 截圖與對應
+
+| 截圖 | case |
+|---|---|
+| 這個查詢（語句與兩筆結果都入鏡） | 5005-025①③；5003-016 前（`ZIP_FILENAME` 為 NULL 的基準） |
+| 另外補一張，證明 `MS_ID` 找得到（把 GIR 那筆的 `MS_ID` 代入）：`SELECT * FROM ctsg_enc.GIR_MSG_SPEC WHERE MS_ID = <MS_ID>;` | 5005-019② |
+| 另外補一張，證明 `STS_ID` 找得到：就是步驟 1 的查詢結果 | 5005-019③ |
+
+如果執行時出現「欄位不存在」，可能是欄位名稱和我記得的不同，先改成 `SELECT * FROM ctsg_enc.CTS_DATA_PACKET WHERE ROWNUM <= 3;`（Oracle）看實際欄位，再貼給我。
