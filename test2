@@ -1,54 +1,50 @@
-這個查詢要先拿到 R2 那筆的 `STS_ID`，再用它查 `CTS_DATA_PACKET`。
+這代表實際結果和 xlsx 5005-025 的 Expected 不一樣，不要硬湊成一樣。我之前寫「應該有 2 筆」是照 xlsx 的 Expected，沒有實測過。
 
-## 做法
+先分清楚是哪一種情況，因為「查不到」有兩種可能：
 
-**步驟 1：用 `STS_MSG_REF_ID` 查出 `STS_ID`**
+| 可能 | 意思 |
+|---|---|
+| A | 同一個 `STS_ID` 只有 1 筆（`GIR`），5005 根本沒有另外寫 status 那一筆 |
+| B | 有 2 筆，但第二筆的 `MSG_TYPE` 不叫 `GIRMessageStatus` |
 
-把 `<R2 的 STS_MSG_REF_ID>` 換成你在 R2 截圖裡看到的那串，例如 `StatusHK2026ID2026102...`：
+B 不是憑空猜的：R1 那份 log 有一行 `[GIRStatus] Metadata SenderFileId: HK_ID_GIRStatus_…`，程式內部可能叫 `GIRStatus`。
 
-```sql
-SELECT STS_ID, STS_MSG_REF_ID, VAL_RSLT, SGD_STS
-FROM ctsg_enc.CTS_STS_MSG
-WHERE STS_MSG_REF_ID = '<R2 的 STS_MSG_REF_ID>';
-```
-
-預期 1 筆，記下 `STS_ID`。
-
-**步驟 2：用 `STS_ID` 查 data packet**
+## 用三個查詢判斷（各截一張）
 
 ```sql
-SELECT DP_ID, MSG_TYPE, ZIP_FILENAME, MS_ID, STS_ID
-FROM ctsg_enc.CTS_DATA_PACKET
-WHERE STS_ID = <步驟 1 查到的 STS_ID>;
-```
-
-**或者一步完成**（不用手動帶值）：
-
-```sql
+-- 1. 同一個 STS_ID 到底有幾筆、MSG_TYPE 是什麼（不要用 MSG_TYPE 當條件）
 SELECT DP_ID, MSG_TYPE, ZIP_FILENAME, MS_ID, STS_ID
 FROM ctsg_enc.CTS_DATA_PACKET
 WHERE STS_ID = (SELECT STS_ID FROM ctsg_enc.CTS_STS_MSG
                 WHERE STS_MSG_REF_ID = '<R2 的 STS_MSG_REF_ID>');
+
+-- 2. 這個資料表裡 MSG_TYPE 有哪些值
+SELECT MSG_TYPE, COUNT(*) AS CNT
+FROM ctsg_enc.CTS_DATA_PACKET
+GROUP BY MSG_TYPE;
+
+-- 3. 以 MS_ID 反查（GIR 那筆的 MS_ID 代入），看有沒有別的 data packet 掛在同一個 message spec 下
+SELECT DP_ID, MSG_TYPE, ZIP_FILENAME, MS_ID, STS_ID
+FROM ctsg_enc.CTS_DATA_PACKET
+WHERE MS_ID = <GIR 那筆的 MS_ID>;
 ```
 
-## 預期結果
+另外請同事 R2 的 batch log 裡，找 `[DATA_PACKET] DP_ID:` 這種行，數一下出現幾次：1 次就是只寫了一筆，2 次就是有第二筆。R1 的 log 是 1 次。
 
-應該是 2 筆：
+## 判斷後怎麼記
 
-| DP_ID | MSG_TYPE | ZIP_FILENAME | MS_ID | STS_ID |
-|---|---|---|---|---|
-| …（GIR 那筆） | `GIR` | 你放進 Inbox 的 ZIP 檔名 | 有值 | 與步驟 1 相同 |
-| …（status 那筆） | `GIRMessageStatus` | **NULL** | 空或有值（依實際） | 與步驟 1 相同 |
+| 結果 | 5005-025 的 Actual Result | 後續 |
+|---|---|---|
+| A：只有 1 筆 | 「同一 `STS_ID` 只有 1 筆（`GIR`），沒有 `GIRMessageStatus` 那筆，與 Expected 不符」，附查詢 1 的截圖與 log 的 `[DATA_PACKET]` 行 | 5003-016 要特別留意：Expected 是「更新既有那筆」，若沒有這一列，5003 之後可能新增、也可能更新 GIR 那筆，看實測 |
+| B：有 2 筆但名稱不同 | 照實寫實際的 `MSG_TYPE` 字樣，並註明 `ZIP_FILENAME` 為 NULL | 與 Expected 的字樣差異只提報，不算功能失敗；5003-016 照原計畫比對 |
 
-- `ZIP_FILENAME` 是 NULL 的那筆，就是 5003 之後會填入 Outbox ZIP 檔名的那一筆。
-- 兩筆的 `STS_ID` 要一樣，這是 5005-025 要證明的。
+兩種情況，查詢 1 現在這張截圖都是 **5003 之前**的基準，要留好，5003 跑完要用同一個語句再查一次比對（5003-016②）。
 
-## 截圖與對應
+## 對其他 case 的影響
 
-| 截圖 | case |
-|---|---|
-| 這個查詢（語句與兩筆結果都入鏡） | 5005-025①③；5003-016 前（`ZIP_FILENAME` 為 NULL 的基準） |
-| 另外補一張，證明 `MS_ID` 找得到（把 GIR 那筆的 `MS_ID` 代入）：`SELECT * FROM ctsg_enc.GIR_MSG_SPEC WHERE MS_ID = <MS_ID>;` | 5005-019② |
-| 另外補一張，證明 `STS_ID` 找得到：就是步驟 1 的查詢結果 | 5005-019③ |
+- **5005-019**：只看 `GIR` 那筆，不受影響。
+- **5005-025**：如上，標偏差。
+- **5003-016、027、015**：我先前寫的「status 那筆 `ZIP_FILENAME` 為 NULL」要改成「以實測為準」。這幾個 case 在 5003 前後都用同一個查詢，筆數有沒有變、有沒有填入檔名，就是它們的證據。
+- 這件事和 R1 一樣，屬於「規格書與實作可能不一致」，Remark 照實寫，並向 BA 回報，不要自己決定哪邊對。
 
-如果執行時出現「欄位不存在」，可能是欄位名稱和我記得的不同，先改成 `SELECT * FROM ctsg_enc.CTS_DATA_PACKET WHERE ROWNUM <= 3;`（Oracle）看實際欄位，再貼給我。
+你把查詢 1 和 2 的結果貼給我，再加上 R2 log 裡 `[DATA_PACKET]` 出現幾次，我可以幫你判斷是 A 還是 B，並把 5005-025 的 Actual Result 寫好。
