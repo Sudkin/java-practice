@@ -1,10 +1,22 @@
-1. Issue
-
-After processing an Accepted GIR data file with CTBP5005 and then running CTBP5003 for its status message, the transmission record (CTS_TX_REC) of the received GIR data packet has TX_STS = 'D'. This value is not defined in the specifications available to me. The transmission record of the generated status message (GIRMessageStatus) has TX_STS = 'R', which matches the CTBP5003 specification.
-
-2. Steps performed
-A GIR test XML (sender country ID, receiving country HK, MessageRefId [Z01 MessageRefId]) was prepared. The file was signed and encrypted by [colleague] using the encryption tool, which produced the ZIP [Z01 ZIP filename].
-The ZIP was uploaded to \data\cts\Inbox\ using WinSCP. The Inbox was empty beforehand [Screenshot ref].
-[Colleague] ran CTBP5005. The file was moved to Inbox_recv\ and a status message was generated: StatusHK2025ID20261022142639394 (VAL_RSLT = 'ACCEPTED', SGD_STS = 'P'). The two files (.xml and .metadata.xml) appeared in \data\in\status_out\pending\ [Screenshot ref].
-Before running CTBP5003, CTS_DATA_PACKET for this STS_ID contained 1 row (MSG_TYPE = 'GIR') [Screenshot ref].
-[Colleague] ran CTBP5003 for the status message above. The status message files moved to status_out\processed\ and a ZIP was created in \data\cts\Outbox\ID\.
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<GIRStatusMessage_OECD version="1.0" xmlns="urn:oecd:ties:csm:v2">
+    <MessageSpec>
+        <TransmittingCountry>_SENDER_CTRY_</TransmittingCountry>
+        <ReceivingCountry>_RECEIVER_CTRY_</ReceivingCountry>
+        <MessageType>GIRMessageStatus</MessageType>
+        <Warning>Warning</Warning>
+        <Contact>Contact</Contact>
+        <MessageRefId>_STATUS_MSGREF_ID_</MessageRefId>
+        <Timestamp>_TIME_</Timestamp>
+    </MessageSpec>
+    <GIRStatusMessage>
+        <OriginalMessage>
+            <OriginalMessageRefID>_ORG_MSGREF_ID_</OriginalMessageRefID>
+        </OriginalMessage>
+        <ValidationErrors/>
+        <ValidationResult>
+            <Status>Accepted</Status>
+            <ValidatedBy>ValidatedBy</ValidatedBy>
+        </ValidationResult>
+    </GIRStatusMessage>
+</GIRStatusMessage_OECD>
