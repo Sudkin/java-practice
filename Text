@@ -1,76 +1,10 @@
-代入好了，下面每一條都可以直接複製執行。
+1. Issue
 
-**#1　status message 狀態（5003-004③、014）**，預期 `SGD_STS` 變成 `'S'`：
+After processing an Accepted GIR data file with CTBP5005 and then running CTBP5003 for its status message, the transmission record (CTS_TX_REC) of the received GIR data packet has TX_STS = 'D'. This value is not defined in the specifications available to me. The transmission record of the generated status message (GIRMessageStatus) has TX_STS = 'R', which matches the CTBP5003 specification.
 
-```sql
-SELECT STS_ID, STS_MSG_REF_ID, VAL_RSLT, SGD_STS
-FROM ctsg_enc.CTS_STS_MSG
-WHERE STS_MSG_REF_ID = 'StatusHK2025ID20261022142639394';
-```
-
-**#2　同一個 `STS_ID` 的 data packet（5003-016②、5005-025①③）**，預期現在有 2 筆：
-
-```sql
-SELECT DP_ID, MSG_TYPE, ZIP_FILENAME, MS_ID, STS_ID
-FROM ctsg_enc.CTS_DATA_PACKET
-WHERE STS_ID = (SELECT STS_ID FROM ctsg_enc.CTS_STS_MSG
-                WHERE STS_MSG_REF_ID = 'StatusHK2025ID20261022142639394');
-```
-
-照 5005-025 的 Test Data 再補一條（限定 `GIRMessageStatus`）：
-
-```sql
-SELECT DP_ID, MSG_TYPE, ZIP_FILENAME, MS_ID, STS_ID
-FROM ctsg_enc.CTS_DATA_PACKET
-WHERE MSG_TYPE = 'GIRMessageStatus'
-  AND STS_ID = (SELECT STS_ID FROM ctsg_enc.CTS_STS_MSG
-                WHERE STS_MSG_REF_ID = 'StatusHK2025ID20261022142639394');
-```
-
-**#3　transmission record（5003-015②、027②）**，記下 `TX_STS` 是 `R` 還是 `P`：
-
-```sql
-SELECT DP.MSG_TYPE, TR.*
-FROM ctsg_enc.CTS_TX_REC TR, ctsg_enc.CTS_DATA_PACKET DP
-WHERE TR.DP_ID = DP.DP_ID
-  AND DP.STS_ID = (SELECT STS_ID FROM ctsg_enc.CTS_STS_MSG
-                   WHERE STS_MSG_REF_ID = 'StatusHK2025ID20261022142639394');
-```
-
-**#4　`GIRMessageStatus` 那筆的 `META_*`（5005-025②）**：
-
-```sql
-SELECT DP_ID, MSG_TYPE, META_TX_CTRY, META_RX_CTRY, META_COMM_TYPE,
-       META_SNDR_FILE_ID, META_FILE_FMT, META_ENC_SCM, META_FILE_TS,
-       META_TAX_YR, META_FILE_REV_IND, META_ORI_TX_ID, META_SNDR_EMAIL
-FROM ctsg_enc.CTS_DATA_PACKET
-WHERE MSG_TYPE = 'GIRMessageStatus'
-  AND STS_ID = (SELECT STS_ID FROM ctsg_enc.CTS_STS_MSG
-                WHERE STS_MSG_REF_ID = 'StatusHK2025ID20261022142639394');
-```
-
-**#5　`GIR_MSG_SPEC` 的 `SGD_STS` 分布（5003-028②）**，不用代入：
-
-```sql
-SELECT SGD_STS, COUNT(*) AS CNT
-FROM ctsg_enc.GIR_MSG_SPEC
-GROUP BY SGD_STS;
-```
-
-## 順便更正一個我先前寫錯的地方
-
-我之前說 `STS_MSG_REF_ID` 的格式是 `StatusHK2025ID-` 加 14 碼，這和你這筆實際值不一致。你的 `StatusHK2025ID20261022142639394` 是：
-
-| 片段 | 內容 |
-|---|---|
-| `Status` | 固定前綴 |
-| `HK` | 收件國（香港） |
-| `2025` | 年度 |
-| `ID` | 寄件國 |
-| `20261022142639394` | 17 碼時間戳，到毫秒（2026-10-22 14:26:39.394），**沒有連字號** |
-
-這會影響 5005-017、5003-007、008 這幾個 case 的 Actual Result：xlsx Expected 寫的是 `StatusHK2025CA-20260702103000`（有連字號、14 碼），實測是 17 碼、無連字號。請照實際值寫，並在 Remark 註明「Expected 範例格式與實測不同，以實測為準」。這種格式差異是否算功能偏差，交給 BA 判斷。
-
-## 5003 跑完後，請你先貼給我
-
-#2 和 #3 的結果，我確認 `GIRMessageStatus` 有沒有出現、`TX_STS` 是什麼。
+2. Steps performed
+A GIR test XML (sender country ID, receiving country HK, MessageRefId [Z01 MessageRefId]) was prepared. The file was signed and encrypted by [colleague] using the encryption tool, which produced the ZIP [Z01 ZIP filename].
+The ZIP was uploaded to \data\cts\Inbox\ using WinSCP. The Inbox was empty beforehand [Screenshot ref].
+[Colleague] ran CTBP5005. The file was moved to Inbox_recv\ and a status message was generated: StatusHK2025ID20261022142639394 (VAL_RSLT = 'ACCEPTED', SGD_STS = 'P'). The two files (.xml and .metadata.xml) appeared in \data\in\status_out\pending\ [Screenshot ref].
+Before running CTBP5003, CTS_DATA_PACKET for this STS_ID contained 1 row (MSG_TYPE = 'GIR') [Screenshot ref].
+[Colleague] ran CTBP5003 for the status message above. The status message files moved to status_out\processed\ and a ZIP was created in \data\cts\Outbox\ID\.
