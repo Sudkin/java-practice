@@ -1,44 +1,4 @@
-先把結論講清楚：**5003 之前，真正必須先截的只有 3 項**，因為只有這幾項會被 5003 改掉或搬走。其他都不會被 5003 動到，可以之後補。
-
-## A. 5003 之前必須先截（3 項）
-
-把 `<R2 的 STS_MSG_REF_ID>` 換成你這輪的值。
-
-| # | 截什麼 | 怎麼做 | case |
-|---|---|---|---|
-| A1 | 同一個 `STS_ID` 的 data packet（現在只有 1 筆 `GIR`） | `SELECT DP_ID, MSG_TYPE, ZIP_FILENAME, MS_ID, STS_ID FROM ctsg_enc.CTS_DATA_PACKET WHERE STS_ID = (SELECT STS_ID FROM ctsg_enc.CTS_STS_MSG WHERE STS_MSG_REF_ID='<R2 的 STS_MSG_REF_ID>');` | 5005-025（記為偏差）、5003-016 的「前」 |
-| A2 | 這個 `STS_ID` 的 TX_REC（5003 前的基準） | `SELECT DP.MSG_TYPE, TR.* FROM ctsg_enc.CTS_TX_REC TR, ctsg_enc.CTS_DATA_PACKET DP WHERE TR.DP_ID=DP.DP_ID AND DP.STS_ID = (SELECT STS_ID FROM ctsg_enc.CTS_STS_MSG WHERE STS_MSG_REF_ID='<R2 的 STS_MSG_REF_ID>');` | 5003-015①、027① |
-| A3 | status message 的 XML 內容與驗證 | 在 WinSCP 開 `status_out\pending\<R2 的 STS_MSG_REF_ID>.xml`，截 `ValidationResult=Accepted`；再丟進 XML 驗證工具截結果；`.metadata.xml` 也開一張 | 5005-011④、016（Accepted） |
-
-A2 用同一個語句，5003 跑完還要再截一次，所以 `MSG_TYPE` 欄我特別放進去，這樣前後一眼就能看出多了哪一筆。
-
-## B. 你已經做完的（不用重截）
-
-你說步驟 5 的截圖都完成了，所以下面這些視為已有：
-
-- `status_out\pending\` 兩個新檔
-- `Inbox\` 空、`Inbox_recv\` 有 ZIP、`in\pending\` 無資料夾、`in\processed\{ZIP}\`
-- `CTS_STS_MSG`：`VAL_RSLT='ACCEPTED'`、`SGD_STS='P'`
-- 三表筆數、`GIR_MSG_SPEC` 的 `SGD_STS` 分布
-- Accepted 通知信
-
-## C. 之後補（不會被 5003 改變，R3 開始前補完即可）
-
-| 項目 | 怎麼做 | case |
-|---|---|---|
-| GIR 那筆 data packet | `SELECT DP_ID, MSG_TYPE, ZIP_FILENAME, MS_ID, STS_ID FROM ctsg_enc.CTS_DATA_PACKET WHERE ZIP_FILENAME='<R2 的 ZIP>';`，再補 `MS_ID` 在 `GIR_MSG_SPEC`、`STS_ID` 在 `CTS_STS_MSG` 找得到兩張 | 5005-019①②③ |
-| 11 個 `META_*` 欄位與 metadata XML | 同一筆 data packet 的 `META_` 欄位，並開 `in\processed\{ZIP}\` 的 metadata XML 對照 | 5005-008②、020 |
-| payload XML | 開 `in\processed\{ZIP}\` 的 payload，截 `MessageTypeIndic=GIR101`、`DocTypeIndic=OECD1` | 5005-030① |
-| GIR 那筆的 TX_REC | 以 GIR 那筆的 `DP_ID` 查 `CTS_TX_REC` | 5005-021 |
-| `GIR_*` 內容表 | 先列出 `GIR_` 開頭的表，再逐表 `COUNT(*)` 並帶 `MS_ID` 條件 | 5005-022①②、023① |
-| `CTS_VALID_BY` | 先 `SELECT *` 看串接欄位，再加條件 | 5005-027 |
-| `GIR_MSG_SPEC` 計數 | `SELECT * FROM ctsg_enc.GIR_MSG_SPEC WHERE MS_ID=<MS_ID>;`（`GIR_CNT=1`、`AMEND_CNT=0`） | 5005-030② |
-| 四張錯誤表 | `CTS_FILE_ERR`、`CTS_REC_ERR`、`CTS_ERR_FIELD`、`CTS_ERR_DOC_REF_ID` 各查一次，預期 0 筆 | 5005-029 |
-| R2 的 batch log | 向同事要完整檔 | 5005-001②、004、005②、008③、010①、011② |
-| ID 的 incoming 夥伴設定與起訖日 | 表名還在等老師或同事回覆 | 5005-005①、008① |
-
-## 下一步
-
-做完 A1、A2、A3，就可以送單 C 請同事跑 5003。參數給 R2 那筆的 `STS_MSG_REF_ID`，不要給 R1 的 `StatusHK2026ID20261022110723215`。
-
-5003 的流程要在 **21:00 前**做完，現在的時間夠嗎？不夠的話，A1～A3 做完就先停，單 C 改約明天。
+Verify that the preliminary check (has this file name been processed already?) is done on the file FIRST, before any decryption	"1. Use the duplicate file from TC-CTBP5005-003, and a new file CA_GIR_20260930T140239644Z_A2357110DA0B13180A2EC49E82898F52.zip that has not been processed before.
+2. Run CTBP5005 and check the order of the steps in the batch log."	"- For each file, the batch log shows the duplicate-file-name check as the first step, before decryption.
+- The duplicate file stops after this check (no decrypt step in the log).
+- The new file passes the check and continues to the next steps."
