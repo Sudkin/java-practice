@@ -1,13 +1,15 @@
-Verify that the data year (taken from the metadata) is checked against the incoming GIR Start Year / End Year of CA, and passes when it is inside the range	"1. Incoming GIR Start Year / End Year of CA covers 2025 (e.g. Start Year = 2024, End Year = empty or 2030).
-2. In the metadata of CA_GIR_20260930T140239644Z_A2357110DA0B13180A2EC49E82898F52.zip, TaxYear = 2025.
-3. Run CTBP5005."	"- The data year 2025 is read from the metadata.
-- 2025 is within the Start Year / End Year of CA, so the year check passes and processing continues."
-Verify that when the year is not available in the metadata, the data year is taken from the SenderField of the MessageRefId and then checked	"1. Prepare a CA file whose metadata has no year value.
-2. MessageRefId of the data file = CA2025HK202609300001
-   (format: sender country CA + year 2025 + receiving country HK + running number).
-3. Run CTBP5005."	"- The program reads year 2025 from the MessageRefId CA2025HK202609300001.
-- 2025 is checked against the Start Year / End Year of CA in the same way as TC-CTBP5005-008."
-Verify that the ZIP is unzipped into its own pending folder and the XML schema validation is performed	"1. Valid file CA_GIR_20260930T140239644Z_A2357110DA0B13180A2EC49E82898F52.zip from CA in \data\cts\Inbox\.
-2. Run CTBP5005.
-3. During/after processing, check the folder \data\in\pending\{ZIP Filename}\ and the batch log."	"- The ZIP is unzipped into \data\in\pending\{ZIP Filename}\ (a sub-folder named after the ZIP file).
-- The batch log shows the XML schema (XSD) validation step for the unzipped XML."
+Verify that a file sent by a GIR exchange partner within the valid period is processed (decrypted)	"1. IE is set up as a GIR exchange partner, and today's system date is between the incoming GIR Start Date and End Date set up for IE.
+2. Put CA_GIR_20261028T141237863Z_DAF42BAC0F48480819F152D5526643DD.zip (MessageSpec TransmittingCountry = IE) into \data\cts\Inbox\.
+3. Run CTBP5005."	"- The partner check passes (country code CA in the MessageSpec is a partner and the date is within the period).
+- Processing continues: the file is decrypted and validated."
+Verify that a file sent by a country that is NOT a GIR exchange partner is NOT decrypted	"1. Prepare a GIR ZIP whose MessageSpec country code is a country that is NOT set up as a GIR exchange partner.(IT)
+2. Put it into \data\cts\Inbox\.
+3. Run CTBP5005."	"- The partner check fails.
+- The data file is NOT decrypted (no decrypt step in the batch log).
+- No GIR data is saved into the database."
+Verify that a file from a partner (FR) is NOT processed when the system date is OUTSIDE the incoming GIR Start Date / End Date of CA	"1. FR is a partner, but change the incoming GIR Start Date / End Date of FR so that today's system date is outside the period (e.g. End Date = yesterday).
+2. Put FR_GIR_20261028T141229481Z_FB753B956A6DEC9ED6A24C9D3D83ED38.zip into \data\cts\Inbox\.
+3. Run CTBP5005.
+"	"The period check fails, so FR is treated as not a valid partner for this run.
+- The file is NOT decrypted and no GIR data is saved into the database.
+- Record in Actual Result where the file goes and what the batch log says."
