@@ -1,22 +1,78 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<GIRStatusMessage_OECD version="1.0" xmlns="urn:oecd:ties:csm:v2">
-    <MessageSpec>
-        <TransmittingCountry>_SENDER_CTRY_</TransmittingCountry>
-        <ReceivingCountry>_RECEIVER_CTRY_</ReceivingCountry>
-        <MessageType>GIRMessageStatus</MessageType>
-        <Warning>Warning</Warning>
-        <Contact>Contact</Contact>
-        <MessageRefId>_STATUS_MSGREF_ID_</MessageRefId>
-        <Timestamp>_TIME_</Timestamp>
-    </MessageSpec>
-    <GIRStatusMessage>
-        <OriginalMessage>
-            <OriginalMessageRefID>_ORG_MSGREF_ID_</OriginalMessageRefID>
-        </OriginalMessage>
-        <ValidationErrors/>
-        <ValidationResult>
-            <Status>Accepted</Status>
-            <ValidatedBy>ValidatedBy</ValidatedBy>
-        </ValidationResult>
-    </GIRStatusMessage>
-</GIRStatusMessage_OECD>
+Test Case ID	Test Scenario	Test Data	Expected Result
+TC-CTBP5011-001	Verify that one line of the SFTP transmission log is split by comma into its 4 fields correctly	"Transmission log line (GIR file sent to CA):
+HK_GIR_20220831T143730554Z.zip,GIR,T,20220831143732"	"The line is split by ',' into 4 fields:
+1. File Name = HK_GIR_20220831T143730554Z.zip
+2. File Type = GIR
+3. Transmission Status = T
+4. Transmission Date and Time = 20220831143732 (YYYYMMDDHHMMSS, i.e. 2022-08-31 14:37:32)"
+TC-CTBP5011-002	Verify that the File Name in the log is used to find the matching record by CTS_DATA_PACKET.ZIP_FILENAME	"1. CTS_DATA_PACKET has a row with ZIP_FILENAME = 'HK_GIR_20220831T143730554Z.zip' (the GIR sent to CA by CTBP5002).
+2. Run CTBP5011 with the log line:
+HK_GIR_20220831T143730554Z.zip,GIR,T,20220831143732"	"- The file name HK_GIR_20220831T143730554Z.zip is matched to CTS_DATA_PACKET.ZIP_FILENAME.
+- The CTS_TX_REC row of that data packet (same DP_ID) is the one updated; no other row is changed."
+TC-CTBP5011-003	Verify that the Transmission Status in the log is saved into CTS_TX_REC.TX_STS	"1. Before the run, CTS_TX_REC.TX_STS of HK_GIR_20220831T143730554Z.zip = 'R' (Ready for transmission).
+2. Run CTBP5011 with the log line:
+HK_GIR_20220831T143730554Z.zip,GIR,T,20220831143732
+3. Run:
+SELECT TR.TX_STS, TR.TX_DATE, TR.TX_YR, TR.TX_MTH, TR.TX_ID, TR.CTS_RTN_CODE
+FROM ctsg_enc.CTS_TX_REC TR, ctsg_enc.CTS_DATA_PACKET DP
+WHERE TR.DP_ID = DP.DP_ID
+  AND DP.ZIP_FILENAME = 'HK_GIR_20220831T143730554Z.zip';"	TX_STS changes from 'R' to 'T'.
+TC-CTBP5011-004	Verify that the Transmission Date and Time in the log is saved into CTS_TX_REC.TX_DATE, TX_YR and TX_MTH	"1. Run CTBP5011 with the log line:
+HK_GIR_20220831T143730554Z.zip,GIR,T,20220831143732
+2. Run:
+SELECT TR.TX_STS, TR.TX_DATE, TR.TX_YR, TR.TX_MTH, TR.TX_ID, TR.CTS_RTN_CODE
+FROM ctsg_enc.CTS_TX_REC TR, ctsg_enc.CTS_DATA_PACKET DP
+WHERE TR.DP_ID = DP.DP_ID
+  AND DP.ZIP_FILENAME = 'HK_GIR_20220831T143730554Z.zip';"	"- TX_DATE = 2022-08-31 14:37:32
+- TX_YR = 2022
+- TX_MTH = 8 (August)"
+TC-CTBP5011-005	Verify that a log line for a status message file is recognized as File Type 'GIRMessageStatus' and updates the status message's transmission record	"Transmission log line (status message sent to CA by CTBP5003):
+HK_GIRMessageStatus_20220831T143730554Z.zip,GIRMessageStatus,T,20220831143732"	"- File Type is recognized as 'GIRMessageStatus' (not 'GIR').
+- The CTS_TX_REC row of the data packet with ZIP_FILENAME = 'HK_GIRMessageStatus_20220831T143730554Z.zip' is updated (TX_STS = 'T')."
+TC-CTBP5011-006	Verify that a transmission log with several lines is processed line by line, and each line updates its own CTS_TX_REC	"Transmission log with 3 lines:
+HK_GIR_20220831T143730554Z.zip,GIR,T,20220831143732
+HK_GIR_20220831T143739664Z.zip,GIR,T,20220831143741
+HK_GIR_20220831T143743969Z.zip,GIR,T,20220831143744"	"- All 3 lines are processed.
+- Each ZIP's own CTS_TX_REC is updated with its own status and date/time (14:37:32, 14:37:41, 14:37:44).
+- No line is skipped and the values of different lines are not mixed up."
+TC-CTBP5011-007	Verify that for a matching record, all 4 transmission fields (TX_STS, TX_DATE, TX_YR, TX_MTH) are updated together	"1. CTS_TX_REC row of HK_GIR_20220831T143730554Z.zip: TX_STS = 'R', TX_DATE / TX_YR / TX_MTH empty.
+2. Run CTBP5011 with the log line:
+HK_GIR_20220831T143730554Z.zip,GIR,T,20220831143732
+3. Run:
+SELECT TR.TX_STS, TR.TX_DATE, TR.TX_YR, TR.TX_MTH, TR.TX_ID, TR.CTS_RTN_CODE
+FROM ctsg_enc.CTS_TX_REC TR, ctsg_enc.CTS_DATA_PACKET DP
+WHERE TR.DP_ID = DP.DP_ID
+  AND DP.ZIP_FILENAME = 'HK_GIR_20220831T143730554Z.zip';"	TX_STS = 'T', TX_DATE = 2022-08-31 14:37:32, TX_YR = 2022, TX_MTH = 8. All 4 fields are updated in the same run.
+TC-CTBP5011-008	Verify the update when the log status is 'T' (Success)	"Log line:
+HK_GIR_20220831T143730554Z.zip,GIR,T,20220831143732"	CTS_TX_REC.TX_STS = 'T' (Success).
+TC-CTBP5011-009	Verify the update when the log status is 'F' or 'U' (Failure)	"Run 2 sub-cases:
+a) HK_GIR_20220831T143739664Z.zip,GIR,F,20220831143741
+b) HK_GIR_20220831T143739664Z.zip,GIR,U,20220831143741"	"a) CTS_TX_REC.TX_STS = 'F' (Failure)
+b) CTS_TX_REC.TX_STS = 'U' (Failure)"
+TC-CTBP5011-010	Verify the update when the log status is 'N' (Pending)	"Log line:
+HK_GIR_20220831T143743969Z.zip,GIR,N,20220831143744"	CTS_TX_REC.TX_STS = 'N' (Pending).
+TC-CTBP5011-011	Verify that in the DEV / UAT environment, the Transmission ID and CTS Return Code are GENERATED by the program (simulated) and saved	"1. Running environment = 'DEV' (repeat in 'UAT').
+2. Run CTBP5011 with the log line:
+HK_GIR_20220831T143730554Z.zip,GIR,T,20220831143732
+3. Run:
+SELECT TR.TX_STS, TR.TX_DATE, TR.TX_YR, TR.TX_MTH, TR.TX_ID, TR.CTS_RTN_CODE
+FROM ctsg_enc.CTS_TX_REC TR, ctsg_enc.CTS_DATA_PACKET DP
+WHERE TR.DP_ID = DP.DP_ID
+  AND DP.ZIP_FILENAME = 'HK_GIR_20220831T143730554Z.zip';"	"- The program does NOT call the RESTful API; it generates the Transmission ID and CTS Return Code itself.
+- CTS_TX_REC.TX_ID and CTS_TX_REC.CTS_RTN_CODE are filled (not empty)."
+TC-CTBP5011-012	Verify that in BOTH branches (DEV/UAT: generated; other environments: from the RESTful API), CTS_TX_REC.TX_ID and CTS_RTN_CODE are filled	"a) Running environment = 'DEV' or 'UAT' → values are generated by the program.
+b) Running environment is not DEV/UAT (e.g. production) → values are got from the CTS RESTful API.
+In each case run CTBP5011 with the log line:
+HK_GIR_20220831T143730554Z.zip,GIR,T,20220831143732"	In both a) and b), CTS_TX_REC.TX_ID and CTS_TX_REC.CTS_RTN_CODE are filled for HK_GIR_20220831T143730554Z.zip.
+TC-CTBP5011-013	Verify that CTBP5011 ends normally when the transmission log has no line	"1. Transmission log file is empty.
+2. Note the values in CTS_TX_REC.
+3. Run CTBP5011."	"- The job finishes normally with no error.
+- No CTS_TX_REC row is updated."
+TC-CTBP5011-014	Verify that a log line whose file name does not match any record is handled without wrongly updating another record	"Log line with a file name that does not exist in CTS_DATA_PACKET.ZIP_FILENAME:
+HK_GIR_20990101T000000000Z.zip,GIR,T,20990101000000"	"- The job does not crash; the batch log shows that no matching record was found.
+- No CTS_TX_REC row is updated."
+TC-CTBP5011-015	Verify that a log line in the wrong format (not 4 fields) is handled as an error and is not used to update the database	"Log line with a missing field:
+HK_GIR_20220831T143730554Z.zip,GIR,T
+(only 3 fields, the date/time is missing)"	"- The line is reported as an error in the batch log.
+- CTS_TX_REC of HK_GIR_20220831T143730554Z.zip is NOT updated with partial or wrong values.
+- Other correct lines in the same log are still processed."
