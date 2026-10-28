@@ -1,17 +1,13 @@
-Verify that a file sent by a GIR exchange partner within the valid period is processed (decrypted)	"1. CA is set up as a GIR exchange partner, and today's system date is between the incoming GIR Start Date and End Date set up for CA.
-2. Put CA_GIR_20260930T140239644Z_A2357110DA0B13180A2EC49E82898F52.zip (MessageSpec TransmittingCountry = CA) into \data\cts\Inbox\.
-3. Run CTBP5005."	"- The partner check passes (country code CA in the MessageSpec is a partner and the date is within the period).
-- Processing continues: the file is decrypted and validated."
-
-Verify that a file sent by a country that is NOT a GIR exchange partner is NOT decrypted	"1. Prepare a GIR ZIP whose MessageSpec country code is a country that is NOT set up as a GIR exchange partner.
-2. Put it into \data\cts\Inbox\.
-3. Run CTBP5005."	"- The partner check fails.
-- The data file is NOT decrypted (no decrypt step in the batch log).
-- No GIR data is saved into the database."
-
-Verify that a file from a partner (CA) is NOT processed when the system date is OUTSIDE the incoming GIR Start Date / End Date of CA	"1. CA is a partner, but change the incoming GIR Start Date / End Date of CA so that today's system date is outside the period (e.g. End Date = yesterday).
-2. Put CA_GIR_20260930T140239644Z_A2357110DA0B13180A2EC49E82898F52.zip into \data\cts\Inbox\.
-3. Run CTBP5005.
-4. Restore the original Start Date / End Date after the test."	"- The period check fails, so CA is treated as not a valid partner for this run.
-- The file is NOT decrypted and no GIR data is saved into the database.
-- Record in Actual Result where the file goes and what the batch log says."
+CREATE OR REPLACE VIEW CTSG_ENC.V_CTRY_PARTNER
+(CTRY_CODE,IS_PARTNER)
+AS
+WITH SRC AS (
+SELECT CTRY_CODE, 'Y' AS IS_PARTNER
+FROM PTP_TAX_JRDT
+WHERE OUT_DATE_STARTED IS NOT NULL
+AND TRUNC(OUT_DATE_STARTED) <= TRUNC(SYSDATE)
+AND (TRUNC(OUT_DATE_ENDED) >= TRUNC(SYSDATE) OR OUT_DATE_ENDED IS NULL)
+)
+SELECT C.CTRY_CODE, NVL2(S.IS_PARTNER, S.IS_PARTNER, 'N') AS IS_PARTNER
+FROM PTP_ISO_COUNTRY C LEFT JOIN SRC S ON C.CTRY_CODE=S.CTRY_CODE
+ORDER BY C.CTRY_CODE;
