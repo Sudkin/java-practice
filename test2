@@ -1,506 +1,157 @@
-<?xml version='1.0' encoding='UTF-8'?>
-
-<globe:GLOBE_OECD xmlns:globe="urn:oecd:ties:globe:v2" xmlns:stf="urn:oecd:ties:globestf:v5" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0">
-    <globe:MessageSpec>
-        <globe:TransmittingCountry>IE</globe:TransmittingCountry>
-        <globe:ReceivingCountry>HK</globe:ReceivingCountry>
-        <globe:MessageType>GIR</globe:MessageType>
-        <globe:Warning>GIR-IEtoHK</globe:Warning>
-        <globe:Contact>Tester01</globe:Contact>
-        <globe:MessageRefId>IE2025HKTC-CTBP5005-UPE-30155093-27102026A</globe:MessageRefId>
-        <globe:MessageTypeIndic>GIR101</globe:MessageTypeIndic>
-        <globe:ReportingPeriod>2025-12-31</globe:ReportingPeriod>
-        <globe:Timestamp>2025-12-31T12:00:00</globe:Timestamp>
-    </globe:MessageSpec>
-    <globe:GLOBEBody>
-
-        <globe:FilingInfo>
-            <globe:FilingCE>
-                <globe:ResCountryCode>IE</globe:ResCountryCode>
-                <globe:Name>GLOBETEST</globe:Name>
-                <globe:TIN issuedBy="IE" unknown="0" TypeOfTIN="GIR3001">30155093</globe:TIN>
-                <globe:Role>GIR401</globe:Role>
-            </globe:FilingCE>
-            <globe:AccountingInfo>
-                <globe:CFSofUPE>GIR501</globe:CFSofUPE>
-                <globe:FAS>FAS_TEST</globe:FAS>
-                <globe:Currency>IDR</globe:Currency>
-            </globe:AccountingInfo>
-            <globe:Period>
-                <globe:Start>2025-10-10</globe:Start>
-                <globe:End>2025-10-11</globe:End>
-            </globe:Period>
-            <globe:NameMNE>TSETEBOLG</globe:NameMNE>
-            <globe:DocSpec>
-                <stf:DocTypeIndic>OECD1</stf:DocTypeIndic>
-                <stf:DocRefId>IE2025FilingInfoTC-CTBP5005-UPE-HK-30155093-27102026A</stf:DocRefId>
-            </globe:DocSpec>
-        </globe:FilingInfo>
-
-        <globe:GeneralSection>
-            <globe:RecJurCode>IE</globe:RecJurCode>
-            <globe:RecJurCode>HK</globe:RecJurCode>
-            <globe:CorporateStructure>
-
-                <globe:UPE>
-                    <globe:OtherUPE>
-                        <globe:ID>
-                            <globe:Name>UPE2</globe:Name>
-                            <globe:ResCountryCode>IE</globe:ResCountryCode>
-                            <globe:TIN issuedBy="IE" unknown="0" TypeOfTIN="GIR3001">30155093</globe:TIN>
-                            <globe:Rules>GIR201</globe:Rules>
-                            <globe:GlobeStatus>GIR301</globe:GlobeStatus>
-                        </globe:ID>
-                        <globe:Art10.3.5>IE</globe:Art10.3.5>
-                    </globe:OtherUPE>
-                </globe:UPE>
-                <globe:UPE>
-					<globe:OtherUPE>
-                        <globe:ID>
-                            <globe:Name>UPE3</globe:Name>
-                            <globe:ResCountryCode>HK</globe:ResCountryCode>
-                            <globe:TIN issuedBy="HK" unknown="0" TypeOfTIN="GIR3001">30211895</globe:TIN>
-                            <globe:Rules>GIR201</globe:Rules>
-                            <globe:GlobeStatus>GIR301</globe:GlobeStatus>
-                        </globe:ID>
-                        <globe:Art10.3.5>HK</globe:Art10.3.5>
-                    </globe:OtherUPE>				
-				</globe:UPE>	
-                <globe:UPE>
-                    <globe:OtherUPE>
-                        <globe:ID>
-                            <globe:Name>UPE1</globe:Name>
-                            <globe:ResCountryCode>IE</globe:ResCountryCode>
-                            <globe:TIN issuedBy="IE" unknown="0" TypeOfTIN="GIR3001">25000750</globe:TIN>
-                            <globe:Rules>GIR201</globe:Rules>
-                            <globe:GlobeStatus>GIR301</globe:GlobeStatus>
-                        </globe:ID>
-                        <globe:Art10.3.5>IE</globe:Art10.3.5>
-                    </globe:OtherUPE>
-                </globe:UPE>				
-                <globe:CE>
-                    <globe:ID>
-                        <globe:Name>TEST_CE_002</globe:Name>
-                        <globe:ResCountryCode>HK</globe:ResCountryCode>
-                        <globe:TIN issuedBy="HK" unknown="0" TypeOfTIN="GIR3001">30155093</globe:TIN>
-                        <globe:Rules>GIR201</globe:Rules>
-                        <globe:GlobeStatus>GIR301</globe:GlobeStatus>
-                    </globe:ID>
-                    <globe:OwnershipChange>
-                        <globe:ChangeDate>2025-10-10</globe:ChangeDate>
-                        <globe:PreGlobeStatus>GIR701</globe:PreGlobeStatus>
-                        <globe:PreOwnership>
-                            <globe:OwnershipType>GIR801</globe:OwnershipType>
-                            <globe:TIN issuedBy="HK" unknown="0" TypeOfTIN="GIR3001">30155093</globe:TIN>
-                            <globe:PreOwnershipPercentage>1.0</globe:PreOwnershipPercentage>
-                        </globe:PreOwnership>
-                    </globe:OwnershipChange>
-                    <globe:Ownership>
-                        <globe:OwnershipType>GIR801</globe:OwnershipType>
-                        <globe:TIN issuedBy="IE" unknown="0" TypeOfTIN="GIR3001">30155093</globe:TIN>
-                        <globe:OwnershipPercentage>1.0</globe:OwnershipPercentage>
-                    </globe:Ownership>
-                    <globe:QIIR>
-                        <globe:POPE-IPE>GIR901</globe:POPE-IPE>
-                        <globe:Exception>
-                            <globe:ExceptionRule>
-                                <globe:Art2.1.5>true</globe:Art2.1.5>
-                            </globe:ExceptionRule>
-
-                            <globe:TIN issuedBy="HK" unknown="0" TypeOfTIN="GIR3001">30155093</globe:TIN>
-                        </globe:Exception>
-                    </globe:QIIR>
-                </globe:CE>
-                <globe:CE>
-                    <globe:ID>
-                        <globe:Name>TEST_CE_002</globe:Name>
-                        <globe:ResCountryCode>HK</globe:ResCountryCode>
-                        <globe:TIN issuedBy="HK" unknown="0" TypeOfTIN="GIR3001">30155093</globe:TIN>
-                        <globe:Rules>GIR201</globe:Rules>
-                        <globe:GlobeStatus>GIR301</globe:GlobeStatus>
-                    </globe:ID>
-                    <globe:OwnershipChange>
-                        <globe:ChangeDate>2025-10-10</globe:ChangeDate>
-                        <globe:PreGlobeStatus>GIR701</globe:PreGlobeStatus>
-                        <globe:PreOwnership>
-                            <globe:OwnershipType>GIR801</globe:OwnershipType>
-                            <globe:TIN issuedBy="HK" unknown="0" TypeOfTIN="GIR3001">30155093</globe:TIN>
-                            <globe:PreOwnershipPercentage>1.0</globe:PreOwnershipPercentage>
-                        </globe:PreOwnership>
-                    </globe:OwnershipChange>
-                    <globe:Ownership>
-                        <globe:OwnershipType>GIR801</globe:OwnershipType>
-                        <globe:TIN issuedBy="IE" unknown="0" TypeOfTIN="GIR3001">30155093</globe:TIN>
-                        <globe:OwnershipPercentage>1.0</globe:OwnershipPercentage>
-                    </globe:Ownership>
-                    <globe:QIIR>
-                        <globe:POPE-IPE>GIR901</globe:POPE-IPE>
-                        <globe:Exception>
-                            <globe:ExceptionRule>
-                                <globe:Art2.1.5>true</globe:Art2.1.5>
-                            </globe:ExceptionRule>
-
-                            <globe:TIN issuedBy="HK" unknown="0" TypeOfTIN="GIR3001">30155093</globe:TIN>
-                        </globe:Exception>
-                    </globe:QIIR>
-                </globe:CE>
-            </globe:CorporateStructure>
-            <globe:DocSpec>
-                <stf:DocTypeIndic>OECD1</stf:DocTypeIndic>
-                <stf:DocRefId>IE2025GeneralSectionTC-CTBP5005-UPE-HK-30155093-27102026A</stf:DocRefId>
-            </globe:DocSpec>
-        </globe:GeneralSection>
-
-
-        <globe:Summary>
-            <globe:RecJurCode>IE</globe:RecJurCode>
-            <globe:RecJurCode>HK</globe:RecJurCode>
-            <globe:Jurisdiction>
-                <globe:JurisdictionName>HK</globe:JurisdictionName>
-                <globe:Subgroup>
-                    <globe:TIN issuedBy="HK" unknown="0" TypeOfTIN="GIR3001">30155093</globe:TIN>
-                    <globe:TypeofSubGroup>GIR1101</globe:TypeofSubGroup>
-                </globe:Subgroup>
-            </globe:Jurisdiction>
-            <globe:JurWithTaxingRights><globe:JurisdictionName>IE</globe:JurisdictionName></globe:JurWithTaxingRights>
-            <globe:SafeHarbour>GIR1201</globe:SafeHarbour>
-            <globe:ETRRange>GIR1301</globe:ETRRange>
-            <globe:SBIE><globe:NotApplicable>true</globe:NotApplicable><globe:NoTut>true</globe:NoTut></globe:SBIE>
-            <globe:QDMTTut>GIR1401</globe:QDMTTut>
-            <globe:GLoBETut>GIR1501</globe:GLoBETut>
-            <globe:DocSpec>
-                <stf:DocTypeIndic>OECD1</stf:DocTypeIndic>
-                <stf:DocRefId>IE2025Summary1TC-CTBP5005-UPE-HK-30155093-27102026A</stf:DocRefId>
-            </globe:DocSpec>
-        </globe:Summary>
-
-        <globe:Summary>
-            <globe:RecJurCode>IE</globe:RecJurCode>
-            <globe:Jurisdiction>
-                <globe:JurisdictionName>IE</globe:JurisdictionName>
-                <globe:Subgroup>
-                    <globe:TIN issuedBy="IE" unknown="0" TypeOfTIN="GIR3001">30155093</globe:TIN>
-                    <globe:TypeofSubGroup>GIR1101</globe:TypeofSubGroup>
-                </globe:Subgroup>
-            </globe:Jurisdiction>
-            <globe:JurWithTaxingRights>
-                <globe:JurisdictionName>IE</globe:JurisdictionName>
-            </globe:JurWithTaxingRights>
-            <globe:SafeHarbour>GIR1206</globe:SafeHarbour>
-            <globe:ETRRange>GIR1301</globe:ETRRange>
-            <globe:SBIE><globe:NotApplicable>true</globe:NotApplicable><globe:NoTut>true</globe:NoTut></globe:SBIE>
-            <globe:QDMTTut>GIR1401</globe:QDMTTut>
-            <globe:GLoBETut>GIR1501</globe:GLoBETut>
-            <globe:DocSpec>
-                <stf:DocTypeIndic>OECD1</stf:DocTypeIndic>
-                <stf:DocRefId>IE2025Summary2TC-CTBP5005-UPE-HK-30155093-27102026A</stf:DocRefId>
-            </globe:DocSpec>
-        </globe:Summary>
-
-        <globe:JurisdictionSection>
-            <globe:RecJurCode>IE</globe:RecJurCode>
-            <globe:RecJurCode>HK</globe:RecJurCode>
-            <globe:Jurisdiction>HK</globe:Jurisdiction>
-            <globe:JurWithTaxingRights>
-                <globe:JurisdictionName>IE</globe:JurisdictionName>
-                <globe:Subgroup>
-                    <globe:TIN issuedBy="IE" unknown="0" TypeOfTIN="GIR3001">30155093</globe:TIN>
-                    <globe:TypeofSubGroup>GIR1101</globe:TypeofSubGroup>
-                </globe:Subgroup>
-            </globe:JurWithTaxingRights>
-            <globe:GLoBETax>
-                <globe:ETR>
-                    <globe:SubGroup>
-                        <globe:TIN issuedBy="HK" unknown="0" TypeOfTIN="GIR3001">30155093</globe:TIN>
-                        <globe:TypeofSubGroup>GIR1607</globe:TypeofSubGroup>
-                    </globe:SubGroup>
-                    <globe:ETRStatus>
-                        <globe:ETRComputation>
-                            <globe:CEComputation>
-                                <globe:AdjustedFANIL>
-                                    <globe:Total>2146463</globe:Total>
-                                    <globe:FANIL>2146463</globe:FANIL>
-                                    <globe:Adjustment>
-                                        <globe:MainEntityPEandFTE>
-                                            <globe:Basis>GIR1701</globe:Basis>
-                                            <globe:OtherTIN issuedBy="HK" unknown="0" TypeOfTIN="GIR3001">25000360</globe:OtherTIN>
-                                            <globe:ResCountryCode>HK</globe:ResCountryCode>
-                                            <globe:Additions>500000</globe:Additions>
-                                            <globe:Reductions>0</globe:Reductions>
-                                        </globe:MainEntityPEandFTE>
-                                        <globe:CrossBorderAdjustments>
-                                            <globe:Basis>GIR1801</globe:Basis>
-                                            <globe:OtherTIN issuedBy="IE" unknown="0" TypeOfTIN="GIR3001">25000394</globe:OtherTIN>
-                                            <globe:ResCountryCode>IE</globe:ResCountryCode>
-                                            <globe:Additions>100000</globe:Additions>
-                                            <globe:Reductions>50000</globe:Reductions>
-                                        </globe:CrossBorderAdjustments>
-                                        <globe:UPEAdjustments>
-                                            <globe:Basis>GIR1901</globe:Basis>
-                                            <globe:Reductions>
-                                                <globe:Amount>100000</globe:Amount>
-                                            </globe:Reductions>
-                                            <globe:IdentificationOfOwners>
-                                                <globe:OwnershipPercentage>1.0</globe:OwnershipPercentage>
-                                                <globe:EntityOwner>
-                                                    <globe:TIN issuedBy="IE" unknown="0" TypeOfTIN="GIR3001">25000378</globe:TIN>
-                                                    <globe:ResCountryCode>IE</globe:ResCountryCode>
-                                                    <globe:TaxRate>0.1650</globe:TaxRate>
-                                                </globe:EntityOwner>
-                                            </globe:IdentificationOfOwners>
-                                        </globe:UPEAdjustments>
-                                    </globe:Adjustment>
-                                </globe:AdjustedFANIL>
-                                <globe:NetGlobeIncome>
-                                    <globe:Total>125000000</globe:Total>
-                                </globe:NetGlobeIncome>
-                                <globe:AdjustedIncomeTax>
-                                    <globe:Total>5321123</globe:Total>
-                                    <globe:IncomeTax>5321123</globe:IncomeTax>
-                                </globe:AdjustedIncomeTax>
-                                <globe:AdjustedCoveredTax>
-                                    <globe:Total>79065597</globe:Total>
-                                    <globe:DeferTaxAdjustAmt>
-                                        <globe:Total>0</globe:Total>
-                                        <globe:DeferTaxExpense>0</globe:DeferTaxExpense>
-                                    </globe:DeferTaxAdjustAmt>
-                                </globe:AdjustedCoveredTax>
-                                <globe:TIN issuedBy="HK" unknown="0" TypeOfTIN="GIR3001">30155093</globe:TIN>
-                                <globe:Elections>
-                                    <globe:AggregatedReporting>
-                                        <globe:TaxConsolGroupTIN issuedBy="HK" unknown="0" TypeOfTIN="GIR3001">30155093</globe:TaxConsolGroupTIN>
-                                        <globe:EntityTIN issuedBy="HK" unknown="0" TypeOfTIN="GIR3001">30155093</globe:EntityTIN>
-                                    </globe:AggregatedReporting>
-                                    <globe:Art7.5>
-                                        <globe:Status>true</globe:Status>
-                                        <globe:ElectionYear>2025-01-01</globe:ElectionYear>
-                                        <globe:CEOwnerTIN issuedBy="IE" unknown="0" TypeOfTIN="GIR3001">25000386</globe:CEOwnerTIN>
-                                    </globe:Art7.5>
-                                    <globe:Art7.6>
-                                        <globe:Status>true</globe:Status>
-                                        <globe:ElectionYear>2025-01-01</globe:ElectionYear>
-                                        <globe:ActualDeemedDist>0</globe:ActualDeemedDist>
-                                        <globe:LocalCreditableTaxGross>0</globe:LocalCreditableTaxGross>
-                                        <globe:ShareOfUndistNetGlobeInc>1.0</globe:ShareOfUndistNetGlobeInc>
-                                        <globe:InvestmentEntityTIN issuedBy="HK" unknown="0" TypeOfTIN="GIR3001">30211900</globe:InvestmentEntityTIN>
-                                    </globe:Art7.6>
-                                </globe:Elections>
-                            </globe:CEComputation>
-                            <globe:OverallComputation>
-                                <globe:FANIL>125000000</globe:FANIL>
-                                <globe:AdjustedFANIL>125000000</globe:AdjustedFANIL>
-                                <globe:NetGlobeIncome>
-                                    <globe:Total>125000000</globe:Total>
-                                </globe:NetGlobeIncome>
-                                <globe:IncomeTaxExpense>18750000</globe:IncomeTaxExpense>
-                                <globe:ETRRate>0.1500</globe:ETRRate>
-                                <globe:TopUpTaxPercentage>0.0000</globe:TopUpTaxPercentage>
-                                <globe:AdjustedCoveredTax>
-                                    <globe:Total>18750000</globe:Total>
-                                    <globe:AggregrateCurrentTax>18750000</globe:AggregrateCurrentTax>
-                                </globe:AdjustedCoveredTax>
-                                <globe:SubstanceExclusion>
-                                    <globe:Total>84000000</globe:Total>
-                                    <globe:PayrollCost>500000000</globe:PayrollCost>
-                                    <globe:PayrollMarkUp>0.094</globe:PayrollMarkUp>
-                                    <globe:TangibleAssetValue>500000000</globe:TangibleAssetValue>
-                                    <globe:TangibleAssetMarkup>0.074</globe:TangibleAssetMarkup>
-                                </globe:SubstanceExclusion>
-                                <globe:ExcessProfits>41000000</globe:ExcessProfits>
-                                <globe:TopUpTax>0</globe:TopUpTax>
-                                <globe:ExcessNegTaxExpense>
-                                    <globe:PriorYearBalance>0</globe:PriorYearBalance>
-                                    <globe:GeneratedInRFY>0</globe:GeneratedInRFY>
-                                    <globe:UtilizedInRFY>0</globe:UtilizedInRFY>
-                                    <globe:Remaining>0</globe:Remaining>
-                                </globe:ExcessNegTaxExpense>
-                            </globe:OverallComputation>
-                            <globe:Non-MaterialCE>
-                                <globe:RFY>
-                                    <globe:TotalRevenue>50000</globe:TotalRevenue>
-                                    <globe:AggregateSimplified>10000</globe:AggregateSimplified>
-                                </globe:RFY>
-                                <globe:RFY-1>
-                                    <globe:TotalRevenue>50000</globe:TotalRevenue>
-                                </globe:RFY-1>
-                                <globe:RFY-2>
-                                    <globe:TotalRevenue>50000</globe:TotalRevenue>
-                                </globe:RFY-2>
-                                <globe:Average>
-                                    <globe:TotalRevenue>50000</globe:TotalRevenue>
-                                </globe:Average>
-                                <globe:ID>
-                                    <globe:Name>HK_Tiny_Branch</globe:Name>
-                                    <globe:ResCountryCode>HK</globe:ResCountryCode>
-
-                                    <globe:TIN issuedBy="HK" unknown="0" TypeOfTIN="GIR3001">30155093</globe:TIN>
-                                    <globe:Rules>GIR201</globe:Rules>
-                                    <globe:GlobeStatus>GIR302</globe:GlobeStatus>
-                                </globe:ID>
-                            </globe:Non-MaterialCE>
-                        </globe:ETRComputation>
-                    </globe:ETRStatus>
-                </globe:ETR>
-            </globe:GLoBETax>
-            <globe:LowTaxJurisdiction>
-                <globe:TopUpTaxAmount>0</globe:TopUpTaxAmount>
-                <globe:LTCE>
-
-                    <globe:TIN issuedBy="HK" unknown="0" TypeOfTIN="GIR3001">30155093</globe:TIN>
-                    <globe:IIR>
-                        <globe:NetGlobeIncome>125000000</globe:NetGlobeIncome>
-                        <globe:TopUpTax>0</globe:TopUpTax>
-                        <globe:ParentEntity>
-
-                            <globe:TIN issuedBy="IE" unknown="0" TypeOfTIN="GIR3001">30155093</globe:TIN>
-                            <globe:ResCountryCode>IE</globe:ResCountryCode>
-                            <globe:OtherOwnershipAllocation>0</globe:OtherOwnershipAllocation>
-                            <globe:InclusionRatio>1.0000</globe:InclusionRatio>
-                            <globe:TopUpTaxShare>0</globe:TopUpTaxShare>
-                            <globe:IIROffSet>0</globe:IIROffSet>
-                            <globe:TopUpTax>0</globe:TopUpTax>
-                        </globe:ParentEntity>
-                    </globe:IIR>
-                </globe:LTCE>
-            </globe:LowTaxJurisdiction>
-            <globe:DocSpec>
-                <stf:DocTypeIndic>OECD1</stf:DocTypeIndic>
-                <stf:DocRefId>IE2025JurisdictionSection1TC-CTBP5005-UPE-HK-30155093-27102026A</stf:DocRefId>
-            </globe:DocSpec>
-        </globe:JurisdictionSection>
-
-        <globe:JurisdictionSection>
-            <globe:RecJurCode>IE</globe:RecJurCode>
-            <globe:Jurisdiction>IE</globe:Jurisdiction>
-            <globe:JurWithTaxingRights><globe:JurisdictionName>IE</globe:JurisdictionName></globe:JurWithTaxingRights>
-            <globe:GLoBETax>
-                <globe:ETR>
-                    <globe:SubGroup>
-                        <globe:TIN issuedBy="IE" unknown="0" TypeOfTIN="GIR3001">30155093</globe:TIN>
-                        <globe:TypeofSubGroup>GIR1607</globe:TypeofSubGroup>
-                    </globe:SubGroup>
-                    <globe:ETRStatus>
-                        <globe:ETRException>
-                            <globe:TransitionalCbCRSafeHarbour>
-                                <globe:Revenue>1000000</globe:Revenue>
-                                <globe:Profit>200000</globe:Profit>
-                                <globe:IncomeTax>50000</globe:IncomeTax>
-                            </globe:TransitionalCbCRSafeHarbour>
-                            <globe:UTPRSafeHarbour>
-                                <globe:CITRate>0.2000</globe:CITRate>
-                            </globe:UTPRSafeHarbour>
-                        </globe:ETRException>
-                        <globe:ETRComputation>
-                            <globe:CEComputation>
-                                <globe:AdjustedFANIL>
-                                    <globe:Total>2146463</globe:Total>
-                                    <globe:FANIL>2146463</globe:FANIL>
-                                </globe:AdjustedFANIL>
-                                <globe:NetGlobeIncome>
-                                    <globe:Total>125000000</globe:Total>
-                                </globe:NetGlobeIncome>
-                                <globe:AdjustedIncomeTax>
-                                    <globe:Total>5321123</globe:Total>
-                                    <globe:IncomeTax>6976732</globe:IncomeTax>
-                                </globe:AdjustedIncomeTax>
-                                <globe:AdjustedCoveredTax>
-                                    <globe:Total>79065597</globe:Total>
-                                    <globe:DeferTaxAdjustAmt>
-                                        <globe:Total>12313576457</globe:Total>
-                                        <globe:DeferTaxExpense>12313576457</globe:DeferTaxExpense>
-                                    </globe:DeferTaxAdjustAmt>
-                                </globe:AdjustedCoveredTax>
-                                <globe:TIN issuedBy="IE" unknown="0" TypeOfTIN="GIR3001">30155093</globe:TIN>
-                                <globe:Elections>
-                                    <globe:AggregatedReporting>
-                                        <globe:TaxConsolGroupTIN issuedBy="IE" unknown="0" TypeOfTIN="GIR3001">30155093</globe:TaxConsolGroupTIN>
-                                        <globe:EntityTIN issuedBy="IE" unknown="0" TypeOfTIN="GIR3001">30155093</globe:EntityTIN>
-                                    </globe:AggregatedReporting>
-                                </globe:Elections>
-                            </globe:CEComputation>
-
-                            <globe:OverallComputation>
-                                <globe:FANIL>125000000</globe:FANIL>
-                                <globe:AdjustedFANIL>125000000</globe:AdjustedFANIL>
-                                <globe:NetGlobeIncome>
-                                    <globe:Total>125000000</globe:Total>
-                                </globe:NetGlobeIncome>
-                                <globe:IncomeTaxExpense>18750000</globe:IncomeTaxExpense>
-                                <globe:ETRRate>0.1500</globe:ETRRate>
-                                <globe:TopUpTaxPercentage>0.0000</globe:TopUpTaxPercentage>
-
-                                <globe:AdjustedCoveredTax>
-                                    <globe:Total>18750000</globe:Total>
-                                    <globe:AggregrateCurrentTax>18750000</globe:AggregrateCurrentTax>
-                                </globe:AdjustedCoveredTax>
-
-                                <globe:SubstanceExclusion>
-                                    <globe:Total>52500</globe:Total>
-                                    <globe:PayrollCost>1000000</globe:PayrollCost>
-                                    <globe:PayrollMarkUp>0.05</globe:PayrollMarkUp>
-                                    <globe:TangibleAssetValue>50000</globe:TangibleAssetValue>
-                                    <globe:TangibleAssetMarkup>0.05</globe:TangibleAssetMarkup>
-                                </globe:SubstanceExclusion>
-                                <globe:ExcessProfits>124947500</globe:ExcessProfits>
-                                <globe:TopUpTax>0</globe:TopUpTax>
-
-                                <globe:ExcessNegTaxExpense>
-                                    <globe:PriorYearBalance>0</globe:PriorYearBalance>
-                                    <globe:GeneratedInRFY>0</globe:GeneratedInRFY>
-                                    <globe:UtilizedInRFY>0</globe:UtilizedInRFY>
-                                    <globe:Remaining>0</globe:Remaining>
-                                </globe:ExcessNegTaxExpense>
-                            </globe:OverallComputation>
-
-                            <globe:Non-MaterialCE>
-                                <globe:RFY>
-                                    <globe:TotalRevenue>50000</globe:TotalRevenue>
-                                    <globe:AggregateSimplified>10000</globe:AggregateSimplified>
-                                </globe:RFY>
-                                <globe:RFY-1>
-                                    <globe:TotalRevenue>50000</globe:TotalRevenue>
-                                </globe:RFY-1>
-                                <globe:RFY-2>
-                                    <globe:TotalRevenue>50000</globe:TotalRevenue>
-                                </globe:RFY-2>
-                                <globe:Average>
-                                    <globe:TotalRevenue>50000</globe:TotalRevenue>
-                                </globe:Average>
-                                <globe:ID>
-                                    <globe:Name>IE_Tiny_Branch</globe:Name>
-                                    <globe:ResCountryCode>IE</globe:ResCountryCode>
-                                    <globe:TIN issuedBy="IE" unknown="0" TypeOfTIN="GIR3001">30155093</globe:TIN>
-                                    <globe:Rules>GIR201</globe:Rules>
-                                    <globe:GlobeStatus>GIR302</globe:GlobeStatus>
-                                </globe:ID>
-                            </globe:Non-MaterialCE>
-                        </globe:ETRComputation>
-                    </globe:ETRStatus>
-                </globe:ETR>
-            </globe:GLoBETax>
-            <globe:DocSpec>
-                <stf:DocTypeIndic>OECD1</stf:DocTypeIndic>
-                <stf:DocRefId>IE2025JurisdictionSection2TC-CTBP5005-UPE-HK-30155093-27102026A</stf:DocRefId>
-            </globe:DocSpec>
-        </globe:JurisdictionSection>
-
-        <globe:UTPRAttribution>
-            <globe:RecJurCode>IE</globe:RecJurCode>
-            <globe:RecJurCode>HK</globe:RecJurCode>
-            <globe:Attribution>
-                <globe:ResCountryCode>HK</globe:ResCountryCode>
-                <globe:UTPRTopUpTaxCarryForward>0</globe:UTPRTopUpTaxCarryForward>
-                <globe:Employees>0</globe:Employees>
-                <globe:TangibleAssetValue>0</globe:TangibleAssetValue>
-                <globe:UTPRPercentage>0</globe:UTPRPercentage>
-                <globe:UTPRTopUpTaxAttributed>0</globe:UTPRTopUpTaxAttributed>
-                <globe:AddCashTaxExpense>0</globe:AddCashTaxExpense>
-                <globe:UTPRTopUpTaxCarriedForward>0</globe:UTPRTopUpTaxCarriedForward>
-            </globe:Attribution>
-            <globe:DocSpec>
-                <stf:DocTypeIndic>OECD1</stf:DocTypeIndic>
-                <stf:DocRefId>IE2025UTPRAttributionTC-CTBP5005-UPE-HK-30155093-27102026A</stf:DocRefId>
-            </globe:DocSpec>
-        </globe:UTPRAttribution>
-    </globe:GLOBEBody>
-</globe:GLOBE_OECD>
+Test Case ID	Test Scenario	Test Data	Expected Result
+TC-CTBP5003-001	Verify that CTBP5003 runs automatically according to the schedule (Monday–Friday at 21:00)	"1. Check the job scheduler setting for CTBP5003.
+2. Prepare at least one CTS_STS_MSG record with SGD_STS = 'P'.
+3. Wait until (or set the test system time to) a weekday 21:00, then check the batch log."	"- The scheduler setting is Monday–Friday at 21:00.
+- CTBP5003 starts by itself at 21:00 on a weekday and processes the pending status message(s).
+- It does not start by itself on Saturday or Sunday."
+TC-CTBP5003-002	Verify that CTBP5003 can be run ad-hoc (manually) with parameter #1 = a GIRMessageStatus MessageRefId, and then processes ONLY that status message	"1. Prepare two CTS_STS_MSG records with SGD_STS = 'P':
+   - Record A: MessageRefId = StatusHK2025US-20260617103000
+   - Record B: another MessageRefId
+2. Run CTBP5003 ad-hoc with parameter #1 = StatusHK2025US-20260617103000.
+3. Check SGD_STS of both records."	"- Only record A is signed and encrypted: SGD_STS changes to 'S'.
+- Record B is not touched: SGD_STS stays 'P' and its files stay in \data\in\status_out\pending\."
+TC-CTBP5003-003	Verify that an ad-hoc run with a MessageRefId that does not exist is handled without error	"1. Make sure no status message has MessageRefId = StatusHK2025XX-20990101000000.
+2. Run CTBP5003 ad-hoc with parameter #1 = StatusHK2025XX-20990101000000."	"- The job finishes normally (no crash, no abnormal end); the batch log says no matching record was found.
+- No file is signed or moved and no database record is changed."
+TC-CTBP5003-004	Verify that CTBP5003 picks up a status message that is pending signing/encryption (CTS_STS_MSG.SGD_STS = 'P')	"Precondition: CTBP5005 has received a data packet from a Pillar Two partner and generated the status message XML.
+1. Check that the record is ready:
+SELECT STS_ID, SGD_STS
+FROM ctsg_enc.CTS_STS_MSG
+WHERE SGD_STS = 'P';
+2. Run CTBP5003."	"- The record is picked up and goes into the sign & encrypt step.
+- Note: unlike CTBP5002, there is NO approval check here; SGD_STS = 'P' is the only condition."
+TC-CTBP5003-005	Verify that a status message that has already been signed (SGD_STS = 'S') is NOT signed and sent a second time	"1. Use a CTS_STS_MSG record already signed in a previous run (SGD_STS = 'S').
+2. Note its CTS_TX_REC records and the files in \data\cts\Outbox\US\.
+3. Run CTBP5003."	"The record is NOT selected: no new signed file, no new ZIP, no new CTS_TX_REC row and no change to CTS_DATA_PACKET for it.
+This prevents the same status message from being sent twice."
+TC-CTBP5003-006	Verify that CTBP5003 ends normally when there is NO status message to process	"1. Make sure this query returns 0 rows:
+SELECT * FROM ctsg_enc.CTS_STS_MSG WHERE SGD_STS = 'P';
+2. Note the row count of CTS_TX_REC and the files in \data\in\status_out\pending\.
+3. Run CTBP5003."	"- The job finishes normally with no error.
+- Nothing is signed or encrypted and no file is moved.
+- No database record is inserted or updated."
+TC-CTBP5003-007	Verify that the GIRMessageStatus MessageRefId is built with the correct format: 'Status' + 'HK' + <Reporting Year> + <Receiving Country> + '-' + <yyyyMMddHHmmss>	"Reporting Year = 2025
+Receiving Country = US
+Generation time = 2026-06-17 10:30:00 (20260617103000)"	"MessageRefId = 'Status' + 'HK' + '2025' + 'US' + '-' + '20260617103000'
+= StatusHK2025US-20260617103000"
+TC-CTBP5003-008	Verify that the parts of the MessageRefId are always in the exact order defined in the spec, using a different receiving country	"Reporting Year = 2025
+Receiving Country = JP
+Generation time = 2026-06-17 10:30:00"	"MessageRefId = StatusHK2025JP-20260617103000
+- Order is fixed: Status → HK → 2025 → JP → '-' → timestamp
+- '-' appears only once, right before the timestamp
+- Timestamp is 14 digits in yyyyMMddHHmmss (24-hour) format"
+TC-CTBP5003-009	Verify that, for each selected record, CTBP5003 finds the related status message payload XML and metadata XML in \data\in\status_out\pending\ by using the MessageRefId as the file name	"1. Selected record with MessageRefId = StatusHK2025US-20260617103000.
+2. Confirm that both files exist in \data\in\status_out\pending\:
+   - Payload XML: StatusHK2025US-20260617103000.xml
+   - Metadata XML: StatusHK2025US-20260617103000.metadata.xml
+3. Run CTBP5003 and check the batch log."	CTBP5003 finds BOTH files and passes them to the sign & encrypt step. The batch log shows the two file names being processed.
+TC-CTBP5003-010	Verify that CTBP5003 signs and encrypts the status message payload/metadata pair and produces the encrypted ZIP file	"1. Use the file pair located in TC-CTBP5003-009.
+2. Run CTBP5003.
+3. Check the batch log and the output ZIP file."	"- No error in the batch log for the sign & encrypt step.
+- An encrypted ZIP file is produced, named in the CTS format, e.g. HK_GIRMessageStatus_20220831T143730554Z.zip.
+- The ZIP content is encrypted, i.e. it cannot be opened and read as plain XML."
+TC-CTBP5003-011	Verify that after signing and encryption, the original payload and metadata XML files are moved from \data\in\status_out\pending\ to \data\in\status_out\processed\	"1. Complete TC-CTBP5003-010 successfully.
+2. Check the two folders:
+   - \data\in\status_out\pending\
+   - \data\in\status_out\processed\"	"- StatusHK2025US-20260617103000.xml and .metadata.xml are NO LONGER in \data\in\status_out\pending\.
+- Both files are now in \data\in\status_out\processed\ (this folder means ""already signed and encrypted"")."
+TC-CTBP5003-012	Verify that the generated ZIP file is moved to the Outbox sub-folder named after the receiving country	"1. Status message with Receiving Country = 'US'.
+2. The ZIP has been generated in TC-CTBP5003-010.
+3. Check the folder \data\cts\Outbox\US\"	"- The ZIP is in \data\cts\Outbox\US\ (folder = receiving country code), waiting for SFTP transmission.
+- The ZIP is NOT put into any other country's Outbox folder."
+TC-CTBP5003-013	Verify the error handling when a selected record's payload or metadata XML is missing from \data\in\status_out\pending\	"1. Prepare a CTS_STS_MSG record with SGD_STS = 'P'.
+2. Delete (or rename) its <MessageRefId>.xml OR <MessageRefId>.metadata.xml from \data\in\status_out\pending\.
+3. Run CTBP5003.
+4. Check the batch log, the folders and CTS_STS_MSG.SGD_STS."	"- The batch log shows an error saying the file is missing.
+- The record is NOT signed: SGD_STS stays 'P'.
+- Nothing is moved to \data\in\status_out\processed\ or to the Outbox folder.
+- No CTS_TX_REC row is created and CTS_DATA_PACKET.ZIP_FILENAME is not updated."
+TC-CTBP5003-014	Verify that after signing, CTS_STS_MSG.SGD_STS is updated from 'P' (pending signing) to 'S' (Signed)	"1. Before the run:
+SELECT STS_ID, SGD_STS
+FROM ctsg_enc.CTS_STS_MSG
+WHERE STS_ID = <STS_ID>;
+   → SGD_STS = 'P'
+2. Run CTBP5003 and let the signing finish.
+3. Run the same query again."	SGD_STS has changed from 'P' to 'S' (Signed).
+TC-CTBP5003-015	Verify that a CTS_TX_REC (transmission record) is created for the signed status message, and check its TX_STS value (the spec text says 'R', the Program Flow diagram says 'P')	"1. After the ZIP is generated and placed in \data\cts\Outbox\US\, find the transmission record of this status message:
+SELECT TR.*
+FROM ctsg_enc.CTS_TX_REC TR, ctsg_enc.CTS_DATA_PACKET DP
+WHERE TR.DP_ID = DP.DP_ID
+  AND DP.STS_ID = <STS_ID>;
+2. Write down the TX_STS value."	"- One CTS_TX_REC row is found for this status message.
+- Per the Database Records table, TX_STS = 'R' (Ready for Transmission), same as CTBP5002.
+- If the actual value is 'P' (as in the diagram), record it in Actual Result and raise it to the spec owner to confirm which one is correct."
+TC-CTBP5003-016	Verify that the existing CTS_DATA_PACKET row of the status message is UPDATED with the outgoing GIRMessageStatus ZIP file name (no new row is inserted)	"1. Before the run, count the rows and note ZIP_FILENAME:
+SELECT DP_ID, STS_ID, ZIP_FILENAME
+FROM ctsg_enc.CTS_DATA_PACKET
+WHERE STS_ID = <STS_ID>;
+2. Run CTBP5003.
+3. Run the same query again and compare with the ZIP in \data\cts\Outbox\US\"	"- ZIP_FILENAME is updated to the outgoing GIRMessageStatus ZIP file name, e.g. HK_GIRMessageStatus_20220831T143730554Z.zip (same as the file in \data\cts\Outbox\US\).
+- The row count is the same before and after: the row is updated, not inserted (spec Action = Update)."
+TC-CTBP5003-017	Verify that the status message ZIP files in the Outbox folder are sent to the OECD server by SFTP and a transmission log is output	"1. ZIP file in \data\cts\Outbox\US\.
+2. Note: in DEV/UAT there is no real SFTP upload. The transmission log is created manually to simulate the upload, e.g.
+HK_GIRMessageStatus_20220831T143730554Z.zip,GIRMessageStatus,T,20220831143732"	"- The ZIP files in \data\cts\Outbox\US\ are sent to the OECD server by SFTP (simulated in DEV/UAT).
+- A transmission log is produced with one line per file, in the format:
+File Name,File Type,Transmission Status,Transmission Date Time"
+TC-CTBP5003-018	Verify that CTBP5011 Update Transmission Status is run after SFTP and updates the transmission status from the log	"1. Transmission log from TC-CTBP5003-017 is available.
+2. After CTBP5011 has run, check:
+SELECT TR.TX_STS
+FROM ctsg_enc.CTS_TX_REC TR, ctsg_enc.CTS_DATA_PACKET DP
+WHERE TR.DP_ID = DP.DP_ID
+  AND DP.ZIP_FILENAME = 'HK_GIRMessageStatus_20220831T143730554Z.zip';"	"- CTBP5011 Update Transmission Status is triggered and reads the transmission log.
+- CTS_TX_REC.TX_STS of the matching ZIP is updated to the status in the log (here 'T' = Success)."
+TC-CTBP5003-019	Verify that successfully transmitted status message files are moved from the Outbox folder to the Outbox_sent folder of the same country	"1. Transmission log shows status 'T' (Success) for the ZIP, and CTBP5011 has run.
+2. Check the folders \data\cts\Outbox\US\ and \data\cts\Outbox_sent\US\"	"- The ZIP is NO LONGER in \data\cts\Outbox\US\.
+- The ZIP is now in \data\cts\Outbox_sent\US\ (this folder means ""already transmitted"")."
+TC-CTBP5003-020	Verify that one line of the status message transmission log is split by comma into its 4 fields correctly	"Transmission log line:
+HK_GIRMessageStatus_20220831T143730554Z.zip,GIRMessageStatus,T,20220831143732"	"The line is split by ',' into 4 fields:
+1. File Name = HK_GIRMessageStatus_20220831T143730554Z.zip
+2. File Type = GIRMessageStatus
+3. Transmission Status = T
+4. Transmission Date and Time = 20220831143732 (YYYYMMDDHHMMSS, i.e. 2022-08-31 14:37:32)"
+TC-CTBP5003-021	Verify that each transmission status code in the log is understood correctly (T / F / U / N)	"Run 4 sub-cases, each with one log line that only differs in the status field:
+a) HK_GIRMessageStatus_20220831T143730554Z.zip,GIRMessageStatus,T,20220831143732
+b) ...,GIRMessageStatus,F,20220831143732
+c) ...,GIRMessageStatus,U,20220831143732
+d) ...,GIRMessageStatus,N,20220831143732"	"a) T → Success
+b) F → Failure
+c) U → Failure
+d) N → Pending
+CTS_TX_REC.TX_STS is updated to the same code as in the log."
+TC-CTBP5003-022	Verify that the File Type in the status message log is recognized as 'GIRMessageStatus' (not 'GIR')	"Transmission log with 3 lines:
+HK_GIRMessageStatus_20220831T143730554Z.zip,GIRMessageStatus,T,20220831143732
+HK_GIRMessageStatus_20220831T143739664Z.zip,GIRMessageStatus,T,20220831143741
+HK_GIRMessageStatus_20220831T143743969Z.zip,GIRMessageStatus,T,20220831143744"	"- For every line, File Type = 'GIRMessageStatus'.
+- The lines are treated as status message files (CTBP5003), not as GIR data files (CTBP5002), and update the status message's own CTS_TX_REC."
+TC-CTBP5003-023	Verify that the payload XML file name follows the format <GIRMessageStatus MessageRefId>.xml	GIRMessageStatus MessageRefId = StatusHK2025US-20260617103000	Payload XML file name = StatusHK2025US-20260617103000.xml
+TC-CTBP5003-024	Verify that the metadata XML file name follows the format <GIRMessageStatus MessageRefId>.metadata.xml	GIRMessageStatus MessageRefId = StatusHK2025US-20260617103000	Metadata XML file name = StatusHK2025US-20260617103000.metadata.xml
+TC-CTBP5003-025	Verify that the status message files go through the 4 folders in the correct order during the whole process (end-to-end check)	"Follow one status message (StatusHK2025US-20260617103000, receiving country US) from start to end and check where the files are after each step:
+1. Before CTBP5003 runs
+2. After sign & encrypt
+3. After the ZIP is generated
+4. After successful SFTP transmission"	"1. \data\in\status_out\pending\ – payload + metadata XML (waiting for sign & encrypt)
+2. \data\in\status_out\processed\ – payload + metadata XML (already signed & encrypted)
+3. \data\cts\Outbox\US\ – encrypted ZIP (waiting for transmission)
+4. \data\cts\Outbox_sent\US\ – encrypted ZIP (already transmitted)
+The order is never skipped or reversed."
+TC-CTBP5003-026	Verify the error handling when signing or encryption of a status message fails	"1. Prepare a CTS_STS_MSG record with SGD_STS = 'P', with its files in \data\in\status_out\pending\.
+2. Make sign/encrypt fail, e.g. the signing/encryption certificate is missing or invalid.
+3. Run CTBP5003."	"- The batch log shows an error for the sign & encrypt step.
+- SGD_STS is NOT changed to 'S' (stays 'P').
+- The XML files stay in \data\in\status_out\pending\; no ZIP is put into the Outbox folder.
+- No CTS_TX_REC row is created for this record."
+TC-CTBP5003-027	Verify (and confirm with the spec owner) the correct TX_STS value and database action for CTS_TX_REC, because the spec text and the Program Flow diagram do not match	"Spec difference:
+- Database Records table: CTS_TX_REC – Action = Insert, TX_STS = 'R' (Ready for Transmission)
+- Program Flow diagram: 'Perform Database Update' – CTS_TX_REC.TX_STS = 'P' (Pending for transmission)
+Steps:
+1. Count CTS_TX_REC rows for this status message before the run.
+2. Run CTBP5003.
+3. Count again and read TX_STS."	"Record in Actual Result:
+(1) whether a NEW row is inserted (count + 1) or an existing row is updated (count unchanged), and
+(2) the TX_STS value.
+Expected per the spec text: a new row is inserted with TX_STS = 'R' (consistent with CTBP5002). Any difference is raised as a spec issue."
+TC-CTBP5003-028	Verify that the wrong title in the Program Flow diagram ('CTBP5002 – Sign & Encrypt Status Message') does not affect the program; the job behaves as CTBP5003	"1. Run the status message job.
+2. Check the job ID in the batch log, the table it reads, and the folders it uses."	"- The job runs under job ID CTBP5003 (not CTBP5002).
+- It reads only CTS_STS_MSG (status messages), not GIR_MSG_SPEC.
+- It uses the \data\in\status_out\ folders, not \data\out\.
+- The title 'CTBP5002' in the diagram (and the word 'GIR' in the 'Move finished GIR payload' box) is only a documentation typo."
