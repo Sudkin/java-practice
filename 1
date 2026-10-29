@@ -1,0 +1,4 @@
+Verify that when ValidationResult = 'Rejected', ONLY the message spec, data packet and transmission information are inserted, and NO data file record is inserted	"1. Process a Rejected CA file (TC-CTBP5005-012).
+2. Check GIR_MSG_SPEC, CTS_DATA_PACKET, CTS_TX_REC and the GIR_* data tables for this file."	"Inserted: GIR_MSG_SPEC (message spec), CTS_DATA_PACKET (data packet), CTS_TX_REC (transmission).
+- NOT inserted: any GIR_* data file record (FilingInfo / GeneralSection / JurisdictionSection / Summary / UTPRAttribution).
+- A 'Rejected' status message with the error message is generated."
