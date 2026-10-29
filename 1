@@ -1,11 +1,32 @@
-Verify that a SECOND CTS_DATA_PACKET row is inserted for the generated STATUS MESSAGE, with MSG_TYPE = 'GIRMessageStatus' and ZIP_FILENAME empty	"1. Process CA_GIR_20261028T141237863Z_DAF42BAC0F48480819F152D5526643DD.zip from CA.
-2. Find the status message data packet:
-SELECT DP_ID, MSG_TYPE, ZIP_FILENAME, MS_ID, STS_ID
-FROM ctsg_enc.CTS_DATA_PACKET
-WHERE MSG_TYPE = 'GIRMessageStatus'
-  AND STS_ID = <STS_ID of the generated status message>;"	"One new row with:
-- MSG_TYPE = 'GIRMessageStatus'
-- ZIP_FILENAME = NULL (it is filled in later by CTBP5003 after signing, see TC-CTBP5003-016)
-- MS_ID = GIR_MSG_SPEC.MS_ID of the incoming GIR record
-- STS_ID = CTS_STS_MSG.STS_ID of the generated status message
-- META_* fields filled from /CTSSenderFileMetadata, same mapping as TC-CTBP5005-020"
+TC-CTBP5005-030	Verify the GIR count logic: MessageTypeIndic = 'GIR_101' AND FilingInfo.DocTypeIndic = 'OECD_1' → GIR Count + 1	"Incoming CA file with one FilingInfo:
+- MessageSpec.MessageTypeIndic = 'GIR_101' (new data)
+- FilingInfo.DocTypeIndic = 'OECD_1' (new record)"	This FilingInfo is counted as a GIR: GIR Count + 1 (stored in GIR_MSG_SPEC.GIR_CNT).
+TC-CTBP5005-031	Verify the GIR count logic: MessageTypeIndic = 'GIR_101' AND FilingInfo.DocTypeIndic = 'OECD_11' → GIR Count + 1	"Incoming CA file with one FilingInfo:
+- MessageTypeIndic = 'GIR_101'
+- FilingInfo.DocTypeIndic = 'OECD_11' (test data version of OECD_1)"	This FilingInfo is also counted: GIR Count + 1, because the condition is DocTypeIndic IN ('OECD_1', 'OECD_11').
+TC-CTBP5005-032	Verify the GIR count logic: MessageTypeIndic = 'GIR_101' but FilingInfo.DocTypeIndic = 'OECD_0' → NOT counted as GIR	"Incoming CA file with one FilingInfo:
+- MessageTypeIndic = 'GIR_101'
+- FilingInfo.DocTypeIndic = 'OECD_0' (resent, unchanged FilingInfo)"	This FilingInfo is NOT counted as a GIR (GIR Count unchanged), because OECD_0 is not in ('OECD_1', 'OECD_11').
+TC-CTBP5005-033	Verify the correction count logic (check 1): MessageTypeIndic = 'GIR_102' → Correction Count + 1 directly	"Incoming CA file with one FilingInfo:
+- MessageSpec.MessageTypeIndic = 'GIR_102' (correction message)
+- any DocTypeIndic values"	Correction Count + 1 (stored in GIR_MSG_SPEC.AMEND_CNT). No further check of FilingInfo or the sections is needed.
+TC-CTBP5005-034	Verify the correction count logic (check 2): MessageTypeIndic = 'GIR_101' AND FilingInfo.DocTypeIndic IN ('OECD_2', 'OECD_12', 'OECD_3', 'OECD_13') → Correction Count + 1	"Run 4 sub-cases, each an incoming CA file with MessageTypeIndic = 'GIR_101' and FilingInfo.DocTypeIndic =
+a) 'OECD_2' (correction)
+b) 'OECD_12' (test data correction)
+c) 'OECD_3' (deletion)
+d) 'OECD_13' (test data deletion)"	In all 4 sub-cases: Correction Count + 1.
+TC-CTBP5005-035	Verify the correction count logic (check 3): MessageTypeIndic = 'GIR_101', FilingInfo.DocTypeIndic IN ('OECD_0', 'OECD_10'), and at least one section has DocTypeIndic IN ('OECD_1', 'OECD_11') → Correction Count + 1	"Incoming CA file with one FilingInfo:
+- MessageTypeIndic = 'GIR_101'
+- FilingInfo.DocTypeIndic = 'OECD_0' (FilingInfo resent unchanged)
+- GeneralSection.DocTypeIndic = 'OECD_1' (new section)
+(The sections are checked in this order: GeneralSection → Summary → JurisdictionSection → UTPRAttribution. Repeat with only Summary, only JurisdictionSection, or only UTPRAttribution = 'OECD_1' if needed.)"	Correction Count + 1, because a new section is added to an existing FilingInfo.
+TC-CTBP5005-036	Verify the correction count logic: MessageTypeIndic = 'GIR_101', FilingInfo.DocTypeIndic = 'OECD_0', and NO section has DocTypeIndic IN ('OECD_1', 'OECD_11') → NOT counted as correction	"Incoming CA file with one FilingInfo:
+- MessageTypeIndic = 'GIR_101'
+- FilingInfo.DocTypeIndic = 'OECD_0'
+- GeneralSection, Summary, JurisdictionSection and UTPRAttribution all have DocTypeIndic NOT in ('OECD_1', 'OECD_11') (e.g. all 'OECD_0')"	NOT counted as a correction: Correction Count unchanged.
+TC-CTBP5005-037	Verify that GIR_MSG_SPEC.GIR_CNT and AMEND_CNT are saved by calling the stored procedure UPDATED_RX_CNT with the MessageRefID	"1. Process an incoming CA file with MessageRefId = CA2025HK202609300001 that contains, e.g., 2 FilingInfo counted as GIR and 1 counted as correction (using the rules in TC-CTBP5005-030 to 036).
+2. Run:
+SELECT MS_ID, GIR_CNT, AMEND_CNT
+FROM ctsg_enc.GIR_MSG_SPEC
+WHERE MS_ID = (SELECT MS_ID FROM ctsg_enc.CTS_DATA_PACKET WHERE ZIP_FILENAME = 'CA_GIR_20261028T141237863Z_DAF42BAC0F48480819F152D5526643DD.zip');"	"- The batch log shows UPDATED_RX_CNT called with CA2025HK202609300001.
+- GIR_CNT = 2 and AMEND_CNT = 1 (same as the counts worked out by the rules)."
