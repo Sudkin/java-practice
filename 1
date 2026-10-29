@@ -1,4 +1,11 @@
-Verify that when ValidationResult = 'Rejected', ONLY the message spec, data packet and transmission information are inserted, and NO data file record is inserted	"1. Process a Rejected CA file (TC-CTBP5005-012).
-2. Check GIR_MSG_SPEC, CTS_DATA_PACKET, CTS_TX_REC and the GIR_* data tables for this file."	"Inserted: GIR_MSG_SPEC (message spec), CTS_DATA_PACKET (data packet), CTS_TX_REC (transmission).
-- NOT inserted: any GIR_* data file record (FilingInfo / GeneralSection / JurisdictionSection / Summary / UTPRAttribution).
-- A 'Rejected' status message with the error message is generated."
+Verify that a SECOND CTS_DATA_PACKET row is inserted for the generated STATUS MESSAGE, with MSG_TYPE = 'GIRMessageStatus' and ZIP_FILENAME empty	"1. Process CA_GIR_20261028T141237863Z_DAF42BAC0F48480819F152D5526643DD.zip from CA.
+2. Find the status message data packet:
+SELECT DP_ID, MSG_TYPE, ZIP_FILENAME, MS_ID, STS_ID
+FROM ctsg_enc.CTS_DATA_PACKET
+WHERE MSG_TYPE = 'GIRMessageStatus'
+  AND STS_ID = <STS_ID of the generated status message>;"	"One new row with:
+- MSG_TYPE = 'GIRMessageStatus'
+- ZIP_FILENAME = NULL (it is filled in later by CTBP5003 after signing, see TC-CTBP5003-016)
+- MS_ID = GIR_MSG_SPEC.MS_ID of the incoming GIR record
+- STS_ID = CTS_STS_MSG.STS_ID of the generated status message
+- META_* fields filled from /CTSSenderFileMetadata, same mapping as TC-CTBP5005-020"
