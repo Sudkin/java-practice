@@ -1,32 +1,26 @@
-TC-CTBP5005-030	Verify the GIR count logic: MessageTypeIndic = 'GIR_101' AND FilingInfo.DocTypeIndic = 'OECD_1' → GIR Count + 1	"Incoming CA file with one FilingInfo:
-- MessageSpec.MessageTypeIndic = 'GIR_101' (new data)
-- FilingInfo.DocTypeIndic = 'OECD_1' (new record)"	This FilingInfo is counted as a GIR: GIR Count + 1 (stored in GIR_MSG_SPEC.GIR_CNT).
-TC-CTBP5005-031	Verify the GIR count logic: MessageTypeIndic = 'GIR_101' AND FilingInfo.DocTypeIndic = 'OECD_11' → GIR Count + 1	"Incoming CA file with one FilingInfo:
-- MessageTypeIndic = 'GIR_101'
-- FilingInfo.DocTypeIndic = 'OECD_11' (test data version of OECD_1)"	This FilingInfo is also counted: GIR Count + 1, because the condition is DocTypeIndic IN ('OECD_1', 'OECD_11').
-TC-CTBP5005-032	Verify the GIR count logic: MessageTypeIndic = 'GIR_101' but FilingInfo.DocTypeIndic = 'OECD_0' → NOT counted as GIR	"Incoming CA file with one FilingInfo:
-- MessageTypeIndic = 'GIR_101'
-- FilingInfo.DocTypeIndic = 'OECD_0' (resent, unchanged FilingInfo)"	This FilingInfo is NOT counted as a GIR (GIR Count unchanged), because OECD_0 is not in ('OECD_1', 'OECD_11').
-TC-CTBP5005-033	Verify the correction count logic (check 1): MessageTypeIndic = 'GIR_102' → Correction Count + 1 directly	"Incoming CA file with one FilingInfo:
-- MessageSpec.MessageTypeIndic = 'GIR_102' (correction message)
-- any DocTypeIndic values"	Correction Count + 1 (stored in GIR_MSG_SPEC.AMEND_CNT). No further check of FilingInfo or the sections is needed.
-TC-CTBP5005-034	Verify the correction count logic (check 2): MessageTypeIndic = 'GIR_101' AND FilingInfo.DocTypeIndic IN ('OECD_2', 'OECD_12', 'OECD_3', 'OECD_13') → Correction Count + 1	"Run 4 sub-cases, each an incoming CA file with MessageTypeIndic = 'GIR_101' and FilingInfo.DocTypeIndic =
-a) 'OECD_2' (correction)
-b) 'OECD_12' (test data correction)
-c) 'OECD_3' (deletion)
-d) 'OECD_13' (test data deletion)"	In all 4 sub-cases: Correction Count + 1.
-TC-CTBP5005-035	Verify the correction count logic (check 3): MessageTypeIndic = 'GIR_101', FilingInfo.DocTypeIndic IN ('OECD_0', 'OECD_10'), and at least one section has DocTypeIndic IN ('OECD_1', 'OECD_11') → Correction Count + 1	"Incoming CA file with one FilingInfo:
-- MessageTypeIndic = 'GIR_101'
-- FilingInfo.DocTypeIndic = 'OECD_0' (FilingInfo resent unchanged)
-- GeneralSection.DocTypeIndic = 'OECD_1' (new section)
-(The sections are checked in this order: GeneralSection → Summary → JurisdictionSection → UTPRAttribution. Repeat with only Summary, only JurisdictionSection, or only UTPRAttribution = 'OECD_1' if needed.)"	Correction Count + 1, because a new section is added to an existing FilingInfo.
-TC-CTBP5005-036	Verify the correction count logic: MessageTypeIndic = 'GIR_101', FilingInfo.DocTypeIndic = 'OECD_0', and NO section has DocTypeIndic IN ('OECD_1', 'OECD_11') → NOT counted as correction	"Incoming CA file with one FilingInfo:
-- MessageTypeIndic = 'GIR_101'
-- FilingInfo.DocTypeIndic = 'OECD_0'
-- GeneralSection, Summary, JurisdictionSection and UTPRAttribution all have DocTypeIndic NOT in ('OECD_1', 'OECD_11') (e.g. all 'OECD_0')"	NOT counted as a correction: Correction Count unchanged.
-TC-CTBP5005-037	Verify that GIR_MSG_SPEC.GIR_CNT and AMEND_CNT are saved by calling the stored procedure UPDATED_RX_CNT with the MessageRefID	"1. Process an incoming CA file with MessageRefId = CA2025HK202609300001 that contains, e.g., 2 FilingInfo counted as GIR and 1 counted as correction (using the rules in TC-CTBP5005-030 to 036).
-2. Run:
-SELECT MS_ID, GIR_CNT, AMEND_CNT
-FROM ctsg_enc.GIR_MSG_SPEC
-WHERE MS_ID = (SELECT MS_ID FROM ctsg_enc.CTS_DATA_PACKET WHERE ZIP_FILENAME = 'CA_GIR_20261028T141237863Z_DAF42BAC0F48480819F152D5526643DD.zip');"	"- The batch log shows UPDATED_RX_CNT called with CA2025HK202609300001.
-- GIR_CNT = 2 and AMEND_CNT = 1 (same as the counts worked out by the rules)."
+SELECT M.MS_ID, M.GIR_CNT, M.AMEND_CNT
+FROM   ctsg_enc.GIR_MSG_SPEC M
+WHERE  M.MS_ID = :ms_id;
+
+-- FilingInfo 的 DocTypeIndic 分佈
+SELECT DOC_TYPE_IND, COUNT(*) AS cnt
+FROM   ctsg_enc.FILING_INFO
+WHERE  MS_ID = :ms_id
+GROUP  BY DOC_TYPE_IND;
+
+-- 各 section 的 DocTypeIndic 分佈(035 / 036 用)
+SELECT 'GEN_SEC' AS sec, DOC_TYPE_IND, COUNT(*) AS cnt FROM ctsg_enc.GEN_SEC
+ WHERE FILING_INFO_ID IN (SELECT FILING_INFO_ID FROM ctsg_enc.FILING_INFO WHERE MS_ID = :ms_id)
+ GROUP BY DOC_TYPE_IND
+UNION ALL
+SELECT 'SMRY', DOC_TYPE_IND, COUNT(*) FROM ctsg_enc.SMRY
+ WHERE FILING_INFO_ID IN (SELECT FILING_INFO_ID FROM ctsg_enc.FILING_INFO WHERE MS_ID = :ms_id)
+ GROUP BY DOC_TYPE_IND
+UNION ALL
+SELECT 'JDX_SEC', DOC_TYPE_IND, COUNT(*) FROM ctsg_enc.JDX_SEC
+ WHERE FILING_INFO_ID IN (SELECT FILING_INFO_ID FROM ctsg_enc.FILING_INFO WHERE MS_ID = :ms_id)
+ GROUP BY DOC_TYPE_IND
+UNION ALL
+SELECT 'UTPR_ATTR', DOC_TYPE_IND, COUNT(*) FROM ctsg_enc.UTPR_ATTR
+ WHERE FILING_INFO_ID IN (SELECT FILING_INFO_ID FROM ctsg_enc.FILING_INFO WHERE MS_ID = :ms_id)
+ GROUP BY DOC_TYPE_IND;
