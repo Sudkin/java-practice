@@ -2,12 +2,12 @@
 
 <globe:GLOBE_OECD xmlns:globe="urn:oecd:ties:globe:v2" xmlns:stf="urn:oecd:ties:globestf:v5" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0">
     <globe:MessageSpec>
-        <globe:TransmittingCountry>IE</globe:TransmittingCountry>
+        <globe:TransmittingCountry>ES</globe:TransmittingCountry>
         <globe:ReceivingCountry>HK</globe:ReceivingCountry>
         <globe:MessageType>GIR</globe:MessageType>
-        <globe:Warning>GIR-IEtoHK</globe:Warning>
+        <globe:Warning>GIR-EStoHK</globe:Warning>
         <globe:Contact>Tester01</globe:Contact>
-        <globe:MessageRefId>IE2025HKTC-CTBP5005-UPE-30155093-02112026A</globe:MessageRefId>
+        <globe:MessageRefId>ES2025HKTC-CTBP5005-UPE-30155093-02112026A</globe:MessageRefId>
         <globe:MessageTypeIndic>GIR101</globe:MessageTypeIndic>
         <globe:ReportingPeriod>2025-12-31</globe:ReportingPeriod>
         <globe:Timestamp>2025-12-31T12:00:00</globe:Timestamp>
@@ -16,9 +16,9 @@
 
         <globe:FilingInfo>
             <globe:FilingCE>
-                <globe:ResCountryCode>IE</globe:ResCountryCode>
+                <globe:ResCountryCode>ES</globe:ResCountryCode>
                 <globe:Name>GLOBETEST</globe:Name>
-                <globe:TIN issuedBy="IE" unknown="0" TypeOfTIN="GIR3001">30155093</globe:TIN>
+                <globe:TIN issuedBy="ES" unknown="0" TypeOfTIN="GIR3001">30155093</globe:TIN>
                 <globe:Role>GIR401</globe:Role>
             </globe:FilingCE>
             <globe:AccountingInfo>
@@ -33,12 +33,12 @@
             <globe:NameMNE>TSETEBOLG</globe:NameMNE>
             <globe:DocSpec>
                 <stf:DocTypeIndic>OECD1</stf:DocTypeIndic>
-                <stf:DocRefId>IE2025FilingInfoTC-CTBP5005-UPE-HK-30155093-02112026A</stf:DocRefId>
+                <stf:DocRefId>ES2025FilingInfoTC-CTBP5005-UPE-HK-30155093-02112026A</stf:DocRefId>
             </globe:DocSpec>
         </globe:FilingInfo>
 
         <globe:GeneralSection>
-            <globe:RecJurCode>IE</globe:RecJurCode>
+            <globe:RecJurCode>ES</globe:RecJurCode>
             <globe:RecJurCode>HK</globe:RecJurCode>
             <globe:CorporateStructure>
 
@@ -46,16 +46,16 @@
                     <globe:OtherUPE>
                         <globe:ID>
                             <globe:Name>UPE2</globe:Name>
-                            <globe:ResCountryCode>IE</globe:ResCountryCode>
-                            <globe:TIN issuedBy="IE" unknown="0" TypeOfTIN="GIR3001">30155093</globe:TIN>
+                            <globe:ResCountryCode>ES</globe:ResCountryCode>
+                            <globe:TIN issuedBy="ES" unknown="0" TypeOfTIN="GIR3001">30155093</globe:TIN>
                             <globe:Rules>GIR201</globe:Rules>
                             <globe:GlobeStatus>GIR301</globe:GlobeStatus>
                         </globe:ID>
-                        <globe:Art10.3.5>IE</globe:Art10.3.5>
+                        <globe:Art10.3.5>ES</globe:Art10.3.5>
                     </globe:OtherUPE>
                 </globe:UPE>
                 <globe:UPE>
-					<globe:OtherUPE>
+                    <globe:OtherUPE>
                         <globe:ID>
                             <globe:Name>UPE3</globe:Name>
                             <globe:ResCountryCode>HK</globe:ResCountryCode>
@@ -64,20 +64,20 @@
                             <globe:GlobeStatus>GIR301</globe:GlobeStatus>
                         </globe:ID>
                         <globe:Art10.3.5>HK</globe:Art10.3.5>
-                    </globe:OtherUPE>				
-				</globe:UPE>	
+                    </globe:OtherUPE>
+                </globe:UPE>
                 <globe:UPE>
                     <globe:OtherUPE>
                         <globe:ID>
                             <globe:Name>UPE1</globe:Name>
-                            <globe:ResCountryCode>IE</globe:ResCountryCode>
-                            <globe:TIN issuedBy="IE" unknown="0" TypeOfTIN="GIR3001">25000750</globe:TIN>
+                            <globe:ResCountryCode>ES</globe:ResCountryCode>
+                            <globe:TIN issuedBy="ES" unknown="0" TypeOfTIN="GIR3001">25000750</globe:TIN>
                             <globe:Rules>GIR201</globe:Rules>
                             <globe:GlobeStatus>GIR301</globe:GlobeStatus>
                         </globe:ID>
-                        <globe:Art10.3.5>IE</globe:Art10.3.5>
+                        <globe:Art10.3.5>ES</globe:Art10.3.5>
                     </globe:OtherUPE>
-                </globe:UPE>				
+                </globe:UPE>
                 <globe:CE>
                     <globe:ID>
                         <globe:Name>TEST_CE_002</globe:Name>
@@ -97,7 +97,7 @@
                     </globe:OwnershipChange>
                     <globe:Ownership>
                         <globe:OwnershipType>GIR801</globe:OwnershipType>
-                        <globe:TIN issuedBy="IE" unknown="0" TypeOfTIN="GIR3001">30155093</globe:TIN>
+                        <globe:TIN issuedBy="ES" unknown="0" TypeOfTIN="GIR3001">30155093</globe:TIN>
                         <globe:OwnershipPercentage>1.0</globe:OwnershipPercentage>
                     </globe:Ownership>
                     <globe:QIIR>
@@ -130,7 +130,7 @@
                     </globe:OwnershipChange>
                     <globe:Ownership>
                         <globe:OwnershipType>GIR801</globe:OwnershipType>
-                        <globe:TIN issuedBy="IE" unknown="0" TypeOfTIN="GIR3001">30155093</globe:TIN>
+                        <globe:TIN issuedBy="ES" unknown="0" TypeOfTIN="GIR3001">30155093</globe:TIN>
                         <globe:OwnershipPercentage>1.0</globe:OwnershipPercentage>
                     </globe:Ownership>
                     <globe:QIIR>
@@ -147,13 +147,13 @@
             </globe:CorporateStructure>
             <globe:DocSpec>
                 <stf:DocTypeIndic>OECD1</stf:DocTypeIndic>
-                <stf:DocRefId>IE2025GeneralSectionTC-CTBP5005-UPE-HK-30155093-02112026A</stf:DocRefId>
+                <stf:DocRefId>ES2025GeneralSectionTC-CTBP5005-UPE-HK-30155093-02112026A</stf:DocRefId>
             </globe:DocSpec>
         </globe:GeneralSection>
 
 
         <globe:Summary>
-            <globe:RecJurCode>IE</globe:RecJurCode>
+            <globe:RecJurCode>ES</globe:RecJurCode>
             <globe:RecJurCode>HK</globe:RecJurCode>
             <globe:Jurisdiction>
                 <globe:JurisdictionName>HK</globe:JurisdictionName>
@@ -162,7 +162,7 @@
                     <globe:TypeofSubGroup>GIR1101</globe:TypeofSubGroup>
                 </globe:Subgroup>
             </globe:Jurisdiction>
-            <globe:JurWithTaxingRights><globe:JurisdictionName>IE</globe:JurisdictionName></globe:JurWithTaxingRights>
+            <globe:JurWithTaxingRights><globe:JurisdictionName>ES</globe:JurisdictionName></globe:JurWithTaxingRights>
             <globe:SafeHarbour>GIR1201</globe:SafeHarbour>
             <globe:ETRRange>GIR1301</globe:ETRRange>
             <globe:SBIE><globe:NotApplicable>true</globe:NotApplicable><globe:NoTut>true</globe:NoTut></globe:SBIE>
@@ -170,21 +170,21 @@
             <globe:GLoBETut>GIR1501</globe:GLoBETut>
             <globe:DocSpec>
                 <stf:DocTypeIndic>OECD1</stf:DocTypeIndic>
-                <stf:DocRefId>IE2025Summary1TC-CTBP5005-UPE-HK-30155093-02112026A</stf:DocRefId>
+                <stf:DocRefId>ES2025Summary1TC-CTBP5005-UPE-HK-30155093-02112026A</stf:DocRefId>
             </globe:DocSpec>
         </globe:Summary>
 
         <globe:Summary>
-            <globe:RecJurCode>IE</globe:RecJurCode>
+            <globe:RecJurCode>ES</globe:RecJurCode>
             <globe:Jurisdiction>
-                <globe:JurisdictionName>IE</globe:JurisdictionName>
+                <globe:JurisdictionName>ES</globe:JurisdictionName>
                 <globe:Subgroup>
-                    <globe:TIN issuedBy="IE" unknown="0" TypeOfTIN="GIR3001">30155093</globe:TIN>
+                    <globe:TIN issuedBy="ES" unknown="0" TypeOfTIN="GIR3001">30155093</globe:TIN>
                     <globe:TypeofSubGroup>GIR1101</globe:TypeofSubGroup>
                 </globe:Subgroup>
             </globe:Jurisdiction>
             <globe:JurWithTaxingRights>
-                <globe:JurisdictionName>IE</globe:JurisdictionName>
+                <globe:JurisdictionName>ES</globe:JurisdictionName>
             </globe:JurWithTaxingRights>
             <globe:SafeHarbour>GIR1206</globe:SafeHarbour>
             <globe:ETRRange>GIR1301</globe:ETRRange>
@@ -193,18 +193,18 @@
             <globe:GLoBETut>GIR1501</globe:GLoBETut>
             <globe:DocSpec>
                 <stf:DocTypeIndic>OECD1</stf:DocTypeIndic>
-                <stf:DocRefId>IE2025Summary2TC-CTBP5005-UPE-HK-30155093-02112026A</stf:DocRefId>
+                <stf:DocRefId>ES2025Summary2TC-CTBP5005-UPE-HK-30155093-02112026A</stf:DocRefId>
             </globe:DocSpec>
         </globe:Summary>
 
         <globe:JurisdictionSection>
-            <globe:RecJurCode>IE</globe:RecJurCode>
+            <globe:RecJurCode>ES</globe:RecJurCode>
             <globe:RecJurCode>HK</globe:RecJurCode>
             <globe:Jurisdiction>HK</globe:Jurisdiction>
             <globe:JurWithTaxingRights>
-                <globe:JurisdictionName>IE</globe:JurisdictionName>
+                <globe:JurisdictionName>ES</globe:JurisdictionName>
                 <globe:Subgroup>
-                    <globe:TIN issuedBy="IE" unknown="0" TypeOfTIN="GIR3001">30155093</globe:TIN>
+                    <globe:TIN issuedBy="ES" unknown="0" TypeOfTIN="GIR3001">30155093</globe:TIN>
                     <globe:TypeofSubGroup>GIR1101</globe:TypeofSubGroup>
                 </globe:Subgroup>
             </globe:JurWithTaxingRights>
@@ -230,8 +230,8 @@
                                         </globe:MainEntityPEandFTE>
                                         <globe:CrossBorderAdjustments>
                                             <globe:Basis>GIR1801</globe:Basis>
-                                            <globe:OtherTIN issuedBy="IE" unknown="0" TypeOfTIN="GIR3001">25000394</globe:OtherTIN>
-                                            <globe:ResCountryCode>IE</globe:ResCountryCode>
+                                            <globe:OtherTIN issuedBy="ES" unknown="0" TypeOfTIN="GIR3001">25000394</globe:OtherTIN>
+                                            <globe:ResCountryCode>ES</globe:ResCountryCode>
                                             <globe:Additions>100000</globe:Additions>
                                             <globe:Reductions>50000</globe:Reductions>
                                         </globe:CrossBorderAdjustments>
@@ -243,8 +243,8 @@
                                             <globe:IdentificationOfOwners>
                                                 <globe:OwnershipPercentage>1.0</globe:OwnershipPercentage>
                                                 <globe:EntityOwner>
-                                                    <globe:TIN issuedBy="IE" unknown="0" TypeOfTIN="GIR3001">25000378</globe:TIN>
-                                                    <globe:ResCountryCode>IE</globe:ResCountryCode>
+                                                    <globe:TIN issuedBy="ES" unknown="0" TypeOfTIN="GIR3001">25000378</globe:TIN>
+                                                    <globe:ResCountryCode>ES</globe:ResCountryCode>
                                                     <globe:TaxRate>0.1650</globe:TaxRate>
                                                 </globe:EntityOwner>
                                             </globe:IdentificationOfOwners>
@@ -274,7 +274,7 @@
                                     <globe:Art7.5>
                                         <globe:Status>true</globe:Status>
                                         <globe:ElectionYear>2025-01-01</globe:ElectionYear>
-                                        <globe:CEOwnerTIN issuedBy="IE" unknown="0" TypeOfTIN="GIR3001">25000386</globe:CEOwnerTIN>
+                                        <globe:CEOwnerTIN issuedBy="ES" unknown="0" TypeOfTIN="GIR3001">25000386</globe:CEOwnerTIN>
                                     </globe:Art7.5>
                                     <globe:Art7.6>
                                         <globe:Status>true</globe:Status>
@@ -352,8 +352,8 @@
                         <globe:TopUpTax>0</globe:TopUpTax>
                         <globe:ParentEntity>
 
-                            <globe:TIN issuedBy="IE" unknown="0" TypeOfTIN="GIR3001">30155093</globe:TIN>
-                            <globe:ResCountryCode>IE</globe:ResCountryCode>
+                            <globe:TIN issuedBy="ES" unknown="0" TypeOfTIN="GIR3001">30155093</globe:TIN>
+                            <globe:ResCountryCode>ES</globe:ResCountryCode>
                             <globe:OtherOwnershipAllocation>0</globe:OtherOwnershipAllocation>
                             <globe:InclusionRatio>1.0000</globe:InclusionRatio>
                             <globe:TopUpTaxShare>0</globe:TopUpTaxShare>
@@ -365,18 +365,18 @@
             </globe:LowTaxJurisdiction>
             <globe:DocSpec>
                 <stf:DocTypeIndic>OECD1</stf:DocTypeIndic>
-                <stf:DocRefId>IE2025JurisdictionSection1TC-CTBP5005-UPE-HK-30155093-02112026A</stf:DocRefId>
+                <stf:DocRefId>ES2025JurisdictionSection1TC-CTBP5005-UPE-HK-30155093-02112026A</stf:DocRefId>
             </globe:DocSpec>
         </globe:JurisdictionSection>
 
         <globe:JurisdictionSection>
-            <globe:RecJurCode>IE</globe:RecJurCode>
-            <globe:Jurisdiction>IE</globe:Jurisdiction>
-            <globe:JurWithTaxingRights><globe:JurisdictionName>IE</globe:JurisdictionName></globe:JurWithTaxingRights>
+            <globe:RecJurCode>ES</globe:RecJurCode>
+            <globe:Jurisdiction>ES</globe:Jurisdiction>
+            <globe:JurWithTaxingRights><globe:JurisdictionName>ES</globe:JurisdictionName></globe:JurWithTaxingRights>
             <globe:GLoBETax>
                 <globe:ETR>
                     <globe:SubGroup>
-                        <globe:TIN issuedBy="IE" unknown="0" TypeOfTIN="GIR3001">30155093</globe:TIN>
+                        <globe:TIN issuedBy="ES" unknown="0" TypeOfTIN="GIR3001">30155093</globe:TIN>
                         <globe:TypeofSubGroup>GIR1607</globe:TypeofSubGroup>
                     </globe:SubGroup>
                     <globe:ETRStatus>
@@ -410,11 +410,11 @@
                                         <globe:DeferTaxExpense>12313576457</globe:DeferTaxExpense>
                                     </globe:DeferTaxAdjustAmt>
                                 </globe:AdjustedCoveredTax>
-                                <globe:TIN issuedBy="IE" unknown="0" TypeOfTIN="GIR3001">30155093</globe:TIN>
+                                <globe:TIN issuedBy="ES" unknown="0" TypeOfTIN="GIR3001">30155093</globe:TIN>
                                 <globe:Elections>
                                     <globe:AggregatedReporting>
-                                        <globe:TaxConsolGroupTIN issuedBy="IE" unknown="0" TypeOfTIN="GIR3001">30155093</globe:TaxConsolGroupTIN>
-                                        <globe:EntityTIN issuedBy="IE" unknown="0" TypeOfTIN="GIR3001">30155093</globe:EntityTIN>
+                                        <globe:TaxConsolGroupTIN issuedBy="ES" unknown="0" TypeOfTIN="GIR3001">30155093</globe:TaxConsolGroupTIN>
+                                        <globe:EntityTIN issuedBy="ES" unknown="0" TypeOfTIN="GIR3001">30155093</globe:EntityTIN>
                                     </globe:AggregatedReporting>
                                 </globe:Elections>
                             </globe:CEComputation>
@@ -467,9 +467,9 @@
                                     <globe:TotalRevenue>50000</globe:TotalRevenue>
                                 </globe:Average>
                                 <globe:ID>
-                                    <globe:Name>IE_Tiny_Branch</globe:Name>
-                                    <globe:ResCountryCode>IE</globe:ResCountryCode>
-                                    <globe:TIN issuedBy="IE" unknown="0" TypeOfTIN="GIR3001">30155093</globe:TIN>
+                                    <globe:Name>ES_Tiny_Branch</globe:Name>
+                                    <globe:ResCountryCode>ES</globe:ResCountryCode>
+                                    <globe:TIN issuedBy="ES" unknown="0" TypeOfTIN="GIR3001">30155093</globe:TIN>
                                     <globe:Rules>GIR201</globe:Rules>
                                     <globe:GlobeStatus>GIR302</globe:GlobeStatus>
                                 </globe:ID>
@@ -480,12 +480,12 @@
             </globe:GLoBETax>
             <globe:DocSpec>
                 <stf:DocTypeIndic>OECD1</stf:DocTypeIndic>
-                <stf:DocRefId>IE2025JurisdictionSection2TC-CTBP5005-UPE-HK-30155093-02112026A</stf:DocRefId>
+                <stf:DocRefId>ES2025JurisdictionSection2TC-CTBP5005-UPE-HK-30155093-02112026A</stf:DocRefId>
             </globe:DocSpec>
         </globe:JurisdictionSection>
 
         <globe:UTPRAttribution>
-            <globe:RecJurCode>IE</globe:RecJurCode>
+            <globe:RecJurCode>ES</globe:RecJurCode>
             <globe:RecJurCode>HK</globe:RecJurCode>
             <globe:Attribution>
                 <globe:ResCountryCode>HK</globe:ResCountryCode>
@@ -499,7 +499,7 @@
             </globe:Attribution>
             <globe:DocSpec>
                 <stf:DocTypeIndic>OECD1</stf:DocTypeIndic>
-                <stf:DocRefId>IE2025UTPRAttributionTC-CTBP5005-UPE-HK-30155093-02112026A</stf:DocRefId>
+                <stf:DocRefId>ES2025UTPRAttributionTC-CTBP5005-UPE-HK-30155093-02112026A</stf:DocRefId>
             </globe:DocSpec>
         </globe:UTPRAttribution>
     </globe:GLOBEBody>
