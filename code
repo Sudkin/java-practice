@@ -24,3 +24,27 @@ SELECT MS_ID, GIR_CNT, AMEND_CNT
 FROM ctsg_enc.GIR_MSG_SPEC
 WHERE MS_ID = (SELECT MS_ID FROM ctsg_enc.CTS_DATA_PACKET WHERE ZIP_FILENAME = 'CA_GIR_20261028T141237863Z_DAF42BAC0F48480819F152D5526643DD.zip');"	"- The batch log shows UPDATED_RX_CNT called with CA2025HK202609300001.
 - GIR_CNT = 2 and AMEND_CNT = 1 (same as the counts worked out by the rules)."
+
+        <ValidationErrors>
+            <RecordError>
+                <Code>60018</Code>
+                <Details>Invalid RecJurCode. At least one Country ISO Code in GeneralSection/RecJurCode, Summary/RecJurCode, JurisdictionSection/RecJurCode or UTPRAttribution/RecJurCode,  must be the same as the ReceivingCountry HK.</Details>
+                <DocRefIDInError>ES2025FILINGINFOTC-CTBP5005-UPE-30155093-03112026C</DocRefIDInError>
+                <FieldsInError>
+                    <FieldPath>GLOBEBody/GeneralSection/RecJurCode, GLOBEBody/Summary/RecJurCode, GLOBEBody/JurisdictionSection/RecJurCode, GLOBEBody/UTPRAttribution/RecJurCode</FieldPath>
+                </FieldsInError>
+            </RecordError>
+            <RecordError>
+                <Code>60022</Code>
+                <Details>Invalid FilingInfo/FilingCE/TIN 30155093. The FilingCE TIN should match at least one of the TINs provided in the ID of the UPE element, whether it is OtherUPE or ExcludedUPE.</Details>
+                <DocRefIDInError>ES2025FILINGINFOTC-CTBP5005-UPE-30155093-03112026C</DocRefIDInError>
+                <FieldsInError>
+                    <FieldPath>GLOBEBody/FilingInfo/FilingCE/TIN</FieldPath>
+                </FieldsInError>
+            </RecordError>
+        </ValidationErrors>
+        <ValidationResult>
+            <Status>Rejected</Status>
+        </ValidationResult>
+    </GIRStatusMessage>
+</GIRStatusMessage_OECD>
