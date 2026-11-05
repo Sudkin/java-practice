@@ -1,7 +1,22 @@
-Verify that the existing CTS_DATA_PACKET row of the status message is UPDATED with the outgoing GIRMessageStatus ZIP file name (no new row is inserted)	"1. Before the run, count the rows and note ZIP_FILENAME:
-SELECT DP_ID, STS_ID, ZIP_FILENAME
-FROM ctsg_enc.CTS_DATA_PACKET
-WHERE STS_ID = <STS_ID>;
-2. Run CTBP5003.
-3. Run the same query again and compare with the ZIP in \data\cts\Outbox\US\"	"- ZIP_FILENAME is updated to the outgoing GIRMessageStatus ZIP file name, e.g. HK_GIRMessageStatus_20220831T143730554Z.zip (same as the file in \data\cts\Outbox\US\).
-- The row count is the same before and after: the row is updated, not inserted (spec Action = Update)."
+Verify that the status message files go through the 4 folders in the correct order during the whole process (end-to-end check)	"Follow one status message (StatusHK2025US-20260617103000, receiving country US) from start to end and check where the files are after each step:
+1. Before CTBP5003 runs
+2. After sign & encrypt
+3. After the ZIP is generated
+4. After successful SFTP transmission"	"1. \data\in\status_out\pending\ – payload + metadata XML (waiting for sign & encrypt)
+2. \data\in\status_out\processed\ – payload + metadata XML (already signed & encrypted)
+3. \data\cts\Outbox\US\ – encrypted ZIP (waiting for transmission)
+4. \data\cts\Outbox_sent\US\ – encrypted ZIP (already transmitted)
+The order is never skipped or reversed."
+Verify the error handling when signing or encryption of a status message fails	"1. Prepare a CTS_STS_MSG record with SGD_STS = 'P', with its files in \data\in\status_out\pending\.
+2. Make sign/encrypt fail, e.g. the signing/encryption certificate is missing or invalid.
+3. Run CTBP5003."	"- The batch log shows an error for the sign & encrypt step.
+- SGD_STS is NOT changed to 'S' (stays 'P').
+- The XML files stay in \data\in\status_out\pending\; no ZIP is put into the Outbox folder.
+- No CTS_TX_REC row is created for this record."
+Verify the error handling when a selected record's payload or metadata XML is missing from \data\in\status_out\pending\	"1. Prepare a CTS_STS_MSG record with SGD_STS = 'P'.
+2. Delete (or rename) its <MessageRefId>.xml OR <MessageRefId>.metadata.xml from \data\in\status_out\pending\.
+3. Run CTBP5003.
+4. Check the batch log, the folders and CTS_STS_MSG.SGD_STS."	"- The batch log shows an error saying the file is missing.
+- The record is NOT signed: SGD_STS stays 'P'.
+- Nothing is moved to \data\in\status_out\processed\ or to the Outbox folder.
+- No CTS_TX_REC row is created and CTS_DATA_PACKET.ZIP_FILENAME is not updated."
